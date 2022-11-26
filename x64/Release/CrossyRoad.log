@@ -1,0 +1,56 @@
+﻿  Window.cpp
+C:\Work\CS202\CrossyRoad\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(14,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(15,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(22,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(24,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(22,74): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Work\CS202\CrossyRoad\Player.h(88,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(89,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating code
+  3 of 163 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  CrossyRoad.vcxproj -> C:\Work\CS202\CrossyRoad\x64\Release\CrossyRoad.exe

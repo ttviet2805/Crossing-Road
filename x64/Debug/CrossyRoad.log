@@ -1,0 +1,66 @@
+﻿  CRoad.cpp
+C:\Work\CS202\CrossyRoad\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(14,17): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(15,17): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(21,74): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Work\CS202\CrossyRoad\Player.h(77,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(78,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Window.cpp
+C:\Work\CS202\CrossyRoad\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(14,17): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Point.h(15,17): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(21,74): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Work\CS202\CrossyRoad\Player.h(77,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\Player.h(78,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating Code...
+  CrossyRoad.vcxproj -> C:\Work\CS202\CrossyRoad\x64\Debug\CrossyRoad.exe
