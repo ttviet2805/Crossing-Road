@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "Window.h"
-#include "Player.h"
+#include "../fileh/Window.h"
+#include "../fileh/Player.h"
 
 int main()
 {
