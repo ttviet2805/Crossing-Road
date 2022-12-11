@@ -1,7 +1,8 @@
 #pragma once
 #include <../SFML/Graphics.hpp>
 #include "Point.h"
-
+#include "PlayerObserver.h"
+#include <string>
 class Player {
 private:
 	Point curPos;
@@ -15,6 +16,9 @@ private:
 	sf::Vector2u currentImage;
 	sf::Vector2u imageCount;
 	float totalTime, switchTime;
+
+	std::string name;
+	PlayerObserver *observer;
 public:
 
 	
@@ -92,6 +96,10 @@ public:
 		this->sprite.setPosition(sf::Vector2f(1300 / 2, 800 - 200));
 		this->sprite.setTexture(&this->character);
 	}
+
+	void changeSpeed(float speed);
+	void move(int direction);
+	void updateInfo(std::string newName);
 
 	virtual ~Player() {}
 };
