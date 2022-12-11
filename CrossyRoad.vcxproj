@@ -18,6 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fileh\Car.h" />
+    <ClInclude Include="fileh\Player.h" />
+    <ClInclude Include="fileh\Point.h" />
+    <ClInclude Include="fileh\Road.h" />
+    <ClInclude Include="fileh\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="filecpp\Car.cpp" />
+    <ClCompile Include="filecpp\CRoad.cpp" />
+    <ClCompile Include="filecpp\Player.cpp" />
+    <ClCompile Include="filecpp\Point.cpp" />
+    <ClCompile Include="filecpp\Road.cpp" />
+    <ClCompile Include="filecpp\Window.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,21 +153,6 @@
       <AdditionalDependencies>sfml-system.lib;sfml-graphics.lib;sfml-audio.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="filecpp\Car.cpp" />
-    <ClCompile Include="filecpp\CRoad.cpp" />
-    <ClCompile Include="filecpp\Player.cpp" />
-    <ClCompile Include="filecpp\Point.cpp" />
-    <ClCompile Include="filecpp\Road.cpp" />
-    <ClCompile Include="filecpp\Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="fileh\Car.h" />
-    <ClInclude Include="fileh\Player.h" />
-    <ClInclude Include="fileh\Point.h" />
-    <ClInclude Include="fileh\Road.h" />
-    <ClInclude Include="fileh\Window.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
