@@ -22,6 +22,7 @@ void Player::move(int direction) {
             break;
     }
 
+    // Notify new position of player to observer;
     observer->notify(curPos);
 }
 
