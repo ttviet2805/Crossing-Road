@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#include <../SFML/Graphics.hpp>
 #include "../fileh/Window.h"
 #include "../fileh/Player.h"
 

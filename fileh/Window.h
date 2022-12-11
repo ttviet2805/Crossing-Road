@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <SFML/Graphics.hpp>
+#include <../SFML/Graphics.hpp>
 #include "Road.h"
 #include "Player.h"
 
