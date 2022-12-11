@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileh\Car.h" />
+    <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Player.h" />
     <ClInclude Include="fileh\Point.h" />
     <ClInclude Include="fileh\Road.h" />

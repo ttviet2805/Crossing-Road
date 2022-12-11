@@ -1,4 +1,4 @@
-﻿  Window.cpp
+﻿  CRoad.cpp
 E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -49,8 +49,8 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(89,57): war
               T=int
           ]
   Generating code
-  2 of 168 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+  2 of 110 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   CrossyRoad.vcxproj -> E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\x64\Release\CrossyRoad.exe

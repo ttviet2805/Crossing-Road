@@ -30,6 +30,9 @@
     <ClInclude Include="fileh\Window.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\Rectangle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">
