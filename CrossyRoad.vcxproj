@@ -139,19 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Car.cpp" />
-    <ClCompile Include="CRoad.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Road.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="filecpp\Car.cpp" />
+    <ClCompile Include="filecpp\CRoad.cpp" />
+    <ClCompile Include="filecpp\Player.cpp" />
+    <ClCompile Include="filecpp\Point.cpp" />
+    <ClCompile Include="filecpp\Road.cpp" />
+    <ClCompile Include="filecpp\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="Road.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="fileh\Car.h" />
+    <ClInclude Include="fileh\Player.h" />
+    <ClInclude Include="fileh\Point.h" />
+    <ClInclude Include="fileh\Road.h" />
+    <ClInclude Include="fileh\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

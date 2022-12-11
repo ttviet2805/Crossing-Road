@@ -15,40 +15,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CRoad.cpp">
+    <ClCompile Include="filecpp\Car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="filecpp\CRoad.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="filecpp\Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="filecpp\Point.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Car.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="filecpp\Road.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Road.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="filecpp\Window.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fileh\Car.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fileh\Player.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fileh\Point.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fileh\Road.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Road.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fileh\Window.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
