@@ -33,9 +33,11 @@ int main()
 
     delete player;
 
-    //Texture character;
-    //character.loadFromFile("image/Amongus.png");
-    //Rectangle tmpRect(Vector2f(150, 200), Vector2f(200, 200), character);
+    Texture character;
+    character.loadFromFile("image/Amongus.png");
+    Rectangle tmpRect(Vector2f(150, 200), Vector2f(200, 200), character);
+
+    Rectangle c = tmpRect;
 
     //Texture newCharacter;
     //newCharacter.loadFromFile("image/Songoku.png");

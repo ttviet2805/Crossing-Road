@@ -21,6 +21,11 @@ public:
 
 	~Rectangle() {}
 
+	Rectangle& operator= (const Rectangle& src) {
+		Rect = src.Rect;
+		return *this;
+	}
+
 	// get Rectangle
 	RectangleShape getRect() {
 		return Rect;

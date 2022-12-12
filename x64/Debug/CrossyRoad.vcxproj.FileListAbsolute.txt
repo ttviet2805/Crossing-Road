@@ -1,1 +1,2 @@
 C:\Work\CS202\CrossyRoad\x64\Debug\CrossyRoad.exe
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\x64\Debug\CrossyRoad.exe
