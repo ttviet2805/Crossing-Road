@@ -33,11 +33,11 @@ public:
 		this->backgroundImg.draw(this->loadSprite);
 	}
 
-	Level() : height(0), width(0), window(nullptr), deltaTime(0) {
+	Level() : height(0), width(0), window(nullptr), deltaTime(10) {
 
 	}
 
-	Level(int x, int y): width(x), height(y), window(nullptr), deltaTime(0) {
+	Level(int x, int y): width(x), height(y), window(nullptr), deltaTime(10) {
 		this->window = new sf::RenderWindow(sf::VideoMode(this->width, this->height), "Crossy Road");
 		this->initBackground(x, y);
 	}
@@ -45,9 +45,9 @@ public:
 	void run(Player* player) {
 		while (this->window->isOpen())
 		{
-			this->deltaTime = this->clock.restart().asSeconds();
-			if (deltaTime > 1.0f / 60.0f) {
-				deltaTime = 1.0f / 60.0f;
+			auto subDeltaTime = this->clock.restart().asSeconds();
+			if (subDeltaTime > 1.0f / 60.0f) {
+				subDeltaTime = 1.0f / 60.0f;
 			}
 
 			sf::Event event;
@@ -60,7 +60,7 @@ public:
 				}
 			}
 
-			player->updateSprite(deltaTime);
+			player->updateSprite(subDeltaTime);
 
 			this->window->clear(sf::Color::Black);
 			this->window->draw(this->loadSprite);

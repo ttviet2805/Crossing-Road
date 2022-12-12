@@ -31,6 +31,10 @@ public:
 		Rect.setTexture(&_texture);
 	}
 
+	void setTexRect(IntRect& _texture) {
+		Rect.setTextureRect(_texture);
+	}
+
 	Vector2f getPosition() {
 		return Rect.getPosition();
 	}

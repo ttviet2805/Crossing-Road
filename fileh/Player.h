@@ -41,12 +41,20 @@ public:
 	}
 
 	void updatePos(sf::Event& event, float deltaTime) {
+		//std::cout << "Key pressed\n";
 		this->sprite.characterMove(deltaTime);
 	}
 
 	void updateSprite(float deltaTime) {
 		this->currentImage.y = this->face;
-		this->totalTime += deltaTime;
+
+		if (Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+			this->face = 1;
+		}
+		if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			this->face = 0;
+		}
+ 		this->totalTime += deltaTime;
 
 		if (this->totalTime >= switchTime) {
 			this->totalTime -= switchTime;
@@ -60,15 +68,15 @@ public:
 		this->sourceRect.left = this->currentImage.x * this->sourceRect.width;
 		this->sourceRect.top = this->currentImage.y * this->sourceRect.height;
 
-		this->sprite.setTexture(this->character);
+		this->sprite.setTexRect(this->sourceRect);
 	}
 
 	void initCharacter() {
 		this->character.loadFromFile("image/human_walk_sprite.png");
 		this->sourceRect.width = this->character.getSize().x / (float)imageCount.x;
 		this->sourceRect.height = this->character.getSize().y / (float)imageCount.y;
-		this->sprite = Rectangle(sf::Vector2f(64, 128), sf::Vector2f(1300 / 2, 800 - 200), this->character);
-		this->curPos = Point(1300 / 2, 800 - 200);
+		this->sprite = Rectangle(sf::Vector2f(64, 128), sf::Vector2f(1080 / 2, 720 - 200), this->character);
+		this->curPos = Point(1080 / 2, 720 - 200);
 	}
 
 	void changeSpeed(float speed);
