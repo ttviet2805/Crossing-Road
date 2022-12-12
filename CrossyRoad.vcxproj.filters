@@ -36,6 +36,12 @@
     <ClInclude Include="fileh\PlayerObserver.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\State.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Menu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">
@@ -57,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\PlayerObserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #include <../SFML/Graphics.hpp>
 #include "../fileh/Level.h"
 #include "../fileh/Player.h"
+#include "../fileh/Menu.h"
 
 #include "../fileh/Rectangle.h"
 
@@ -10,12 +11,27 @@ int main()
 {
     Player* player = new Player(sf::Vector2u(10, 2), 0.1f);
 
-    Level game(1080, 720);
-    game.run(player);
+    RenderWindow* window = new RenderWindow(VideoMode(1080, 720), "Crossy Road");
+    
+    vector<State*> nxt;
+    nxt.push_back(new Menu(1080, 720, window));
+
+    //Level game(1080, 720);
+    //game.run(player);
+    while (window->isOpen() && !nxt.empty()) {
+        //std::cout << "Here\n";
+        int type = nxt.back()->run(player);
+
+        if (!type) {
+            delete nxt.back();
+            nxt.pop_back();
+        }
+        else if (type == 2) {
+            nxt.push_back(new Level(1300, 800, window));
+        }
+    }
 
     delete player;
-
-    RenderWindow window(VideoMode(1080, 720), "My Window");
 
     //Texture character;
     //character.loadFromFile("image/Amongus.png");
