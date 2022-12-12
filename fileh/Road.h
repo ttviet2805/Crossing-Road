@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Car.h"
+#include "Point.h"
 #include <../SFML/Graphics.hpp>
 
 class Road {
@@ -20,6 +21,10 @@ public:
 		this->sprite.setSize(sf::Vector2f(1760, 160));
 		this->sprite.setPosition(this->position);
 		this->sprite.setTexture(&this->road);
+	}
+
+	bool playerIsIn(Point& curPos) { //haven't done yet
+		return false;
 	}
 
 	void draw(sf::RenderWindow& window) {

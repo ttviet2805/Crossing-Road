@@ -1,5 +1,5 @@
 #include <../SFML/Graphics.hpp>
-#include "../fileh/Window.h"
+#include "../fileh/Level.h"
 #include "../fileh/Player.h"
 
 #include "../fileh/Rectangle.h"
@@ -10,7 +10,7 @@ int main()
 {
     //Player* player = new Player(sf::Vector2u(10, 2), 0.1f);
 
-    //Window game(1300, 800);
+    //Level game(1300, 800);
     //game.run(player);
 
     //delete player;

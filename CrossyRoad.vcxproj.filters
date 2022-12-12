@@ -27,10 +27,13 @@
     <ClInclude Include="fileh\Road.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\Window.h">
+    <ClInclude Include="fileh\Level.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="fileh\Rectangle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\PlayerObserver.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,7 +53,10 @@
     <ClCompile Include="filecpp\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\Window.cpp">
+    <ClCompile Include="filecpp\Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\PlayerObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

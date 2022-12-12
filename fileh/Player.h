@@ -2,6 +2,7 @@
 #include <../SFML/Graphics.hpp>
 #include "Point.h"
 #include "PlayerObserver.h"
+#include "Rectangle.h"
 #include <string>
 class Player {
 private:
@@ -12,7 +13,7 @@ private:
 
 	int face;
 
-	sf::RectangleShape sprite;
+	Rectangle sprite;
 	sf::Vector2u currentImage;
 	sf::Vector2u imageCount;
 	float totalTime, switchTime;
@@ -35,37 +36,12 @@ public:
 
 	void draw(sf::RenderWindow& window) {
 		this->curPos.checkRange(window);
-		this->sprite.setPosition(this->curPos.pos);
-		window.draw(this->sprite);
+		//this->sprite.setPosition(this->curPos.pos);
+		window.draw(this->sprite.getRect());
 	}
 
 	void updatePos(sf::Event& event, float deltaTime) {
-		sf::Vector2f movement;
-		switch (event.key.code)
-		{
-		case sf::Keyboard::Left:
-			this->face = 1;
-			this->curPos.updatePoint(-this->curSpeed * deltaTime, 0);
-			movement = sf::Vector2f(-this->curSpeed * deltaTime, 0);
-			break;
-		case sf::Keyboard::Right:
-			this->face = 0;
-			this->curPos.updatePoint(this->curSpeed * deltaTime, 0);
-			movement = sf::Vector2f(this->curSpeed * deltaTime, 0);
-			break;
-		case sf::Keyboard::Up:
-			this->curPos.updatePoint(0, -this->curSpeed * deltaTime);
-			movement = sf::Vector2f(0, -this->curSpeed * deltaTime);
-			break;
-		case sf::Keyboard::Down:
-			this->curPos.updatePoint(0, this->curSpeed * deltaTime);
-			movement = sf::Vector2f(0, this->curSpeed * deltaTime);
-			break;
-		default:
-			break;
-		}
-
-		this->sprite.move(movement);
+		this->sprite.characterMove(deltaTime);
 	}
 
 	void updateSprite(float deltaTime) {
@@ -84,17 +60,15 @@ public:
 		this->sourceRect.left = this->currentImage.x * this->sourceRect.width;
 		this->sourceRect.top = this->currentImage.y * this->sourceRect.height;
 
-		this->sprite.setTextureRect(this->sourceRect);
+		this->sprite.setTexture(this->character);
 	}
 
 	void initCharacter() {
 		this->character.loadFromFile("image/human_walk_sprite.png");
 		this->sourceRect.width = this->character.getSize().x / (float)imageCount.x;
 		this->sourceRect.height = this->character.getSize().y / (float)imageCount.y;
-		this->sprite.setSize(sf::Vector2f(64, 128));
+		this->sprite = Rectangle(sf::Vector2f(64, 128), sf::Vector2f(1300 / 2, 800 - 200), this->character);
 		this->curPos = Point(1300 / 2, 800 - 200);
-		this->sprite.setPosition(sf::Vector2f(1300 / 2, 800 - 200));
-		this->sprite.setTexture(&this->character);
 	}
 
 	void changeSpeed(float speed);

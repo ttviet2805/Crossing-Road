@@ -20,19 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileh\Car.h" />
+    <ClInclude Include="fileh\PlayerObserver.h" />
     <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Player.h" />
     <ClInclude Include="fileh\Point.h" />
     <ClInclude Include="fileh\Road.h" />
-    <ClInclude Include="fileh\Window.h" />
+    <ClInclude Include="fileh\Level.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp" />
     <ClCompile Include="filecpp\CRoad.cpp" />
     <ClCompile Include="filecpp\Player.cpp" />
+    <ClCompile Include="filecpp\PlayerObserver.cpp" />
     <ClCompile Include="filecpp\Point.cpp" />
     <ClCompile Include="filecpp\Road.cpp" />
-    <ClCompile Include="filecpp\Window.cpp" />
+    <ClCompile Include="filecpp\Level.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

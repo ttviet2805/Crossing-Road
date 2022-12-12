@@ -7,16 +7,16 @@ void Player::changeSpeed(float speed) {
 void Player::move(int direction) {
     switch(direction) {
         case 1: // move up
-            curPos.moveUp(curSpeed);
+            //curPos.moveUp(curSpeed);
             break;
         case 2: // move down
-            curPos.moveDown(curSpeed);
+            //curPos.moveDown(curSpeed);
             break;
         case 3: // move left
-            curPos.moveLeft(curSpeed);
+            //curPos.moveLeft(curSpeed);
             break;
         case 4: // move right
-            curPos.moveRight(curSpeed);
+            //curPos.moveRight(curSpeed);
             break;
         default:
             break;

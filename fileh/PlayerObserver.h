@@ -1,13 +1,16 @@
 #ifndef PLAYER_OBSERVER_H
 #define PLAYER_OBSERVER_H
+#include <vector>
+#include "Point.h"
 #include "Road.h"
+
 
 class PlayerObserver {
 private:
-    vector <Road*> road;
+    std::vector <Road*> road;
 public:
     PlayerObserver(): road({}) {};
-    PlayerObserver(const vector<Road*> &road): road(road) {};
+    PlayerObserver(const std::vector<Road*> &road): road(road) {};
     PlayerObserver(const PlayerObserver &other): road(other.road) {};
     ~PlayerObserver() {
         while(road.size()) {
