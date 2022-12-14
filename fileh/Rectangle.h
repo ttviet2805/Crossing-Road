@@ -67,7 +67,7 @@ public:
 
 	// use this function to check move up, move down, move left, move right
 	// this function don't return any thing
-	void characterMove(float dentaTime) {
+	void characterMove(float dentaTime, float limDown) {
 		if (Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
 			if (Rect.getPosition().x - dentaTime > 0)
@@ -85,7 +85,8 @@ public:
 				}
 				else {
 					if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-						Rect.move(0, dentaTime);
+						if(Rect.getPosition().y + dentaTime  + Rect.getSize().y < limDown)
+							Rect.move(0, dentaTime);
 					}
 				}
 			}

@@ -52,9 +52,9 @@ public:
 		window.draw(this->sprite.getRect());
 	}
 
-	void updatePos(float deltaTime) {
+	void updatePos(float deltaTime, float limDown) {
 		//std::cout << "Key pressed\n";
-		this->sprite.characterMove(deltaTime);
+		this->sprite.characterMove(deltaTime, limDown);
 	}
 
 	void updateSprite(float deltaTime) {

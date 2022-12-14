@@ -29,11 +29,19 @@ void gameRun() {
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
+			delete nxt.back();
+			nxt.pop_back();
+			nxt.push_back(new Game(&window, 1));
+			break;
 		case 3:
+			delete nxt.back();
+			nxt.pop_back();
+			nxt.push_back(new Game(&window, 2));
+			break;
 		case 4:
 			delete nxt.back();
 			nxt.pop_back();
-			nxt.push_back(new Game(&window));
+			nxt.push_back(new Game(&window, 3));
 			break;
 		default:
 			break;

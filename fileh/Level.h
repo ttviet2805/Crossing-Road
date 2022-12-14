@@ -8,7 +8,7 @@
 
 class Level : public State {
 private:
-	float difficulty;
+	int difficulty;
 
 	float deltaSpeed;
 
