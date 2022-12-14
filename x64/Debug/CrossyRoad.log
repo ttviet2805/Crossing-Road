@@ -1,34 +1,25 @@
 ﻿  Level.cpp
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -37,38 +28,230 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(29,45): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(89,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(90,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Player.h(95,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Menu.cpp
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(95,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  Player.cpp
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(95,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  State.cpp
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Player.h(95,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
   main.cpp
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -77,7 +260,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(27,45): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -86,26 +269,17 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(29,45): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(89,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(90,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Player.h(95,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(33,61): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(33,54): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -114,16 +288,43 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(33,54): warni
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\Game.h(26,27): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\Game.h(43,99): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Work\CS202\CrossyRoad\fileh\Game.h(41,91): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\Game.h(50,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Game.h(48,90): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+C:\Work\CS202\CrossyRoad\fileh\CrossyRoad.h(12,24): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
-  CrossyRoad.vcxproj -> E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\x64\Debug\CrossyRoad.exe
+  CrossyRoad.vcxproj -> C:\Work\CS202\CrossyRoad\x64\Debug\CrossyRoad.exe

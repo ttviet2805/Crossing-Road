@@ -23,6 +23,8 @@ private:
 	float imgLength, imgHeight;
 	std::string name;
 	PlayerObserver *observer;
+
+	sf::Clock clock;
 public:
 	
 	/*Player() : curPos(Point()), curSpeed(10), totalTime(0), switchTime(0), face(0) { initCharacter(); }
@@ -57,7 +59,10 @@ public:
 
 	void updateSprite(float deltaTime) {
 		
-		auto subDeltaTime = 0.001f;
+		auto subDeltaTime = this->clock.restart().asSeconds();
+		if (subDeltaTime > 1.0f / 60.0f) {
+			subDeltaTime = 1.0f / 60.0f;
+		}
 
 		this->currentImage.y = this->face;
 

@@ -7,17 +7,38 @@
 
 class Menu : public State {
 private:
-	sf::Texture texture;
-	Rectangle startButton;
+	sf::Texture texture[2];
+	Rectangle button[2];
 
 public:
-	Menu() { this->setupButton(); }
+	Menu() {
+		this->setupButton(); this->initBackground(
+			SCREEN_WIDTH, SCREEN_HEIGHT,
+			"image/background_chay_pho.png"
+		);
+	}
 
-	Menu(int x, int y, sf::RenderWindow* window) : State(x, y, window) { this->setupButton(); }
+	Menu(sf::RenderWindow* window) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window) {
+		this->setupButton(); this->initBackground(
+			SCREEN_WIDTH, SCREEN_HEIGHT,
+			"image/background_chay_pho.png"
+		);
+	}
 
 	void setupButton() {
-		this->texture.loadFromFile("image/amogus.png");
-		startButton = Rectangle(sf::Vector2f(200, 200), sf::Vector2f(500, 300), this->texture);
+		this->texture[0].loadFromFile("image/Start.png");
+		this->button[0] = Rectangle(
+			sf::Vector2f(266, 67), 
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 67), 
+			this->texture[0]
+		);
+
+		this->texture[1].loadFromFile("image/Quit.png");
+		this->button[1] = Rectangle(
+			sf::Vector2f(266, 67),
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 67),
+			this->texture[1]
+		);
 	}
 
 	int run(Player* player) {
@@ -30,14 +51,21 @@ public:
 
 			if (event.type == sf::Event::MouseButtonPressed) {
 				auto pos = sf::Mouse::getPosition(*this->window);
-				if (this->startButton.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 2;
+				}
+
+				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					return 0;
 				}
 			}
 		}
 
 		this->window->clear(sf::Color::Black);
-		this->window->draw(this->startButton.getRect());
+		this->window->draw(this->loadSprite);
+		for (int i = 0; i < 2; i++) {
+			this->window->draw(this->button[i].getRect());
+		}
 		this->window->display();
 
 		return true;

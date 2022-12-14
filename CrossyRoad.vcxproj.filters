@@ -42,15 +42,15 @@
     <ClInclude Include="fileh\Menu.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="fileh\CrossyRoad.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\CRoad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\Player.cpp">

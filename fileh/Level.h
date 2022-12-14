@@ -32,8 +32,8 @@ public:
 
 	}
 
-	Level(int x, int y, sf::RenderWindow* window) : State(x, y, window), deltaTime(10) {
-		this->initBackground(x, y);
+	Level(sf::RenderWindow* window) : State(SCREEN_HEIGHT, SCREEN_WIDTH, window), deltaTime(10) {
+		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH);
 	}
 
 	int run(Player* player) {

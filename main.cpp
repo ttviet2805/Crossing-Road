@@ -5,7 +5,7 @@
 
 #include "fileh/Rectangle.h"
 #include "fileh/Road.h"
-#include "Game.h"
+#include "fileh/CrossyRoad.h"
 
 using namespace sf;
 

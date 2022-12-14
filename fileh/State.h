@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Player.h"
 
 class State {
@@ -18,6 +19,18 @@ public:
 	virtual int run(Player* player) = 0;
 	virtual void loadWindow(sf::RenderWindow* window) {
 		this->window = window;
+	}
+
+	void initBackground(int x, int y, std::string path = "") {
+		if (!this->backgroundImg.create(x, y)) {
+			//lol
+		}
+
+		if (!this->texture.loadFromFile(path)) {
+			std::cout << "Dumb fuck\n";
+		}
+		this->loadSprite = sf::Sprite(this->texture);
+		this->backgroundImg.draw(this->loadSprite);
 	}
 
 	virtual ~State() {}

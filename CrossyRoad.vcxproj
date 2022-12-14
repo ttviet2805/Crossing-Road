@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileh\Car.h" />
+    <ClInclude Include="fileh\CrossyRoad.h" />
+    <ClInclude Include="fileh\Game.h" />
     <ClInclude Include="fileh\Menu.h" />
     <ClInclude Include="fileh\PlayerObserver.h" />
     <ClInclude Include="fileh\Rectangle.h" />
@@ -28,11 +30,9 @@
     <ClInclude Include="fileh\Road.h" />
     <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\State.h" />
-    <ClInclude Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp" />
-    <ClCompile Include="filecpp\CRoad.cpp" />
     <ClCompile Include="filecpp\Menu.cpp" />
     <ClCompile Include="filecpp\Player.cpp" />
     <ClCompile Include="filecpp\PlayerObserver.cpp" />
