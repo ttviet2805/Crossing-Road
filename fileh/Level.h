@@ -8,40 +8,56 @@
 
 class Level : public State {
 private:
-	float deltaTime;
+	float difficulty;
 
-	std::vector<Road*> roads;
+	float deltaSpeed;
 
-	sf::Clock clock;
+	sf::Texture texture[4];
+	Rectangle button[4];
 public:
 
-	void initBackground(int x, int y) {
-		if (!this->backgroundImg.create(x, y)) {
-			//lol
-		}
-
-		if (!this->texture.loadFromFile("image/background.jpg")) {
-			std::cout << "Dumb fuck\n";
-		}
-		this->addRoad(0, 100); this->addRoad(0, 300); this->addRoad(0, 500);
-		this->loadSprite = sf::Sprite(this->texture);
-		this->backgroundImg.draw(this->loadSprite);
-	}
-
-	Level() : State(0, 0, nullptr), deltaTime(10) {
+	Level() : State(0, 0, nullptr), difficulty(0), deltaSpeed(0) {
 
 	}
 
-	Level(sf::RenderWindow* window) : State(SCREEN_HEIGHT, SCREEN_WIDTH, window), deltaTime(10) {
-		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH);
+	Level(sf::RenderWindow* window, float difficulty = 0, float deltaSpeed = 0) : 
+	State(SCREEN_HEIGHT, SCREEN_WIDTH, window), difficulty(difficulty), deltaSpeed(deltaSpeed) 
+	{
+		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "image/background_nay_con_chay_hon.jpg");
+		this->setupButton();
+	}
+
+	void setupButton() {
+		this->texture[0].loadFromFile("image/Easy.png");
+		this->button[0] = Rectangle(
+			sf::Vector2f(266, 67),
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 100),
+			this->texture[0]
+		);
+
+		this->texture[1].loadFromFile("image/Medium.png");
+		this->button[1] = Rectangle(
+			sf::Vector2f(266, 67),
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2),
+			this->texture[1]
+		);
+
+		this->texture[2].loadFromFile("image/Hard.png");
+		this->button[2] = Rectangle(
+			sf::Vector2f(266, 67),
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 100),
+			this->texture[2]
+		);
+
+		this->texture[3].loadFromFile("image/Quit.png");
+		this->button[3] = Rectangle(
+			sf::Vector2f(266, 67),
+			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 200),
+			this->texture[3]
+		);
 	}
 
 	int run(Player* player) {
-
-		auto subDeltaTime = this->clock.restart().asSeconds();
-		if (subDeltaTime > 1.0f / 60.0f) {
-			subDeltaTime = 1.0f / 60.0f;
-		}
 
 		sf::Event event;
 		while (this->window->pollEvent(event))
@@ -49,35 +65,39 @@ public:
 			if (event.type == sf::Event::Closed) {
 				return 0;
 			}
-			if (event.type == sf::Event::KeyPressed) {
-				if (event.key.code == sf::Keyboard::Escape) {
+			if (event.type == sf::Event::MouseButtonPressed) {
+				auto pos = sf::Mouse::getPosition(*this->window);
+				if (this->button[3].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 0;
 				}
-				player->updatePos( this->deltaTime);
+
+				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					return 2;
+				}
+
+				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					return 3;
+				}
+
+				if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					return 4;
+				}
 			}
 		}
 
-		player->updateSprite(subDeltaTime);
-
 		this->window->clear(sf::Color::Black);
 		this->window->draw(this->loadSprite);
-		for (int i = 0; i < (int)this->roads.size(); i++) {
-			this->roads[i]->draw(*this->window);
+		for (int i = 0; i < 4; i++) {
+			this->window->draw(this->button[i].getRect());
 		}
-		player->draw(*this->window);
 		this->window->display();
 
-		return true;
+		return 10;
 	}
 
 	void addRoad(float x, float y) {
 		//this->roads.push_back(new Road(x, y));
 	}
 
-	virtual ~Level() {
-		std::cout << "Level destructor\n";
-		for (int i = 0; i < (int)this->roads.size(); i++) {
-			delete this->roads[i];
-		}
-	}
+	virtual ~Level() { cout << "Level destructor\n"; }
 };

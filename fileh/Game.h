@@ -63,8 +63,11 @@ public:
 
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
-			if (event.type == Event::Closed)
+			if (event.type == Event::Closed) {
+				view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
+				window->setView(view);
 				return 0;
+			}
 		}
 
 		this->window->clear(Color::White);
@@ -87,8 +90,10 @@ public:
 		player->draw(*window);
 		window->display();
 
-		return 1;
+		return 10;
 	}
 
-	~Game() {}
+	~Game() {
+		cout << "Game destructor\n"; 
+	}
 };

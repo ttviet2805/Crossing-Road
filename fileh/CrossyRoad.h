@@ -20,13 +20,23 @@ void gameRun() {
 		//std::cout << "Here\n";
 		int type = nxt.back()->run(&player);
 
-		if (!type) {
+		switch (type) {
+		case 0:
 			delete nxt.back();
 			nxt.pop_back();
-		}
-		else if (type == 2) {
-			cout << "Here\n";
+			break;
+		case 1:
+			nxt.push_back(new Level(&window));
+			break;
+		case 2:
+		case 3:
+		case 4:
+			delete nxt.back();
+			nxt.pop_back();
 			nxt.push_back(new Game(&window));
+			break;
+		default:
+			break;
 		}
 	}
 

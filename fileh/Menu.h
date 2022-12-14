@@ -52,7 +52,7 @@ public:
 			if (event.type == sf::Event::MouseButtonPressed) {
 				auto pos = sf::Mouse::getPosition(*this->window);
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 2;
+					return 1;
 				}
 
 				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
@@ -68,7 +68,7 @@ public:
 		}
 		this->window->display();
 
-		return true;
+		return 10;
 	}
 
 	~Menu() {
