@@ -4,6 +4,9 @@
 using namespace std;
 using namespace sf;
 
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+
 class Rectangle {
 private:
 	RectangleShape Rect;
@@ -67,15 +70,18 @@ public:
 	void characterMove(float dentaTime) {
 		if (Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			Rect.move(-dentaTime, 0);
+			if(Rect.getPosition().x - dentaTime > 0)
+				Rect.move(-dentaTime, 0);
 		}
 		else {
 			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-				Rect.move(dentaTime, 0);
+				if (Rect.getPosition().x + dentaTime + Rect.getSize().x < SCREEN_WIDTH)
+					Rect.move(dentaTime, 0);
 			}
 			else {
 				if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-					Rect.move(0, -dentaTime);
+					if(Rect.getPosition().y - dentaTime > 0) 
+						Rect.move(0, -dentaTime);
 				}
 				else {
 					if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
