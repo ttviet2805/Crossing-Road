@@ -40,8 +40,20 @@ public:
 		Rect.setTextureRect(_texture);
 	}
 
+	void setSize(Vector2f _size) {
+		Rect.setSize(_size);
+	}
+
+	void setPosition(Vector2f _position) {
+		Rect.setPosition(_position);
+	}
+
 	Vector2f getPosition() {
 		return Rect.getPosition();
+	}
+
+	Vector2f getSize() {
+		return Rect.getSize();
 	}
 	
 	// add x-axis position X

@@ -71,7 +71,7 @@ public:
 	}
 
 	void addRoad(float x, float y) {
-		this->roads.push_back(new Road(x, y));
+		//this->roads.push_back(new Road(x, y));
 	}
 
 	virtual ~Level() {

@@ -1,36 +1,31 @@
 #pragma once
 #include <vector>
-#include "Car.h"
-#include "Point.h"
 #include <../SFML/Graphics.hpp>
+#include "Car.h"
+#include "Rectangle.h"
+
+using namespace sf;
+using namespace std;
 
 class Road {
 private:
-	sf::Vector2f position;
-	sf::Texture road;
-	sf::RectangleShape sprite;
-	//sf::IntRect sourceRect;
-	std::vector<Car*> cars;
+	Rectangle roadRect;
+	double speed = 0;
+	bool isStop = 0;
 public:
-	Road() : position(sf::Vector2f(0, 0)) { initRoad(); }
-
-	Road(float x, float y) : position(sf::Vector2f(x, y)) { initRoad(); }
-
-	void initRoad() {
-		this->road.loadFromFile("image/Road_long.jpg", sf::IntRect(0, 327, 1780, 160));
-		this->sprite.setSize(sf::Vector2f(1760, 160));
-		this->sprite.setPosition(this->position);
-		this->sprite.setTexture(&this->road);
+	Road(Rectangle _Rect) {
+		roadRect = _Rect;
+		speed = 0;
+		isStop = 0;
 	}
 
-	bool playerIsIn(Point& curPos) { //haven't done yet
-		return false;
+	RectangleShape getRect() {
+		return roadRect.getRect();
 	}
 
 	void draw(sf::RenderWindow& window) {
-		window.draw(this->sprite);
+		window.draw(roadRect.getRect());
 	}
 
-	virtual ~Road() {
-	}
+	~Road() {}
 };

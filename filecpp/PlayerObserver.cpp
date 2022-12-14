@@ -6,8 +6,8 @@ void PlayerObserver::notify(Point &curPos) {
     //     return;
 
     for(Road* curRoad: road) {
-        if(curRoad->playerIsIn(curPos)) {
+        //if(curRoad->playerIsIn(curPos)) {
             // extra functions like checking collisions, changing speed, etc.
-        }
+        //}
     }
 }

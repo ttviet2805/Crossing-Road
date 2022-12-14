@@ -28,6 +28,7 @@
     <ClInclude Include="fileh\Road.h" />
     <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\State.h" />
+    <ClInclude Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp" />
@@ -39,6 +40,7 @@
     <ClCompile Include="filecpp\Road.cpp" />
     <ClCompile Include="filecpp\Level.cpp" />
     <ClCompile Include="filecpp\State.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
