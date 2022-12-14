@@ -3,6 +3,6 @@
 
 using namespace std;
 
-Car::Car(Rectangle rec, float speed):Object(rec, speed){
-
-}
+//Car::Car(Rectangle rec, float speed):Object(rec, speed){
+//
+//}
