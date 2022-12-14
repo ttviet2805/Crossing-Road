@@ -11,6 +11,8 @@ private:
 	sf::Texture character;
 	sf::IntRect sourceRect;
 
+	string imgPath;
+
 	int face;
 
 	Rectangle sprite;
@@ -27,9 +29,10 @@ public:
 	Player(double x, double y, double speed) : curPos(Point(x, y)), curSpeed(speed), face(0) { initCharacter(); }
 	Player(const Player& src) : curPos(src.curPos), curSpeed(src.curSpeed), face(src.face) { initCharacter(); }*/
 
-	Player(sf::Vector2u imageCount, float switchTime, float imgLength = 64.0, float imgHeight = 128.0): 
-	imageCount(imageCount), switchTime(switchTime), curSpeed(3000.0f), face(0), imgLength(imgLength),
-	imgHeight(imgHeight) 
+	Player(sf::Vector2u imageCount, float switchTime, float imgLength = 64.0, float imgHeight = 128.0,
+		string imgPath = "") :
+		imageCount(imageCount), switchTime(switchTime), curSpeed(3000.0f), face(0), imgLength(imgLength),
+		imgHeight(imgHeight), imgPath(imgPath) 
 	{
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
@@ -78,7 +81,7 @@ public:
 	}
 
 	void initCharacter() {
-		this->character.loadFromFile("image/human_walk_sprite.png");
+		this->character.loadFromFile(this->imgPath);
 		this->sourceRect.width = this->character.getSize().x / (float)imageCount.x;
 		this->sourceRect.height = this->character.getSize().y / (float)imageCount.y;
 		this->sprite = Rectangle(sf::Vector2f(this->imgLength, this->imgHeight), sf::Vector2f(1280 / 2, 720 - 200), this->character);
