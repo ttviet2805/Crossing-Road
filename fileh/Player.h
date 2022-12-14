@@ -29,15 +29,19 @@ public:
 	Player(double x, double y, double speed) : curPos(Point(x, y)), curSpeed(speed), face(0) { initCharacter(); }
 	Player(const Player& src) : curPos(src.curPos), curSpeed(src.curSpeed), face(src.face) { initCharacter(); }*/
 
-	Player(sf::Vector2u imageCount, float switchTime, float imgLength = 64.0, float imgHeight = 128.0,
+	Player(sf::Vector2u imageCount, float switchTime, Vector2f _Size, Vector2f _position, float imgLength = 64.0, float imgHeight = 128.0,
 		string imgPath = "") :
-		imageCount(imageCount), switchTime(switchTime), curSpeed(3000.0f), face(0), imgLength(imgLength),
+		imageCount(imageCount), switchTime(switchTime), curSpeed(3000.f), face(0), imgLength(imgLength),
 		imgHeight(imgHeight), imgPath(imgPath) 
 	{
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
 
-		initCharacter(); 
+		initCharacter(_Size, _position); 
+	}
+
+	RectangleShape getRect() {
+		return sprite.getRect();
 	}
 
 	void draw(sf::RenderWindow& window) {
@@ -46,14 +50,14 @@ public:
 		window.draw(this->sprite.getRect());
 	}
 
-	void updatePos(sf::Event& event, float deltaTime) {
+	void updatePos(float deltaTime) {
 		//std::cout << "Key pressed\n";
 		this->sprite.characterMove(deltaTime);
 	}
 
 	void updateSprite(float deltaTime) {
 		
-		auto subDeltaTime = 0.025f;
+		auto subDeltaTime = 0.001f;
 
 		this->currentImage.y = this->face;
 
@@ -80,11 +84,11 @@ public:
 		this->sprite.setTexRect(this->sourceRect);
 	}
 
-	void initCharacter() {
+	void initCharacter(Vector2f _Size, Vector2f _position) {
 		this->character.loadFromFile(this->imgPath);
 		this->sourceRect.width = this->character.getSize().x / (float)imageCount.x;
 		this->sourceRect.height = this->character.getSize().y / (float)imageCount.y;
-		this->sprite = Rectangle(sf::Vector2f(this->imgLength, this->imgHeight), sf::Vector2f(1280 / 2, 720 - 200), this->character);
+		this->sprite = Rectangle(_Size, _position, this->character);
 	}
 
 	void changeSpeed(float speed);

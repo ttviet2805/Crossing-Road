@@ -53,7 +53,7 @@ public:
 				if (event.key.code == sf::Keyboard::Escape) {
 					return 0;
 				}
-				player->updatePos(event, this->deltaTime);
+				player->updatePos( this->deltaTime);
 			}
 		}
 

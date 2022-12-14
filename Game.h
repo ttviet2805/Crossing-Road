@@ -23,9 +23,11 @@ void gameRun() {
         roadTexture[i].loadFromFile(path);
     }
 
-    Texture characterText;
-    characterText.loadFromFile("image/Amongus.png");
-    Rectangle characterRect(Vector2f(100, 100), Vector2f(0, 0), characterText);
+    Player player(Vector2u(10, 2), 0.1, Vector2f(64, 120), Vector2f(0, 0), 64, 120, "image/human_walk_sprite.png");
+
+    //Texture characterText;
+    //characterText.loadFromFile("image/Amongus.png");
+    //Rectangle characterRect(Vector2f(100, 100), Vector2f(0, 0), characterText);
 
     View view(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 
@@ -64,14 +66,19 @@ void gameRun() {
             window.draw(i.getRect());
         }
 
-        characterRect.characterMove(0.5);
-        window.draw(characterRect.getRect());
-        Vector2f characterPos = characterRect.getPosition();
+        //characterRect.characterMove(0.5);
+        //window.draw(characterRect.getRect());
+
+        player.updatePos(0.5);
+        player.updateSprite(0.5);
+
+        Vector2f characterPos = player.getRect().getPosition();
         characterPos.x = SCREEN_WIDTH / 2;
         characterPos.y = (characterPos.y > SCREEN_HEIGHT / 2) ? characterPos.y : SCREEN_HEIGHT / 2;
         view.setCenter(characterPos);
         window.setView(view);
 
+        player.draw(window);
         window.display();
     }
 }
