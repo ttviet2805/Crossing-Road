@@ -1,9 +1,24 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <cstdlib>
+#include "fileh/Rectangle.h"
+#include "fileh/Road.h"
+#include "fileh/Player.h"
+using namespace std;
+using namespace sf;
 
 const string ROADPATH = "image/Road/Road";
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+
+
+int Rand(int l, int r) {
+    return l + (rand()) % (r - l + 1);
+}
 
 void gameRun() {
-    RenderWindow window(VideoMode(1080, 720), "Crossing Road");
+    RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
 
     Texture roadTexture[5];
     for (int i = 0; i < 5; i++) {
@@ -11,20 +26,25 @@ void gameRun() {
         roadTexture[i].loadFromFile(path);
     }
 
-    Texture characterText;
-    characterText.loadFromFile("image/Amongus.png");
-    Rectangle characterRect(Vector2f(100, 100), Vector2f(0, 0), characterText);
+    Player character(Vector2u(10, 2), 10);
 
-    View view(Vector2f(0, 0), Vector2f(1080, 720));
+    //View view(Vector2f(0, 0), Vector2f(1080, 720));
 
     const int numRoad = 10;
 
-    const int distanceX = 200;
+    const int ROADSIZE = 120;
+    const int DISTANCE = 20;
+    const int STARTPOS = 120;
+
+    Texture startPavementTexture;
+    startPavementTexture.loadFromFile(ROADPATH + "0.png");
+    Rectangle startPavementRect(Vector2f(SCREEN_WIDTH, 120), Vector2f(0, 0), startPavementTexture);
 
     vector <Road> lstRoad;
 
     for (int i = 0; i < numRoad; i++) {
-        Rectangle tmpRect(Vector2f(1080, 100), Vector2f(0, distanceX * i), roadTexture[1]);
+        int state = Rand(1, 4);
+        Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, STARTPOS + (ROADSIZE + DISTANCE) * i), roadTexture[state]);
         Road tmpRoad(tmpRect);
 
         lstRoad.push_back(tmpRoad);
@@ -39,14 +59,17 @@ void gameRun() {
 
         window.clear(Color::White);
 
+        window.draw(startPavementRect.getRect());
+
         for (auto i : lstRoad) {
             window.draw(i.getRect());
         }
 
-        characterRect.characterMove(0.5);
-        window.draw(characterRect.getRect());
-        view.setCenter(characterRect.getPosition());
-        window.setView(view);
+        character.updatePos(event, 0.1);
+        character.updateSprite(1);
+        character.draw(window);
+        //view.setCenter(characterRect.getPosition());
+        //window.setView(view);
 
         window.display();
     }
