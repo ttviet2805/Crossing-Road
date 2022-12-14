@@ -14,7 +14,9 @@ bool Object::collision(Rectangle src){
 void Object::move(){
     rec.move(speed, 0);
 }
-
+void Object::setSpeed(float i_speed){
+    speed = i_speed;
+}
 Rectangle Object::getrect(){
     return rec;
 }
