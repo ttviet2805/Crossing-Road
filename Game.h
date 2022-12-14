@@ -9,9 +9,6 @@ using namespace std;
 using namespace sf;
 
 const string ROADPATH = "image/Road/Road";
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
-
 
 int Rand(int l, int r) {
     return l + (rand()) % (r - l + 1);
@@ -26,25 +23,29 @@ void gameRun() {
         roadTexture[i].loadFromFile(path);
     }
 
-    Player character(Vector2u(10, 2), 10);
+    Texture characterText;
+    characterText.loadFromFile("image/Amongus.png");
+    Rectangle characterRect(Vector2f(100, 100), Vector2f(0, 0), characterText);
 
-    //View view(Vector2f(0, 0), Vector2f(1080, 720));
+    View view(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 
-    const int numRoad = 10;
+    const int numRoad = 21;
 
     const int ROADSIZE = 120;
-    const int DISTANCE = 20;
-    const int STARTPOS = 120;
-
-    Texture startPavementTexture;
-    startPavementTexture.loadFromFile(ROADPATH + "0.png");
-    Rectangle startPavementRect(Vector2f(SCREEN_WIDTH, 120), Vector2f(0, 0), startPavementTexture);
+    const int DISTANCE = 5;
 
     vector <Road> lstRoad;
 
     for (int i = 0; i < numRoad; i++) {
+        if (i % 5 == 0) {
+            Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * i), roadTexture[0]);
+            Road tmpRoad(tmpRect);
+
+            lstRoad.push_back(tmpRoad);
+            continue;
+        }
         int state = Rand(1, 4);
-        Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, STARTPOS + (ROADSIZE + DISTANCE) * i), roadTexture[state]);
+        Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * i), roadTexture[state]);
         Road tmpRoad(tmpRect);
 
         lstRoad.push_back(tmpRoad);
@@ -59,17 +60,17 @@ void gameRun() {
 
         window.clear(Color::White);
 
-        window.draw(startPavementRect.getRect());
-
         for (auto i : lstRoad) {
             window.draw(i.getRect());
         }
 
-        character.updatePos(event, 0.1);
-        character.updateSprite(1);
-        character.draw(window);
-        //view.setCenter(characterRect.getPosition());
-        //window.setView(view);
+        characterRect.characterMove(0.5);
+        window.draw(characterRect.getRect());
+        Vector2f characterPos = characterRect.getPosition();
+        characterPos.x = SCREEN_WIDTH / 2;
+        characterPos.y = (characterPos.y > SCREEN_HEIGHT / 2) ? characterPos.y : SCREEN_HEIGHT / 2;
+        view.setCenter(characterPos);
+        window.setView(view);
 
         window.display();
     }

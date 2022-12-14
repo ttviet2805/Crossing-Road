@@ -4,6 +4,9 @@
 using namespace std;
 using namespace sf;
 
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
+
 class Rectangle {
 private:
 	RectangleShape Rect;
@@ -30,7 +33,7 @@ public:
 	RectangleShape getRect() {
 		return Rect;
 	}
-		
+
 	// set image for Rectangle
 	void setTexture(Texture& _texture) {
 		Rect.setTexture(&_texture);
@@ -55,27 +58,30 @@ public:
 	Vector2f getSize() {
 		return Rect.getSize();
 	}
-	
+
 	// add x-axis position X
 	// add y-axis position Y
 	void move(float X, float Y) {
 		Rect.move(X, Y);
 	}
-	
+
 	// use this function to check move up, move down, move left, move right
 	// this function don't return any thing
 	void characterMove(float dentaTime) {
 		if (Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			Rect.move(-dentaTime, 0);
+			if (Rect.getPosition().x - dentaTime > 0)
+				Rect.move(-dentaTime, 0);
 		}
 		else {
 			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-				Rect.move(dentaTime, 0);
+				if (Rect.getPosition().x + dentaTime + Rect.getSize().x < SCREEN_WIDTH)
+					Rect.move(dentaTime, 0);
 			}
 			else {
 				if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-					Rect.move(0, -dentaTime);
+					if (Rect.getPosition().y - dentaTime > 0)
+						Rect.move(0, -dentaTime);
 				}
 				else {
 					if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
@@ -107,7 +113,7 @@ public:
 	// to check if 2 rectangle is collision or not
 	bool isCollision(const Rectangle& X) {
 		const bool collides = Rect.getGlobalBounds().intersects(X.Rect.getGlobalBounds());
-		
+
 		if (collides) cout << "Collision\n";
 		return collides;
 	}
