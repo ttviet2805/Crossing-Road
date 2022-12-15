@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClInclude Include="fileh\Car.h" />
     <ClInclude Include="fileh\CrossyRoad.h" />
+    <ClInclude Include="fileh\Dinosaur.h" />
     <ClInclude Include="fileh\Game.h" />
     <ClInclude Include="fileh\Menu.h" />
+    <ClInclude Include="fileh\Object.h" />
     <ClInclude Include="fileh\PlayerObserver.h" />
     <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Player.h" />
@@ -33,12 +35,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp" />
+    <ClCompile Include="filecpp\Dinosaur.cpp" />
     <ClCompile Include="filecpp\Menu.cpp" />
+    <ClCompile Include="filecpp\Object.cpp" />
     <ClCompile Include="filecpp\Player.cpp" />
     <ClCompile Include="filecpp\PlayerObserver.cpp" />
     <ClCompile Include="filecpp\Point.cpp" />
     <ClCompile Include="filecpp\Road.cpp" />
     <ClCompile Include="filecpp\Level.cpp" />
+    <ClCompile Include="filecpp\Source.cpp" />
     <ClCompile Include="filecpp\State.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

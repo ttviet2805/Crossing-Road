@@ -9,10 +9,10 @@
 using namespace std;
 using namespace sf;
 
-const string ROADPATH = "image/Road/Road";
+const string ROADPATH = "assets/image/Road/Road";
 
-const int ROADSIZE = 120;
-const int DISTANCE = 5;
+const int ROADSIZE = 100;
+const int DISTANCE = 3;
 
 int Rand(int l, int r) {
 	return l + (rand()) % (r - l + 1);
@@ -25,6 +25,7 @@ private:
 	Texture roadTexture[5];
 	vector <Road> lstRoad;
 	View view;
+	Clock clock;
 public:
 	Game() : deltaTime(10) {}
 
@@ -47,7 +48,7 @@ public:
 			Road tmpRoad(tmpRect);
 
 			lstRoad.push_back(tmpRoad);
-			
+
 			int numRoad = Rand(leftLimRoad, rightLimRoad);
 			int state = Rand(1, 4);
 			cnt++;
@@ -63,6 +64,14 @@ public:
 	}
 
 	int run(Player* player) {
+		Time elapsed = clock.getElapsedTime();
+		int curTime = elapsed.asSeconds();
+		if (curTime == 5) {
+			cout << "Restart\n";
+			lstRoad[1].generateObject();
+			clock.restart();
+		}
+
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -74,7 +83,7 @@ public:
 
 		this->window->clear(Color::White);
 		for (auto i : lstRoad) {
-			this->window->draw(i.getRect());
+			i.draw(*window);
 		}
 
 		//characterRect.characterMove(0.5);
@@ -98,6 +107,6 @@ public:
 	}
 
 	~Game() {
-		cout << "Game destructor\n"; 
+		cout << "Game destructor\n";
 	}
 };

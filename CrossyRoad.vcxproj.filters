@@ -48,6 +48,12 @@
     <ClInclude Include="fileh\Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\Dinosaur.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Object.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">
@@ -75,6 +81,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Dinosaur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

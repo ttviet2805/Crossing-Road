@@ -11,4 +11,8 @@ public:
     void move();
     void setSpeed(float i_speed);
     Rectangle getrect();
+
+    RectangleShape getRect() {
+        return rec.getRect();
+    }
 };

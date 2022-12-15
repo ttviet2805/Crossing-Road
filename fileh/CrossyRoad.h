@@ -9,7 +9,7 @@ using namespace sf;
 
 void gameRun() {
 	RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
-	Player player(Vector2u(10, 2), 0.1, Vector2f(64, 120), Vector2f(0, 0), 64, 120, "image/human_walk_sprite.png");
+	Player player(Vector2u(10, 2), 0.1, Vector2f(40, 80), Vector2f(0, 0), 64, 120, "assets/image/human_walk_sprite.png");
 
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
@@ -47,36 +47,4 @@ void gameRun() {
 			break;
 		}
 	}
-
-	/*Texture character;
-	character.loadFromFile("image/Amongus.png");
-	Rectangle tmpRect(Vector2f(150, 200), Vector2f(200, 200), character);
-
-	Rectangle c = tmpRect;*/
-
-	//Texture newCharacter;
-	//newCharacter.loadFromFile("image/Songoku.png");
-	//Rectangle newRect(Vector2f(150, 200), Vector2f(600, 600), newCharacter);
-
-
-	/*while (window.isOpen()) {
-		Event event;
-
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed)
-				window.close();
-		}
-
-		window.clear(Color::White);
-
-		window.draw(tmpRect.getRect());
-		window.draw(newRect.getRect());
-
-		tmpRect.characterMove(1);
-
-		tmpRect.isCollision(newRect);
-
-
-		window.display();
-	}*/
 }

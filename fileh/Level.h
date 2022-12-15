@@ -23,33 +23,33 @@ public:
 	Level(sf::RenderWindow* window, float difficulty = 0, float deltaSpeed = 0) : 
 	State(SCREEN_HEIGHT, SCREEN_WIDTH, window), difficulty(difficulty), deltaSpeed(deltaSpeed) 
 	{
-		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "image/background_nay_con_chay_hon.jpg");
+		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "assets/image/background_nay_con_chay_hon.jpg");
 		this->setupButton();
 	}
 
 	void setupButton() {
-		this->texture[0].loadFromFile("image/Easy.png");
+		this->texture[0].loadFromFile("assets/image/Easy.png");
 		this->button[0] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 100),
 			this->texture[0]
 		);
 
-		this->texture[1].loadFromFile("image/Medium.png");
+		this->texture[1].loadFromFile("assets/image/Medium.png");
 		this->button[1] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2),
 			this->texture[1]
 		);
 
-		this->texture[2].loadFromFile("image/Hard.png");
+		this->texture[2].loadFromFile("assets/image/Hard.png");
 		this->button[2] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 100),
 			this->texture[2]
 		);
 
-		this->texture[3].loadFromFile("image/Quit.png");
+		this->texture[3].loadFromFile("assets/image/Quit.png");
 		this->button[3] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 200),

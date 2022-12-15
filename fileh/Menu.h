@@ -14,26 +14,26 @@ public:
 	Menu() {
 		this->setupButton(); this->initBackground(
 			SCREEN_WIDTH, SCREEN_HEIGHT,
-			"image/background_chay_pho.png"
+			"assets/image/background_chay_pho.png"
 		);
 	}
 
 	Menu(sf::RenderWindow* window) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window) {
 		this->setupButton(); this->initBackground(
 			SCREEN_WIDTH, SCREEN_HEIGHT,
-			"image/background_chay_pho.png"
+			"assets/image/background_chay_pho.png"
 		);
 	}
 
 	void setupButton() {
-		this->texture[0].loadFromFile("image/Start.png");
+		this->texture[0].loadFromFile("assets/image/Start.png");
 		this->button[0] = Rectangle(
 			sf::Vector2f(266, 67), 
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 67), 
 			this->texture[0]
 		);
 
-		this->texture[1].loadFromFile("image/Quit.png");
+		this->texture[1].loadFromFile("assets/image/Quit.png");
 		this->button[1] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 67),
