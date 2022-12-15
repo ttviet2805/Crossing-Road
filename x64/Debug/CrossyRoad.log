@@ -1,5 +1,4 @@
-﻿  Level.cpp
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Road.h(32,1): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Menu.cpp
 E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -38,6 +37,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Point.h(29,45): warn
           [
               T=float
           ]
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Road.h(32,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(94,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
@@ -48,8 +48,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Player.h(95,57): war
           [
               T=int
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(24,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(70,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(54,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -58,7 +57,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(70,59): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(70,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(54,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -67,7 +66,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(70,52): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(74,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(58,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -76,43 +75,7 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(74,59): warn
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(74,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(78,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(78,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(82,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Level.h(82,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(58,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -280,20 +243,20 @@ E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Menu.h(58,52): warni
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(38,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(47,90): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(39,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(48,90): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(57,93): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(58,93): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(68,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(92,41): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(99,60): warning C4244: '=': conversion from 'unsigned __int64' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(69,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(93,41): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Lab\Crossing-Road\fileh\Game.h(100,60): warning C4244: '=': conversion from 'unsigned __int64' to 'T', possible loss of data
           with
           [
               T=float

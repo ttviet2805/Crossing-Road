@@ -23,7 +23,7 @@ public:
 	Level(sf::RenderWindow* window, float difficulty = 0, float deltaSpeed = 0) : 
 	State(SCREEN_HEIGHT, SCREEN_WIDTH, window), difficulty(difficulty), deltaSpeed(deltaSpeed) 
 	{
-		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "assets/image/background_nay_con_chay_hon.jpg");
+		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "assets/image/Menu-Background.jpg");
 		this->setupButton();
 	}
 

@@ -26,6 +26,7 @@ private:
 	vector <Road> lstRoad;
 	View view;
 	Clock clock;
+	
 public:
 	Game() : deltaTime(10) {}
 
