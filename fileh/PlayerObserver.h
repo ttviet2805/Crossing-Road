@@ -4,7 +4,6 @@
 #include "Point.h"
 #include "Road.h"
 
-
 class PlayerObserver {
 private:
     std::vector <Road*> road;
@@ -19,6 +18,16 @@ public:
             back->~Road();
         }
     }
-    void notify(Point &curPos);
+
+    void addRoad(Road* src) {
+        road.push_back(src);
+    }
+
+    void notify(Rectangle src) {
+       // cout << src.getPosition().x << ' ' << src.getPosition().y << '\n';
+        for (int i = 0; i < (int)road.size(); i++) {
+            road[i]->startSearch(src);
+        }
+    }
 };
 #endif

@@ -6,6 +6,7 @@
 #include "fileh/Road.h"
 #include "fileh/Player.h"
 #include "fileh/State.h"
+#include "fileh/PlayerObserver.h"
 using namespace std;
 using namespace sf;
 
@@ -28,6 +29,7 @@ private:
 	Clock clock[10005];
 	Texture flagTexture;
 	Rectangle flagRect;
+	PlayerObserver observer;
 	
 public:
 	Game() : deltaTime(10) {}
@@ -37,6 +39,8 @@ public:
 		if (difficulty == 1) leftLimRoad = 1, rightLimRoad = 3, numPavement = 10;
 		if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
 		if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
+
+		observer = PlayerObserver();
 
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -62,6 +66,7 @@ public:
 				Road otherRoad(otherRect, true);
 
 				lstRoad.push_back(otherRoad);
+				observer.addRoad(&lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
@@ -77,6 +82,7 @@ public:
 	}
 
 	int run(Player* player) {
+		player->addObserver(&this->observer);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -93,9 +99,15 @@ public:
 		}	
 
 		window->draw(flagRect.getRect());
-
+			
 		player->updatePos(0.5, lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
+
+		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
+			if (lstRoad[i].startSearch(player->getSprite())) {
+				cout << "Collision " << i << '\n';
+			}
+		}
 
 		Vector2f characterPos = player->getRect().getPosition();
 		characterPos.x = SCREEN_WIDTH / 2;
@@ -108,6 +120,7 @@ public:
 		player->draw(*window);
 		window->display();
 
+		player->addObserver(nullptr);
 		return 10;
 	}
 

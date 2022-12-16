@@ -113,9 +113,9 @@ public:
 
 	// to check if 2 rectangle is collision or not
 	bool isCollision(const Rectangle& X) {
-		const bool collides = Rect.getGlobalBounds().intersects(X.Rect.getGlobalBounds());
+		const bool collides = this->Rect.getGlobalBounds().intersects(X.Rect.getGlobalBounds());
 
-		if (collides) cout << "Collision\n";
+		//if (collides) cout << "Collision\n";
 		return collides;
 	}
 };

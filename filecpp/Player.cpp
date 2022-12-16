@@ -23,7 +23,7 @@ void Player::move(int direction) {
     }
 
     // Notify new position of player to observer;
-    observer->notify(curPos);
+    //observer->notify(curPos);
 }
 
 void Player::updateInfo(std::string newName) {

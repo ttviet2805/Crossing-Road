@@ -46,6 +46,10 @@ public:
 		return sprite.getRect();
 	}
 
+	Rectangle getSprite() {
+		return this->sprite;
+	}
+
 	void draw(sf::RenderWindow& window) {
 		this->curPos.checkRange(window);
 		//this->sprite.setPosition(this->curPos.pos);
@@ -55,6 +59,7 @@ public:
 	void updatePos(float deltaTime, float limDown) {
 		//std::cout << "Key pressed\n";
 		this->sprite.characterMove(deltaTime, limDown);
+		//this->observer->notify(this->getSprite());
 	}
 
 	void updateSprite(float deltaTime) {
@@ -94,6 +99,10 @@ public:
 		this->sourceRect.width = this->character.getSize().x / (float)imageCount.x;
 		this->sourceRect.height = this->character.getSize().y / (float)imageCount.y;
 		this->sprite = Rectangle(_Size, _position, this->character);
+	}
+
+	void addObserver(PlayerObserver* src) {
+		this->observer = src;
 	}
 
 	void changeSpeed(float speed);

@@ -11,7 +11,9 @@ using namespace std;
 class Road {
 private:
 	Rectangle roadRect;
+	bool search = 0;
 	bool isStop = 0;
+	bool roadCount = 0;
 	vector <Object*> listObject;
 	Texture dogTexture;
 	bool isCarRoad = false;
@@ -29,6 +31,7 @@ public:
 	}
 
 	Road(Rectangle _Rect, bool _isCarRoad) {
+		cout << "Road spawn";
 		roadRect = _Rect;
 		isStop = 0;
 		isCarRoad = _isCarRoad;
@@ -64,6 +67,19 @@ public:
 		for (int i = 0; i < listObject.size(); i++) {
 			window.draw(listObject[i]->getRect());
 		}
+	}
+
+	bool startSearch(Rectangle src) {
+		this->search = this->roadRect.isCollision(src);
+		if (this->search) {
+			for (int i = 0; i < (int)this->listObject.size(); i++) {
+				if (this->listObject[i]->collision(src)) {
+					cout << "Collision\n";
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	~Road() {}
