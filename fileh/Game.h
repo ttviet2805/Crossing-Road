@@ -25,7 +25,7 @@ private:
 	Texture roadTexture[5];
 	vector <Road> lstRoad;
 	View view;
-	Clock clock;
+	Clock clock[10005];
 	
 public:
 	Game() : deltaTime(10) {}
@@ -37,6 +37,7 @@ public:
 		if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
 
 		srand(time(0));
+		srand(static_cast <unsigned> (time(0)));
 		view = View(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 		for (int i = 0; i < 5; i++) {
 			string path = ROADPATH + to_string(i) + ".png";
@@ -46,7 +47,7 @@ public:
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-			Road tmpRoad(tmpRect);
+			Road tmpRoad(tmpRect, false);
 
 			lstRoad.push_back(tmpRoad);
 
@@ -56,7 +57,7 @@ public:
 
 			for (int j = 0; j < numRoad; j++) {
 				Rectangle otherRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
-				Road otherRoad(otherRect);
+				Road otherRoad(otherRect, true);
 
 				lstRoad.push_back(otherRoad);
 				cnt++;
@@ -65,14 +66,6 @@ public:
 	}
 
 	int run(Player* player) {
-		Time elapsed = clock.getElapsedTime();
-		int curTime = elapsed.asSeconds();
-		if (curTime == 5) {
-			cout << "Restart\n";
-			lstRoad[1].generateObject();
-			clock.restart();
-		}
-
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -83,12 +76,10 @@ public:
 		}
 
 		this->window->clear(Color::White);
-		for (auto i : lstRoad) {
-			i.draw(*window);
-		}
 
-		//characterRect.characterMove(0.5);
-		//window.draw(characterRect.getRect());
+		for (int i = 0; i < lstRoad.size(); i++) {
+			lstRoad[i].draw(*window, clock[i]);
+		}	
 
 		player->updatePos(0.5, lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
