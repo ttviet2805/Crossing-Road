@@ -1,4 +1,4 @@
-#include <../SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "../fileh/Level.h"
 #include "../fileh/Player.h"
 #include "../fileh/Menu.h"

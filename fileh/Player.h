@@ -1,5 +1,5 @@
 #pragma once
-#include <../SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "Point.h"
 #include "PlayerObserver.h"
 #include "Rectangle.h"
