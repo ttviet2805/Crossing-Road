@@ -26,6 +26,8 @@ private:
 	vector <Road> lstRoad;
 	View view;
 	Clock clock[10005];
+	Texture flagTexture;
+	Rectangle flagRect;
 	
 public:
 	Game() : deltaTime(10) {}
@@ -63,6 +65,15 @@ public:
 				cnt++;
 			}
 		}
+
+		Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
+		Road tmpRoad(tmpRect, false);
+
+		lstRoad.push_back(tmpRoad);
+
+		flagTexture.loadFromFile("assets/image/Flag.png");
+		Rectangle tmpFlag(Vector2f(90, 90), Vector2f((SCREEN_WIDTH - 90) / 2, (ROADSIZE + DISTANCE) * cnt + 5), flagTexture);
+		flagRect = tmpFlag;
 	}
 
 	int run(Player* player) {
@@ -80,6 +91,8 @@ public:
 		for (int i = 0; i < lstRoad.size(); i++) {
 			lstRoad[i].draw(*window, clock[i]);
 		}	
+
+		window->draw(flagRect.getRect());
 
 		player->updatePos(0.5, lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
