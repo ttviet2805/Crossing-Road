@@ -33,9 +33,6 @@
     <ClInclude Include="fileh\Rectangle.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\PlayerObserver.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="fileh\State.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -52,6 +49,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="fileh\Object.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\PlayerMediator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Mediator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,9 +74,6 @@
     <ClCompile Include="filecpp\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\PlayerObserver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="filecpp\State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\PlayerMediator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

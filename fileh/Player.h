@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Point.h"
-#include "PlayerMediator.h"
+#include "Mediator.h"
 #include "Rectangle.h"
 #include <string>
 class Player {
@@ -22,7 +22,7 @@ private:
 
 	float imgLength, imgHeight;
 	std::string name;
-	PlayerMediator *mediator;
+	Mediator *mediator;
 
 	sf::Clock clock;
 public:
@@ -107,7 +107,7 @@ public:
 		this->sprite = Rectangle(_Size, _position, this->character);
 	}
 
-	void addMediator(PlayerMediator* src) {
+	void addMediator(Mediator* src) {
 		this->mediator = src;
 	}
 

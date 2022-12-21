@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "../fileh/Level.h"
 #include "../fileh/Player.h"
+#include "../fileh/PlayerMediator.h"
 #include "../fileh/Menu.h"
 #include "../fileh/Game.h"
-
 #include "../fileh/Rectangle.h"
+
 using namespace sf;
 
 void gameRun() {
@@ -14,13 +15,11 @@ void gameRun() {
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
 
-	PlayerMediator *playerMediator=new PlayerMediator(&player);
+	PlayerMediator *playerMediator = nullptr;
 	player.addMediator(playerMediator);
 
-	//Level game(1080, 720);
-	//game.run(player);
 	while (window.isOpen() && !nxt.empty()) {
-		//std::cout << "Here\n";
+		//std::cout << "here\n";
 		int type = nxt.back()->run(&player);
 
 		switch (type) {

@@ -7,6 +7,7 @@
 #include "fileh/Player.h"
 #include "fileh/State.h"
 #include "fileh/PlayerMediator.h"
+
 using namespace std;
 using namespace sf;
 
@@ -64,7 +65,7 @@ public:
 				Road otherRoad(otherRect, true);
 
 				lstRoad.push_back(otherRoad);
-				mediator->addRoad(&lstRoad[lstRoad.size() - 1]);
+				//this->mediator->addRoad(&lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
@@ -77,11 +78,13 @@ public:
 		flagTexture.loadFromFile("assets/image/Flag.png");
 		Rectangle tmpFlag(Vector2f(90, 90), Vector2f((SCREEN_WIDTH - 90) / 2, (ROADSIZE + DISTANCE) * cnt + 5), flagTexture);
 		flagRect = tmpFlag;
-		mediator->addRoad(lstRoad);
+		//this->mediator->addRoad(lstRoad);
+
+		//cout << "Here\n";
 	}
 
 	int run(Player* player) {
-		player->addMediator(this->mediator);
+		//player->addMediator(this->mediator);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -119,7 +122,7 @@ public:
 		player->draw(*window);
 		window->display();
 
-		player->addMediator(nullptr);
+		//player->addMediator(nullptr);
 		return 10;
 	}
 
