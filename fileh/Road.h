@@ -4,6 +4,7 @@
 #include "Car.h"
 #include "Rectangle.h"
 #include "Object.h"
+#include "PlayerMediator.h"
 
 using namespace sf;
 using namespace std;
@@ -18,6 +19,7 @@ private:
 	Texture dogTexture;
 	bool isCarRoad = false;
 	double timeRand = 3;
+	PlayerMediator *mediator;
 
 public:
 	int Rand(int l, int r) {
@@ -30,12 +32,13 @@ public:
 		return r3;
 	}
 
-	Road(Rectangle _Rect, bool _isCarRoad) {
+	Road(Rectangle _Rect, bool _isCarRoad, PlayerMediator *mediator=nullptr) {
 		cout << "Road spawn";
 		roadRect = _Rect;
 		isStop = 0;
 		isCarRoad = _isCarRoad;
 		dogTexture.loadFromFile("assets/image/Car.png");
+		this->mediator=mediator;
 	}
 
 	RectangleShape getRect() {
