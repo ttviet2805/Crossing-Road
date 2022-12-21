@@ -106,7 +106,6 @@ public:
 	}
 
 	void changeSpeed(float speed);
-	void move(int direction);
 	void updateInfo(std::string newName);
 
 	virtual ~Player() {}
