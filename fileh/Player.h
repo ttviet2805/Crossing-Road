@@ -62,6 +62,12 @@ public:
 		//this->observer->notify(this->getSprite());
 	}
 
+	void setPos(float x, float y) {
+		curPos.pos.x=x;
+		curPos.pos.y=y;
+		sprite.setPosition(curPos.pos);
+	}
+
 	void updateSprite(float deltaTime) {
 		
 		auto subDeltaTime = this->clock.restart().asSeconds();
