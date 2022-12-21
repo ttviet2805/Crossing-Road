@@ -12,6 +12,7 @@ private:
 public:
     PlayerMediator(): road({}), player(nullptr) {};
     PlayerMediator(const std::vector<Road*> &road): road(road), player(nullptr) {};
+    PlayerMediator(Player* player): road({}), player(player) {};
     PlayerMediator(const PlayerMediator &other): road(other.road), player(other.player) {};
     ~PlayerMediator() {
         while(road.size()) {
@@ -25,6 +26,16 @@ public:
 
     void addRoad(Road* src) {
         road.push_back(src);
+    }
+
+    void addRoad(const vector <Road> &lstRoad) {
+        Road *ptr=nullptr;
+        for(auto &i: lstRoad) {
+            ptr=const_cast<Road*>(&i);
+            this->addRoad(ptr);
+        }
+
+        ptr=nullptr;
     }
 
     void returnLastPos(float x, float y) {
