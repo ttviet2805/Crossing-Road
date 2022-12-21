@@ -8,17 +8,11 @@
 const float MIN_DISTANCE = 12.5;
 
 class Object {
-private:
-    Rectangle rec;
-    float speed;
 public:
-    Object(Rectangle i_rec, float i_speed);
-    bool collision(Rectangle src);
-    void move();
-    void setSpeed(float i_speed);
-    Rectangle getrect();
+    virtual bool collision(Rectangle src) = 0;
+    virtual void move() = 0;
+    virtual void setSpeed(float i_speed) = 0;
+    virtual Rectangle getrect() = 0;
 
-    RectangleShape getRect() {
-        return rec.getRect();
-    }
+    virtual RectangleShape getRect() = 0;
 };
