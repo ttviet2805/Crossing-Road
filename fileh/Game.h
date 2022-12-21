@@ -29,18 +29,16 @@ private:
 	Clock clock[10005];
 	Texture flagTexture;
 	Rectangle flagRect;
-	PlayerMediator mediator;
+	PlayerMediator *mediator;
 	
 public:
 	Game() : deltaTime(10) {}
 
-	Game(RenderWindow* window, int difficulty) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10) {
+	Game(RenderWindow* window, int difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
 		int leftLimRoad, rightLimRoad, numPavement;
 		if (difficulty == 1) leftLimRoad = 1, rightLimRoad = 3, numPavement = 10;
 		if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
 		if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
-
-		mediator = PlayerMediator();
 
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -66,7 +64,7 @@ public:
 				Road otherRoad(otherRect, true);
 
 				lstRoad.push_back(otherRoad);
-				mediator.addRoad(&lstRoad[lstRoad.size() - 1]);
+				mediator->addRoad(&lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
@@ -79,10 +77,11 @@ public:
 		flagTexture.loadFromFile("assets/image/Flag.png");
 		Rectangle tmpFlag(Vector2f(90, 90), Vector2f((SCREEN_WIDTH - 90) / 2, (ROADSIZE + DISTANCE) * cnt + 5), flagTexture);
 		flagRect = tmpFlag;
+		mediator->addRoad(lstRoad);
 	}
 
 	int run(Player* player) {
-		player->addMediator(&this->mediator);
+		player->addMediator(this->mediator);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -127,4 +126,6 @@ public:
 	~Game() {
 		cout << "Game destructor\n";
 	}
+
+	friend class PlayerMediator;
 };

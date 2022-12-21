@@ -14,6 +14,9 @@ void gameRun() {
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
 
+	PlayerMediator *playerMediator=new PlayerMediator(&player);
+	player.addMediator(playerMediator);
+
 	//Level game(1080, 720);
 	//game.run(player);
 	while (window.isOpen() && !nxt.empty()) {
@@ -31,17 +34,17 @@ void gameRun() {
 		case 2:
 			delete nxt.back();
 			nxt.pop_back();
-			nxt.push_back(new Game(&window, 1));
+			nxt.push_back(new Game(&window, 1, playerMediator));
 			break;
 		case 3:
 			delete nxt.back();
 			nxt.pop_back();
-			nxt.push_back(new Game(&window, 2));
+			nxt.push_back(new Game(&window, 2, playerMediator));
 			break;
 		case 4:
 			delete nxt.back();
 			nxt.pop_back();
-			nxt.push_back(new Game(&window, 3));
+			nxt.push_back(new Game(&window, 3, playerMediator));
 			break;
 		default:
 			break;
