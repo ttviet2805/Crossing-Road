@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Point.h"
-#include "PlayerObserver.h"
+#include "PlayerMediator.h"
 #include "Rectangle.h"
 #include <string>
 class Player {
