@@ -26,5 +26,9 @@ public:
     void addRoad(Road* src) {
         road.push_back(src);
     }
+
+    void returnLastPos(float x, float y) {
+        player->setPos(x, y);
+    }
 };
 #endif
