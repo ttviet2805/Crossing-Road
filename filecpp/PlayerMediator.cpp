@@ -1,4 +1,4 @@
-#include "../fileh/PlayerObserver.h"
+#include "../fileh/PlayerMediator.h"
 
 //void PlayerObserver::notify(Point &curPos) {
 //    // Potential function to check if a player has won

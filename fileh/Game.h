@@ -6,7 +6,7 @@
 #include "fileh/Road.h"
 #include "fileh/Player.h"
 #include "fileh/State.h"
-#include "fileh/PlayerObserver.h"
+#include "fileh/PlayerMediator.h"
 using namespace std;
 using namespace sf;
 
@@ -29,7 +29,7 @@ private:
 	Clock clock[10005];
 	Texture flagTexture;
 	Rectangle flagRect;
-	PlayerObserver observer;
+	PlayerMediator mediator;
 	
 public:
 	Game() : deltaTime(10) {}
@@ -40,7 +40,7 @@ public:
 		if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
 		if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
 
-		observer = PlayerObserver();
+		mediator = PlayerMediator();
 
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -66,7 +66,7 @@ public:
 				Road otherRoad(otherRect, true);
 
 				lstRoad.push_back(otherRoad);
-				observer.addRoad(&lstRoad[lstRoad.size() - 1]);
+				mediator.addRoad(&lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
@@ -82,7 +82,7 @@ public:
 	}
 
 	int run(Player* player) {
-		player->addObserver(&this->observer);
+		player->addMediator(&this->mediator);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -120,7 +120,7 @@ public:
 		player->draw(*window);
 		window->display();
 
-		player->addObserver(nullptr);
+		player->addMediator(nullptr);
 		return 10;
 	}
 

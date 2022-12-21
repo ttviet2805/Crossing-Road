@@ -22,7 +22,7 @@ private:
 
 	float imgLength, imgHeight;
 	std::string name;
-	PlayerObserver *observer;
+	PlayerMediator *mediator;
 
 	sf::Clock clock;
 public:
@@ -101,8 +101,8 @@ public:
 		this->sprite = Rectangle(_Size, _position, this->character);
 	}
 
-	void addObserver(PlayerObserver* src) {
-		this->observer = src;
+	void addMediator(PlayerMediator* src) {
+		this->mediator = src;
 	}
 
 	void changeSpeed(float speed);
