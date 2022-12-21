@@ -15,7 +15,7 @@ void gameRun() {
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
 
-	PlayerMediator *playerMediator = nullptr;
+	PlayerMediator *playerMediator = new PlayerMediator(&player);
 	player.addMediator(playerMediator);
 
 	while (window.isOpen() && !nxt.empty()) {

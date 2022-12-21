@@ -27,10 +27,10 @@ public:
     }
 
     void addRoad(Road* src) {
-        road.push_back(src);
+        this->road.push_back(src);
     }
 
-    /*void addRoad(const vector <Road> &lstRoad) {
+    void addRoad(const vector <Road> &lstRoad) {
         Road *ptr=nullptr;
         for(auto &i: lstRoad) {
             ptr=const_cast<Road*>(&i);
@@ -38,7 +38,7 @@ public:
         }
 
         ptr=nullptr;
-    }*/
+    }
 
     void returnLastPos(float x, float y) {
         player->setPos(x, y);
