@@ -45,7 +45,7 @@ public:
 	void generateObject() {
 		Rectangle dogRect(Vector2f(100, 60), roadRect.getPosition(), dogTexture);
 
-		Object* curObject = new Object(dogRect, 0.1);
+		Object* curObject = new Car(dogRect, 0.1);
 		listObject.push_back(curObject);
 	}
 
