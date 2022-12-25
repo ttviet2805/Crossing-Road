@@ -5,7 +5,7 @@
 class TrafficLight {
 private:
     Rectangle rect;
-    bool isOn = false;
+    int state = 0;
 public:
     TrafficLight() {
 
@@ -15,16 +15,19 @@ public:
         rect = _rect;
     }
 
-    void setTrafficLight(Vector2f _size, Vector2f _pos, Texture& _Texture) {
-        rect.setSize(_size);
-        rect.setPosition(_pos);
-        rect.setTexture(_Texture);
+    void setTexture(Texture& _texture) {
+        cout << "Change here\n";
+        rect.setTexture(_texture);
     }
 
      RectangleShape getRect() {
          return rect.getRect();
      }
 
-    void changeType(bool type);
+    void changeType(int type);
+
+    int getState() {
+        return state;
+    }
     void notify();
 };

@@ -27,7 +27,6 @@ private:
 	Texture roadTexture[10];
 	vector <Road*> lstRoad;
 	View view;
-	Clock clock[10005];
 	PlayerMediator *mediator;
 	
 public:
@@ -99,7 +98,7 @@ public:
 		this->window->clear(Color::White);
 
 		for (int i = 0; i < lstRoad.size(); i++) {
-			lstRoad[i]->draw(*window, clock[i]);
+			lstRoad[i]->draw(*window);
 		}	
 			
 		player->updatePos(0.4, lstRoad.size() * (ROADSIZE + DISTANCE));

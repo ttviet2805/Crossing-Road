@@ -16,18 +16,24 @@ const string OBJECT_PATH = "assets/Image/Object/";
 class Road {
 private:
 	Rectangle roadRect;
+	vector <Object*> listObject;
+	int roadState  = 0;
+	double timeObjectRand;
+	double timeGreenTrafficLight;
+	double timeRedTraficLight = 3;
+	Mediator* mediator;
+	TrafficLight curLight;
+
 	bool search = 0;
 	bool isStop = 0;
 	bool roadCount = 0;
-	vector <Object*> listObject;
-	int roadState  = 0;
-	double timeRand = 3;
-	Mediator* mediator;
-	TrafficLight curLight;
 	
 	Texture carTexture;
 	Texture dinosaurTexture[15];
 	Texture trafficLightTexture[5];
+
+	Clock trafficLightClock;
+	Clock gameClock;
 
 public:
 	int Rand(int l, int r) {
@@ -46,7 +52,8 @@ public:
 		isStop = 0;
 		roadState = _roadState;
 		this->mediator = mediator;
-		timeRand = randRealNumber(3, 7);
+		timeObjectRand = randRealNumber(3, 7);
+		timeGreenTrafficLight = randRealNumber(4, 10);
 		
 		carTexture.loadFromFile(OBJECT_PATH + "Car/Car.png");
 		
@@ -61,9 +68,11 @@ public:
 
 		Vector2f curPos = roadRect.getPosition();
 
-		Rectangle tmpRect(Vector2f(30, 90), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
-		TrafficLight tmpLight(tmpRect);
-		curLight = tmpLight;
+		if (roadState == 1) {
+			Rectangle tmpRect(Vector2f(30, 90), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
+			TrafficLight tmpLight(tmpRect);
+			curLight = tmpLight;
+		}
 	}
 
 	RectangleShape getRect() {
@@ -75,33 +84,61 @@ public:
 
 		//cout << state << endl;
 
+		Vector2f curPos = roadRect.getPosition();
+
 		if (state == 2) {
-			Rectangle tmpRect(Vector2f(100, 60), roadRect.getPosition(), dinosaurTexture[0]);
+			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), dinosaurTexture[0]);
 			curObject = new Dinosaur(tmpRect, 0.1);
 
 			listObject.push_back(curObject);
 		}
 
 		if (state == 1) {
-			Rectangle tmpRect(Vector2f(100, 60), roadRect.getPosition(), carTexture);
+			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), carTexture);
 			curObject = new Car(tmpRect, 0.1);
 
 			listObject.push_back(curObject);
 		}
 	}
 
-	void draw(sf::RenderWindow& window, Clock& clock) {
+	void draw(sf::RenderWindow& window) {
 		if (roadState) {
-			Time elapsed = clock.getElapsedTime();
-			if (elapsed.asSeconds() >= timeRand) {
+			Time elapsed = gameClock.getElapsedTime();
+			if (elapsed.asSeconds() >= timeObjectRand) {
 				generateObject(roadState);
-				timeRand = randRealNumber(3.5, 7);
-				clock.restart();
+				timeObjectRand = randRealNumber(3.5, 7);
+				gameClock.restart();
 			}
 		}
 
-		for (int i = 0; i < listObject.size(); i++)
-			listObject[i]->move();
+		if (roadState == 1) {
+			if (curLight.getState() == 0) {
+				Time elapsed = trafficLightClock.getElapsedTime();
+
+				if (elapsed.asSeconds() >= timeGreenTrafficLight) {
+					cout << "Red mode\n";
+					curLight.setTexture(trafficLightTexture[2]);
+					trafficLightClock.restart();
+					curLight.changeType(2);
+				}
+			}
+			else {
+				if (curLight.getState() == 2) {
+					Time elapsed = trafficLightClock.getElapsedTime();
+
+					if (elapsed.asSeconds() >= timeRedTraficLight) {
+						curLight.setTexture(trafficLightTexture[0]);
+						trafficLightClock.restart();
+						curLight.changeType(0);
+					}
+				}
+			}
+		}
+
+		for (int i = 0; i < listObject.size(); i++) {
+			if(curLight.getState() == 0) listObject[i]->move();
+		}
+			
 
 		window.draw(roadRect.getRect());
 		window.draw(curLight.getRect());
