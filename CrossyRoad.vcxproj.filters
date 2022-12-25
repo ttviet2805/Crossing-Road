@@ -18,52 +18,58 @@
     <ClInclude Include="fileh\Car.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\Player.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Point.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Road.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Level.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Rectangle.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\State.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Menu.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="fileh\CrossyRoad.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fileh\Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="fileh\Dinosaur.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\Object.h">
+    <ClInclude Include="fileh\flag.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\PlayerMediator.h">
+    <ClInclude Include="fileh\Game.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Level.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="fileh\Mediator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\Menu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Object.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="fileh\Object_static.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\flag.h">
+    <ClInclude Include="fileh\Player.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\PlayerMediator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Point.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Rectangle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\Road.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="fileh\Rock.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\State.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileh\TrafficLight.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,7 +77,28 @@
     <ClCompile Include="filecpp\Car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="filecpp\Dinosaur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\flag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Object_static.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="filecpp\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\PlayerMediator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\Point.cpp">
@@ -80,37 +107,25 @@
     <ClCompile Include="filecpp\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\Dinosaur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\Object.cpp">
+    <ClCompile Include="filecpp\Rock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\PlayerMediator.cpp">
+    <ClCompile Include="filecpp\State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\Object_static.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\flag.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filecpp\Rock.cpp">
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\TrafficLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

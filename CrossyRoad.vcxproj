@@ -24,23 +24,26 @@
     <ClInclude Include="fileh\Dinosaur.h" />
     <ClInclude Include="fileh\flag.h" />
     <ClInclude Include="fileh\Game.h" />
+    <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\Mediator.h" />
     <ClInclude Include="fileh\Menu.h" />
     <ClInclude Include="fileh\Object.h" />
     <ClInclude Include="fileh\Object_static.h" />
-    <ClInclude Include="fileh\PlayerMediator.h" />
-    <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Player.h" />
+    <ClInclude Include="fileh\PlayerMediator.h" />
     <ClInclude Include="fileh\Point.h" />
+    <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Road.h" />
-    <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\Rock.h" />
     <ClInclude Include="fileh\State.h" />
+    <ClInclude Include="fileh\TrafficLight.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp" />
     <ClCompile Include="filecpp\Dinosaur.cpp" />
     <ClCompile Include="filecpp\flag.cpp" />
+    <ClCompile Include="filecpp\Level.cpp" />
     <ClCompile Include="filecpp\Menu.cpp" />
     <ClCompile Include="filecpp\Object.cpp" />
     <ClCompile Include="filecpp\Object_static.cpp" />
@@ -48,11 +51,13 @@
     <ClCompile Include="filecpp\PlayerMediator.cpp" />
     <ClCompile Include="filecpp\Point.cpp" />
     <ClCompile Include="filecpp\Road.cpp" />
-    <ClCompile Include="filecpp\Level.cpp" />
     <ClCompile Include="filecpp\Rock.cpp" />
     <ClCompile Include="filecpp\Source.cpp" />
     <ClCompile Include="filecpp\State.cpp" />
+    <ClCompile Include="filecpp\TrafficLight.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

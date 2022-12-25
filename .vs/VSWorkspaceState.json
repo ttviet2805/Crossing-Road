@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\filecpp",
+    "\\fileh"
   ],
-  "SelectedNode": "\\CrossyRoad.sln",
+  "SelectedNode": "\\fileh\\Road.h",
   "PreviewInSolutionExplorer": false
 }

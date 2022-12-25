@@ -5,9 +5,13 @@
 #include "Rectangle.h"
 #include "Object.h"
 #include "Mediator.h"
+#include "Dinosaur.h"
+#include "TrafficLight.h"
 
 using namespace sf;
 using namespace std;
+
+const string OBJECT_PATH = "assets/Image/Object/";
 
 class Road {
 private:
@@ -16,10 +20,14 @@ private:
 	bool isStop = 0;
 	bool roadCount = 0;
 	vector <Object*> listObject;
-	Texture dogTexture;
-	bool isCarRoad = false;
+	int roadState  = 0;
 	double timeRand = 3;
 	Mediator* mediator;
+	TrafficLight curLight;
+	int cnt = 0;
+	
+	Texture carTexture;
+	Texture dinosaurTexture[15];
 
 public:
 	int Rand(int l, int r) {
@@ -32,32 +40,51 @@ public:
 		return r3;
 	}
 
-	Road(Rectangle _Rect, bool _isCarRoad, Mediator *mediator = nullptr) {
+	Road(Rectangle _Rect, int _roadState, Mediator *mediator = nullptr) {
 		cout << "Road spawn";
 		roadRect = _Rect;
 		isStop = 0;
-		isCarRoad = _isCarRoad;
-		dogTexture.loadFromFile("assets/image/Car.png");
+		roadState = _roadState;
 		this->mediator = mediator;
+		timeRand = randRealNumber(3, 7);
+		
+		carTexture.loadFromFile(OBJECT_PATH + "Car/Car.png");
+		
+		for(int i = 0; i <= 12; i++)
+			dinosaurTexture[i].loadFromFile(OBJECT_PATH + "Dinosaur/Dinosaur" + to_string(i) + ".jpg");
+		++cnt;
 	}
 
 	RectangleShape getRect() {
 		return roadRect.getRect();
 	}
 
-	void generateObject() {
-		Rectangle dogRect(Vector2f(100, 60), roadRect.getPosition(), dogTexture);
+	void generateObject(int state) {
+		Object* curObject = nullptr;
 
-		Object* curObject = new Car(dogRect, 0.1);
-		listObject.push_back(curObject);
+		//cout << state << endl;
+
+		if (state == 2) {
+			Rectangle tmpRect(Vector2f(100, 60), roadRect.getPosition(), dinosaurTexture[0]);
+			curObject = new Dinosaur(tmpRect, 0.1);
+
+			listObject.push_back(curObject);
+		}
+
+		if (state == 1) {
+			Rectangle tmpRect(Vector2f(100, 60), roadRect.getPosition(), carTexture);
+			curObject = new Car(tmpRect, 0.1);
+
+			listObject.push_back(curObject);
+		}
 	}
 
 	void draw(sf::RenderWindow& window, Clock& clock) {
-		if (isCarRoad) {
+		if (roadState) {
 			Time elapsed = clock.getElapsedTime();
 			if (elapsed.asSeconds() >= timeRand) {
-				generateObject();
-				timeRand = randRealNumber(3, 10);
+				generateObject(roadState);
+				timeRand = randRealNumber(3.5, 7);
 				clock.restart();
 			}
 		}
@@ -66,6 +93,7 @@ public:
 			listObject[i]->move();
 
 		window.draw(roadRect.getRect());
+		cout << cnt << endl;
 
 		for (int i = 0; i < listObject.size(); i++) {
 			window.draw(listObject[i]->getRect());
@@ -85,5 +113,10 @@ public:
 		return false;
 	}
 
-	~Road() {}
+	~Road() {
+		for (int i = 0; i < listObject.size(); i++)
+			delete listObject[i];
+
+		delete mediator;
+	}
 };

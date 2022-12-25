@@ -1,12 +1,26 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Road.h"
+#include "Rectangle.h"
 
-class TrafficLight{
+class TrafficLight {
 private:
-    Road* road;
-    bool isOn;
+    Rectangle rect;
+    bool isOn = false;
 public:
+    TrafficLight() {
+
+    }
+
+    void setTrafficLight(Vector2f _size, Vector2f _pos, Texture& _Texture) {
+        rect.setSize(_size);
+        rect.setPosition(_pos);
+        rect.setTexture(_Texture);
+    }
+
+     RectangleShape getRect() {
+         return rect.getRect();
+     }
+
     void changeType(bool type);
     void notify();
 };
