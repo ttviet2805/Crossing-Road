@@ -25,8 +25,7 @@ private:
 	float deltaTime;
 	//RenderWindow* window;
 	Texture roadTexture[10];
-	Texture trafficLightTexture[5];
-	vector <Road> lstRoad;
+	vector <Road*> lstRoad;
 	View view;
 	Clock clock[10005];
 	PlayerMediator *mediator;
@@ -51,7 +50,7 @@ public:
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-			Road tmpRoad(tmpRect, 0);
+			Road* tmpRoad = new Road(tmpRect, 0);
 
 			lstRoad.push_back(tmpRoad);
 
@@ -67,27 +66,21 @@ public:
 
 			for (int j = 0; j < numRoad; j++) {
 				Rectangle otherRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
-				Road otherRoad(otherRect, roadState);
+				Road* otherRoad = new Road(otherRect, roadState);
 
 				lstRoad.push_back(otherRoad);
 
-				this->mediator->addRoad(&lstRoad[lstRoad.size() - 1]);
+				this->mediator->addRoad(lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
 
 		Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-		Road tmpRoad(tmpRect, false);
+		Road* tmpRoad = new Road(tmpRect, 0);
 
 		lstRoad.push_back(tmpRoad);
 
-		this->mediator->addRoad(lstRoad);
-
-		for (int i = 0; i < 3; i++) {
-			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
-				cout << "Loading image error\n";
-			}
-		}
+		//this->mediator->addRoad(&lstRoad);
 
 		//cout << "Here\n";
 	}
@@ -106,14 +99,14 @@ public:
 		this->window->clear(Color::White);
 
 		for (int i = 0; i < lstRoad.size(); i++) {
-			lstRoad[i].draw(*window, clock[i]);
+			lstRoad[i]->draw(*window, clock[i]);
 		}	
 			
 		player->updatePos(0.4, lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
 
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
-			if (lstRoad[i].startSearch(player->getSprite())) {
+			if (lstRoad[i]->startSearch(player->getSprite())) {
 				cout << "Collision " << i << '\n';
 			}
 		}
@@ -134,6 +127,10 @@ public:
 	}
 
 	~Game() {
+		for (int i = 0; i < lstRoad.size(); i++)
+			delete[] lstRoad[i];
+
+		lstRoad.clear();
 		cout << "Game destructor\n";
 	}
 

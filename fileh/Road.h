@@ -24,10 +24,10 @@ private:
 	double timeRand = 3;
 	Mediator* mediator;
 	TrafficLight curLight;
-	int cnt = 0;
 	
 	Texture carTexture;
 	Texture dinosaurTexture[15];
+	Texture trafficLightTexture[5];
 
 public:
 	int Rand(int l, int r) {
@@ -52,7 +52,18 @@ public:
 		
 		for(int i = 0; i <= 12; i++)
 			dinosaurTexture[i].loadFromFile(OBJECT_PATH + "Dinosaur/Dinosaur" + to_string(i) + ".jpg");
-		++cnt;
+	
+		for (int i = 0; i < 3; i++) {
+			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
+				cout << "Loading image error\n";
+			}
+		}
+
+		Vector2f curPos = roadRect.getPosition();
+
+		Rectangle tmpRect(Vector2f(30, 90), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
+		TrafficLight tmpLight(tmpRect);
+		curLight = tmpLight;
 	}
 
 	RectangleShape getRect() {
@@ -93,7 +104,7 @@ public:
 			listObject[i]->move();
 
 		window.draw(roadRect.getRect());
-		cout << cnt << endl;
+		window.draw(curLight.getRect());
 
 		for (int i = 0; i < listObject.size(); i++) {
 			window.draw(listObject[i]->getRect());
