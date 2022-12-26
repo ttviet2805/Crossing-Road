@@ -163,8 +163,10 @@ public:
 
 	~Road() {
 		for (int i = 0; i < listObject.size(); i++)
-			delete listObject[i];
+			if (listObject[i]) {
+				delete listObject[i];
+			}
 
-		delete mediator;
+		//delete mediator;
 	}
 };

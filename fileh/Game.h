@@ -127,7 +127,9 @@ public:
 
 	~Game() {
 		for (int i = 0; i < lstRoad.size(); i++)
-			delete[] lstRoad[i];
+			if (lstRoad[i]) {
+				delete lstRoad[i];
+			}
 
 		lstRoad.clear();
 		cout << "Game destructor\n";
