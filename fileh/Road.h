@@ -105,10 +105,19 @@ public:
 	void draw(sf::RenderWindow& window) {
 		if (roadState) {
 			Time elapsed = gameClock.getElapsedTime();
-			if (elapsed.asSeconds() >= timeObjectRand) {
-				generateObject(roadState);
-				timeObjectRand = randRealNumber(3.5, 7);
-				gameClock.restart();
+			if (elapsed.asSeconds() >= timeObjectRand && curLight.getState() == 0) {
+				if (listObject.size() == 0) {
+					generateObject(roadState);
+					timeObjectRand = randRealNumber(3.5, 7);
+					gameClock.restart();
+				}
+				else {
+					if (listObject.back()->getRect().getPosition().x >= 150) {
+						generateObject(roadState);
+						timeObjectRand = randRealNumber(3.5, 7);
+						gameClock.restart();
+					}
+				}
 			}
 		}
 
