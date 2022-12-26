@@ -87,8 +87,9 @@ public:
 		Vector2f curPos = roadRect.getPosition();
 
 		if (state == 2) {
-			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), dinosaurTexture[0]);
-			curObject = new Dinosaur(tmpRect, 0.1);
+			const string fileName = "assets/Image/Object/Dinosaur/";
+
+			curObject = new Dinosaur(Vector2f(100, 60), roadRect.getPosition(), 0.1, fileName, 12);
 
 			listObject.push_back(curObject);
 		}
