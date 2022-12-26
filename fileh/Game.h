@@ -119,7 +119,7 @@ public:
 		if (this->flag.collision(player->getSprite())) {
 			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
 			window->setView(view);
-			return 0;
+			return 5;
 		}
 
 		Vector2f characterPos = player->getRect().getPosition();

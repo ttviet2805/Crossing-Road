@@ -72,6 +72,9 @@
     <ClInclude Include="fileh\Animal.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\WinMenu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">

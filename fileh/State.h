@@ -33,5 +33,9 @@ public:
 		this->backgroundImg.draw(this->loadSprite);
 	}
 
+	void setPos(Vector2f pos) {
+		this->loadSprite.setPosition(pos);
+	}
+
 	virtual ~State() {}
 };

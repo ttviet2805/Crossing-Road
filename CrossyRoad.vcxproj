@@ -37,6 +37,7 @@
     <ClInclude Include="fileh\Rock.h" />
     <ClInclude Include="fileh\State.h" />
     <ClInclude Include="fileh\TrafficLight.h" />
+    <ClInclude Include="fileh\WinMenu.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

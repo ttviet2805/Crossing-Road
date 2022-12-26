@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include "../fileh/Level.h"
 #include "../fileh/Player.h"
@@ -5,6 +6,7 @@
 #include "../fileh/Menu.h"
 #include "../fileh/Game.h"
 #include "../fileh/Rectangle.h"
+#include "../fileh/WinMenu.h"
 
 using namespace sf;
 
@@ -31,19 +33,32 @@ void gameRun() {
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
+			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 1, playerMediator));
 			break;
 		case 3:
+			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 2, playerMediator));
 			break;
 		case 4:
+			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 3, playerMediator));
+			break;
+		case 5:
+			delete nxt.back();
+			nxt.pop_back();
+			nxt.push_back(new WinMenu(&window));
+			break;
+		case 6:
+			delete nxt.back();
+			nxt.pop_back();
+			nxt.push_back(new Level(&window));
 			break;
 		default:
 			break;
