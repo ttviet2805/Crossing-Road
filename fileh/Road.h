@@ -166,7 +166,6 @@ public:
 			if (listObject[i]) {
 				delete listObject[i];
 			}
-
 		//delete mediator;
 	}
 };

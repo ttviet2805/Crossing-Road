@@ -5,7 +5,7 @@
 #include <math.h>
 #include "Rectangle.h"
 
-const float MIN_DISTANCE = 12.5;
+const float MIN_DIS = 12.5;
 
 class Object_static {
 public:

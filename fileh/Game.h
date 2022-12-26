@@ -6,6 +6,7 @@
 #include "Road.h"
 #include "Player.h"
 #include "State.h"
+#include "flag.h"
 #include "PlayerMediator.h"
 
 using namespace std;
@@ -28,6 +29,8 @@ private:
 	vector <Road*> lstRoad;
 	View view;
 	PlayerMediator *mediator;
+	Texture flagTexture;
+	Flag flag;
 	
 public:
 	Game() : deltaTime(10) {}
@@ -79,6 +82,9 @@ public:
 
 		lstRoad.push_back(tmpRoad);
 
+		auto pos = tmpRoad->getRect().getPosition();
+		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
+		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + SCREEN_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
 		//this->mediator->addRoad(&lstRoad);
 
 		//cout << "Here\n";
@@ -100,6 +106,7 @@ public:
 		for (int i = 0; i < lstRoad.size(); i++) {
 			lstRoad[i]->draw(*window);
 		}	
+		this->window->draw(this->flag.getRect());
 			
 		player->updatePos(0.4, lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
@@ -108,6 +115,11 @@ public:
 			if (lstRoad[i]->startSearch(player->getSprite())) {
 				cout << "Collision " << i << '\n';
 			}
+		}
+		if (this->flag.collision(player->getSprite())) {
+			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
+			window->setView(view);
+			return 0;
 		}
 
 		Vector2f characterPos = player->getRect().getPosition();
