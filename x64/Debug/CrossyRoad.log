@@ -1,7 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1098,5): warning MSB8027: Two or more files with the name of Menu.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are filecpp\Menu.cpp, Menu.cpp.
   Level.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(92,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(99,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(90,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(97,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(105,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -162,8 +163,9 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(29,45): warning 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(92,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(99,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(90,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(97,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(105,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(105,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
@@ -175,8 +177,9 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(106,57): warnin
               T=int
           ]
   main.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(92,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(99,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(90,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(97,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(105,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [

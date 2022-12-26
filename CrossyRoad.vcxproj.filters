@@ -21,9 +21,6 @@
     <ClInclude Include="fileh\CrossyRoad.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileh\Dinosaur.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="fileh\flag.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -72,12 +69,12 @@
     <ClInclude Include="fileh\TrafficLight.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileh\Animal.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="filecpp\Car.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="filecpp\Dinosaur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\flag.cpp">
@@ -126,6 +123,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filecpp\TrafficLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecpp\Animal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

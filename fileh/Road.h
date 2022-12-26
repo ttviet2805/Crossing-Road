@@ -5,7 +5,7 @@
 #include "Rectangle.h"
 #include "Object.h"
 #include "Mediator.h"
-#include "Dinosaur.h"
+#include "Animal.h"
 #include "TrafficLight.h"
 
 using namespace sf;
@@ -29,7 +29,6 @@ private:
 	bool roadCount = 0;
 	
 	Texture carTexture;
-	Texture dinosaurTexture[15];
 	Texture trafficLightTexture[5];
 
 	Clock trafficLightClock;
@@ -56,9 +55,6 @@ public:
 		timeGreenTrafficLight = randRealNumber(4, 10);
 		
 		carTexture.loadFromFile(OBJECT_PATH + "Car/Car.png");
-		
-		for(int i = 0; i <= 12; i++)
-			dinosaurTexture[i].loadFromFile(OBJECT_PATH + "Dinosaur/Dinosaur" + to_string(i) + ".jpg");
 	
 		for (int i = 0; i < 3; i++) {
 			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
@@ -87,11 +83,21 @@ public:
 		Vector2f curPos = roadRect.getPosition();
 
 		if (state == 2) {
-			const string fileName = "assets/Image/Object/Dinosaur/";
+			int tmpState = Rand(1, 2);
+			if (tmpState == 1) {
+				const string fileName = "assets/Image/Object/Dinosaur/";
 
-			curObject = new Dinosaur(Vector2f(100, 60), roadRect.getPosition(), 0.1, fileName, 12);
+				curObject = new Animal(Vector2f(100, 60), roadRect.getPosition(), 0.1, fileName, 12);
 
-			listObject.push_back(curObject);
+				listObject.push_back(curObject);
+			}
+			else {
+				const string fileName = "assets/Image/Object/Dog/";
+
+				curObject = new Animal(Vector2f(60, 100), roadRect.getPosition(), 0.1, fileName, 12);
+
+				listObject.push_back(curObject);
+			}
 		}
 
 		if (state == 1) {
