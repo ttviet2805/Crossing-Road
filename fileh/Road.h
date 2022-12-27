@@ -35,9 +35,10 @@ private:
 	Clock gameClock;
 
 	double objectSpeed;
+	int roadDirection;
 
 public:
-	int Rand(int l, int r) {
+	int randIntegerNumber(int l, int r) {
 		return l + (rand()) % (r - l + 1);
 	}
 
@@ -51,12 +52,21 @@ public:
 		roadRect = _Rect;
 		isStop = 0;
 		roadState = _roadState;
-		objectSpeed = _objectSpeed;
 		this->mediator = mediator;
 		timeObjectRand = randRealNumber(3, 7);
 		timeGreenTrafficLight = randRealNumber(4, 10);
-		
-		carTexture.loadFromFile(OBJECT_PATH + "Car/Car.png");
+
+		roadDirection = randIntegerNumber(0, 1);
+		if (roadDirection == 0)
+			objectSpeed = _objectSpeed;
+		else objectSpeed = -_objectSpeed;
+
+
+		if(roadDirection == 0)
+			carTexture.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
+		else {
+			carTexture.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
+		}
 	
 		for (int i = 0; i < 3; i++) {
 			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
@@ -85,18 +95,25 @@ public:
 		Vector2f curPos = roadRect.getPosition();
 
 		if (state == 2) {
-			int tmpState = Rand(1, 2);
+			int tmpState = randIntegerNumber(1, 2);
 			if (tmpState == 1) {
-				const string fileName = "assets/Image/Object/Dinosaur/";
+				string fileName = "assets/Image/Object/Dinosaur/Left-Right/";
+				if (roadDirection) fileName = "assets/Image/Object/Dinosaur/Right-Left/";
 
-				curObject = new Animal(Vector2f(100, 60), roadRect.getPosition(), objectSpeed, fileName, 12);
+				Vector2f roadPos = roadRect.getPosition();
+				if (roadDirection) roadPos.x = SCREEN_WIDTH;
+
+				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, fileName, 12);
 
 				listObject.push_back(curObject);
 			}
 			else {
-				const string fileName = "assets/Image/Object/Dog/";
+				string fileName = "assets/Image/Object/Dog/Left-Right/";
+				if (roadDirection) fileName = "assets/Image/Object/Dog/Right-Left/";
 
-				curObject = new Animal(Vector2f(60, 100), roadRect.getPosition(), objectSpeed, fileName, 12);
+				Vector2f roadPos = roadRect.getPosition();
+				if (roadDirection) roadPos.x = SCREEN_WIDTH;
+				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, fileName, 12);
 
 				listObject.push_back(curObject);
 			}
@@ -104,6 +121,10 @@ public:
 
 		if (state == 1) {
 			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), carTexture);
+			if (roadDirection) {
+				tmpRect.setPosition(Vector2f(SCREEN_WIDTH - 30, curPos.y));
+			}
+
 			curObject = new Car(tmpRect, objectSpeed);
 
 			listObject.push_back(curObject);
@@ -156,7 +177,13 @@ public:
 			bool state = true;
 
 			for (int i = 0; i < listObject.size(); i++) {
-				if (listObject[i]->getRect().getPosition().x >= SCREEN_WIDTH) {
+				if (listObject[i]->getRect().getPosition().x > SCREEN_WIDTH) {
+					state = false;
+					listObject.erase(listObject.begin() + i, listObject.begin() + i + 1);
+					break;
+				}
+
+				if (listObject[i]->getRect().getPosition().x < 0) {
 					state = false;
 					listObject.erase(listObject.begin() + i, listObject.begin() + i + 1);
 					break;
@@ -173,11 +200,12 @@ public:
 			
 
 		window.draw(roadRect.getRect());
-		window.draw(curLight.getRect());
 
 		for (int i = 0; i < listObject.size(); i++) {
 			window.draw(listObject[i]->getRect());
 		}
+
+		window.draw(curLight.getRect());
 	}
 
 	int startSearch(Rectangle src) {
