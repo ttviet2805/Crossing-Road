@@ -164,15 +164,18 @@ public:
 		}
 	}
 
-	bool startSearch(Rectangle src) {
+	int startSearch(Rectangle src) {
 		this->search = this->roadRect.isCollision(src);
 		if (this->search) {
 			for (int i = 0; i < (int)this->listObject.size(); i++) {
 				if (this->listObject[i]->collision(src)) {
-					cout << "Collision\n";
-					return true;
+					cout << "Road Collision\n";
+					//auto pos = this->getRect().getPosition();
+					//this->mediator->returnLastPos(pos.x, pos.y);
+					return 2;
 				}
 			}
+			return (this->roadState == 0);
 		}
 		return false;
 	}

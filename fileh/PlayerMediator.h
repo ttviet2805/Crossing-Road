@@ -9,6 +9,7 @@
 
 class PlayerMediator: public Mediator {
 private:
+    Road* lastPavement;
     std::vector <Road*> road;
     Player* player;
 public:
@@ -40,8 +41,14 @@ public:
         ptr=nullptr;
     }
 
-    void returnLastPos(float x, float y) {
-        player->setPos(x, y);
+    void updateLastPavement(int pos) {
+        //cout << "Update pavement " << pos << '\n';
+        this->lastPavement = this->road[pos];
+    }
+
+    void returnLastPos() {
+        auto pos = this->lastPavement->getRect().getPosition();
+        player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y);
     }
 };
 #endif

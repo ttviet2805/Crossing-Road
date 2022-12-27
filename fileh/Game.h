@@ -55,7 +55,8 @@ public:
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-			Road* tmpRoad = new Road(tmpRect, 0);
+			Road* tmpRoad = new Road(tmpRect, 0, this->mediator);
+			this->mediator->addRoad(tmpRoad);
 
 			lstRoad.push_back(tmpRoad);
 
@@ -71,25 +72,26 @@ public:
 
 			for (int j = 0; j < numRoad; j++) {
 				Rectangle otherRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
-				Road* otherRoad = new Road(otherRect, roadState);
-
+				Road* otherRoad = new Road(otherRect, roadState, this->mediator);
+				this->mediator->addRoad(otherRoad);
 				lstRoad.push_back(otherRoad);
 
-				this->mediator->addRoad(lstRoad[lstRoad.size() - 1]);
+
+				//this->mediator->addRoad(lstRoad[lstRoad.size() - 1]);
 				cnt++;
 			}
 		}
 
 		Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-		Road* tmpRoad = new Road(tmpRect, 0);
-
+		Road* tmpRoad = new Road(tmpRect, 0, this->mediator);
+		this->mediator->addRoad(tmpRoad);
 		lstRoad.push_back(tmpRoad);
 
 		auto pos = tmpRoad->getRect().getPosition();
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
 		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + SCREEN_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
 		//this->mediator->addRoad(&lstRoad);
-
+			
 		//cout << "Here\n";
 	}
 
@@ -121,8 +123,13 @@ public:
 		player->updateSprite(0.5);
 
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
-			if (lstRoad[i]->startSearch(player->getSprite())) {
-				cout << "Collision " << i << '\n';
+			int ans = lstRoad[i]->startSearch(player->getSprite());
+			if (ans == 1) {
+				this->mediator->updateLastPavement(i);
+				
+			}
+			else if (ans == 2) {
+				this->mediator->returnLastPos();
 			}
 		}
 		if (this->flag.collision(player->getSprite())) {
