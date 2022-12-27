@@ -13,10 +13,10 @@ private:
     std::vector <Road*> road;
     Player* player;
 public:
-    PlayerMediator(): road({}), player(nullptr) {};
-    PlayerMediator(const std::vector<Road*> &road): road(road), player(nullptr) {};
-    PlayerMediator(Player* player): road({}), player(player) {};
-    PlayerMediator(const PlayerMediator &other): road(other.road), player(other.player) {};
+    PlayerMediator(): road({}), player(nullptr), lastPavement(nullptr) {};
+    PlayerMediator(const std::vector<Road*> &road): road(road), player(nullptr), lastPavement(nullptr) {};
+    PlayerMediator(Player* player): road({}), player(player), lastPavement(nullptr) {};
+    PlayerMediator(const PlayerMediator &other): road(other.road), player(other.player), lastPavement(nullptr) {};
     ~PlayerMediator() {
         /*while(road.size()) {
             Road* back=road.back();
@@ -44,11 +44,16 @@ public:
     void updateLastPavement(int pos) {
         //cout << "Update pavement " << pos << '\n';
         this->lastPavement = this->road[pos];
+        //cout << (this->lastPavement == nullptr) << '\n';
     }
 
     void returnLastPos() {
         auto pos = this->lastPavement->getRect().getPosition();
-        player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y);
+        player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y / 5);
+    }
+
+    void clear() {
+        this->road.clear();
     }
 };
 #endif

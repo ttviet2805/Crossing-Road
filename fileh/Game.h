@@ -56,7 +56,9 @@ public:
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
 			Road* tmpRoad = new Road(tmpRect, 0, this->mediator);
+			cout << ((tmpRoad == nullptr) ? "Empty road" : "Lol") << '\n';
 			this->mediator->addRoad(tmpRoad);
+			
 
 			lstRoad.push_back(tmpRoad);
 

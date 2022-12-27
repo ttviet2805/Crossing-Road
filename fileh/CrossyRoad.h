@@ -38,7 +38,7 @@ void gameRun() {
 			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
-			playerMediator->addRoad({});
+			playerMediator->clear();
 			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
 		/*case 3:
