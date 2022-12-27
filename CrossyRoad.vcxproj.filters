@@ -122,9 +122,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="filecpp\TrafficLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

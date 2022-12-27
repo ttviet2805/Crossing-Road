@@ -1,5 +1,4 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1118,5): warning MSB8027: Two or more files with the name of Menu.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are filecpp\Menu.cpp, Menu.cpp.
-  main.cpp
+﻿  main.cpp
 C:\Work\CS202\CrossyRoad\fileh\Road.h(90,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Work\CS202\CrossyRoad\fileh\Road.h(97,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Work\CS202\CrossyRoad\fileh\Road.h(105,1): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -88,7 +87,7 @@ C:\Work\CS202\CrossyRoad\fileh\Level.h(74,52): warning C4244: 'argument': conver
           [
               T=float
           ]
-C:\Work\CS202\CrossyRoad\fileh\Level.h(78,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(61,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -97,7 +96,7 @@ C:\Work\CS202\CrossyRoad\fileh\Level.h(78,59): warning C4244: 'argument': conver
           [
               T=float
           ]
-C:\Work\CS202\CrossyRoad\fileh\Level.h(78,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(61,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -106,7 +105,7 @@ C:\Work\CS202\CrossyRoad\fileh\Level.h(78,52): warning C4244: 'argument': conver
           [
               T=float
           ]
-C:\Work\CS202\CrossyRoad\fileh\Level.h(82,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(65,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -115,43 +114,7 @@ C:\Work\CS202\CrossyRoad\fileh\Level.h(82,59): warning C4244: 'argument': conver
           [
               T=float
           ]
-C:\Work\CS202\CrossyRoad\fileh\Level.h(82,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Work\CS202\CrossyRoad\fileh\Menu.h(54,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Work\CS202\CrossyRoad\fileh\Menu.h(58,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Work\CS202\CrossyRoad\fileh\Menu.h(65,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int

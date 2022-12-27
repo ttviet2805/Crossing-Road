@@ -38,18 +38,18 @@ void gameRun() {
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 1, playerMediator));
 			break;
-		case 3:
+		/*case 3:
 			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 2, playerMediator));
-			break;
-		case 4:
+			break;*/
+		/*case 4:
 			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Game(&window, 3, playerMediator));
-			break;
+			break;*/
 		case 5:
 			delete nxt.back();
 			nxt.pop_back();

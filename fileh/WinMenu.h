@@ -21,7 +21,7 @@ public:
 	}
 
 	void setupButton() {
-		this->texture[0].loadFromFile("assets/image/Button/Replay.png");
+		this->texture[0].loadFromFile("assets/image/Button/NextLv.png");
 		this->button[0] = Rectangle(
 			sf::Vector2f(266, 67),
 			sf::Vector2f(SCREEN_WIDTH / 2 + (700 / 2 - 133), 763 / 2 - 100),
@@ -51,7 +51,7 @@ public:
 				}
 
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 6;
+					return 2;
 				}
 			}
 		}

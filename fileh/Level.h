@@ -75,13 +75,13 @@ public:
 					return 2;
 				}
 
-				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				/*if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 3;
-				}
+				}*/
 
-				if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				/*if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 4;
-				}
+				}*/
 			}
 		}
 
