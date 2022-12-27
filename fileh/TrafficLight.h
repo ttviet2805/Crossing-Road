@@ -16,7 +16,6 @@ public:
     }
 
     void setTexture(Texture& _texture) {
-        cout << "Change here\n";
         rect.setTexture(_texture);
     }
 

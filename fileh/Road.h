@@ -34,6 +34,8 @@ private:
 	Clock trafficLightClock;
 	Clock gameClock;
 
+	double objectSpeed;
+
 public:
 	int Rand(int l, int r) {
 		return l + (rand()) % (r - l + 1);
@@ -45,11 +47,11 @@ public:
 		return r3;
 	}
 
-	Road(Rectangle _Rect, int _roadState, Mediator *mediator = nullptr) {
-		cout << "Road spawn";
+	Road(Rectangle _Rect, int _roadState, double _objectSpeed, Mediator *mediator = nullptr) {
 		roadRect = _Rect;
 		isStop = 0;
 		roadState = _roadState;
+		objectSpeed = _objectSpeed;
 		this->mediator = mediator;
 		timeObjectRand = randRealNumber(3, 7);
 		timeGreenTrafficLight = randRealNumber(4, 10);
@@ -87,14 +89,14 @@ public:
 			if (tmpState == 1) {
 				const string fileName = "assets/Image/Object/Dinosaur/";
 
-				curObject = new Animal(Vector2f(100, 60), roadRect.getPosition(), 0.1, fileName, 12);
+				curObject = new Animal(Vector2f(100, 60), roadRect.getPosition(), objectSpeed, fileName, 12);
 
 				listObject.push_back(curObject);
 			}
 			else {
 				const string fileName = "assets/Image/Object/Dog/";
 
-				curObject = new Animal(Vector2f(60, 100), roadRect.getPosition(), 0.1, fileName, 12);
+				curObject = new Animal(Vector2f(60, 100), roadRect.getPosition(), objectSpeed, fileName, 12);
 
 				listObject.push_back(curObject);
 			}
@@ -102,7 +104,7 @@ public:
 
 		if (state == 1) {
 			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), carTexture);
-			curObject = new Car(tmpRect, 0.1);
+			curObject = new Car(tmpRect, objectSpeed);
 
 			listObject.push_back(curObject);
 		}
@@ -132,7 +134,6 @@ public:
 				Time elapsed = trafficLightClock.getElapsedTime();
 
 				if (elapsed.asSeconds() >= timeGreenTrafficLight) {
-					cout << "Red mode\n";
 					curLight.setTexture(trafficLightTexture[2]);
 					trafficLightClock.restart();
 					curLight.changeType(2);
@@ -150,6 +151,21 @@ public:
 				}
 			}
 		}
+
+		while (listObject.size() > 0) {
+			bool state = true;
+
+			for (int i = 0; i < listObject.size(); i++) {
+				if (listObject[i]->getRect().getPosition().x >= SCREEN_WIDTH) {
+					state = false;
+					listObject.erase(listObject.begin() + i, listObject.begin() + i + 1);
+					break;
+				}
+			}
+
+			if (state) break;
+		}
+
 
 		for (int i = 0; i < listObject.size(); i++) {
 			if(curLight.getState() == 0) listObject[i]->move();

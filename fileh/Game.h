@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include "Rectangle.h"
 #include "Road.h"
@@ -17,13 +18,9 @@ const string ROADPATH = "assets/image/Road/Road";
 const int ROADSIZE = 100;
 const int DISTANCE = 1;
 
-int Rand(int l, int r) {
-	return l + (rand()) % (r - l + 1);
-}
-
 class Game : public State {
 private:
-	int* level;
+	
 	float deltaTime;
 	//RenderWindow* window;
 	Texture roadTexture[10];
@@ -32,17 +29,29 @@ private:
 	PlayerMediator *mediator;
 	Texture flagTexture;
 	Flag flag;
+
+	// Game level management
+	int* level;
 	int leftLimRoad, rightLimRoad, numPavement;
+	double objectSpeed;
 	
 public:
+	int randIntegerNumber(int l, int r) {
+		return l + (rand()) % (r - l + 1);
+	}
+
 	Game() : deltaTime(10), level(nullptr) {}
 
 	Game(RenderWindow* window, int* difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
 		this->level = difficulty;
 		cout << "Level: " << (*this->level) << '\n';
-		leftLimRoad = 1, rightLimRoad = 3, numPavement = 10;
-		//if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
-		//if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
+
+		const string LEVEL_PATH = "assets/Level/Level";
+		string curPath = LEVEL_PATH + to_string(*level) + ".txt";
+		
+		ifstream fin(curPath);
+		fin >> numPavement >> leftLimRoad >> rightLimRoad >> objectSpeed;
+		fin.close();
 
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -55,15 +64,13 @@ public:
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-			Road* tmpRoad = new Road(tmpRect, 0, this->mediator);
-			cout << ((tmpRoad == nullptr) ? "Empty road" : "Lol") << '\n';
+			Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
 			this->mediator->addRoad(tmpRoad);
-			
 
 			lstRoad.push_back(tmpRoad);
 
-			int numRoad = Rand(leftLimRoad, rightLimRoad);
-			int state = Rand(1, 7);
+			int numRoad = randIntegerNumber(leftLimRoad, rightLimRoad);
+			int state = randIntegerNumber(1, 7);
 			int roadState = 1;
 
 			if (state >= 5 && state <= 7) state = 5, roadState = 2;
@@ -74,10 +81,9 @@ public:
 
 			for (int j = 0; j < numRoad; j++) {
 				Rectangle otherRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
-				Road* otherRoad = new Road(otherRect, roadState, this->mediator);
+				Road* otherRoad = new Road(otherRect, roadState, objectSpeed, this->mediator);
 				this->mediator->addRoad(otherRoad);
 				lstRoad.push_back(otherRoad);
-
 
 				//this->mediator->addRoad(lstRoad[lstRoad.size() - 1]);
 				cnt++;
@@ -85,7 +91,7 @@ public:
 		}
 
 		Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-		Road* tmpRoad = new Road(tmpRect, 0, this->mediator);
+		Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
 		this->mediator->addRoad(tmpRoad);
 		lstRoad.push_back(tmpRoad);
 
