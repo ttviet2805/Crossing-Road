@@ -20,6 +20,8 @@ void gameRun() {
 	PlayerMediator *playerMediator = new PlayerMediator(&player);
 	player.addMediator(playerMediator);
 
+	int difficulty = 1;
+
 	while (window.isOpen() && !nxt.empty()) {
 		//std::cout << "here\n";
 		int type = nxt.back()->run(&player);
@@ -36,7 +38,7 @@ void gameRun() {
 			player.setPos(0, 0);
 			delete nxt.back();
 			nxt.pop_back();
-			nxt.push_back(new Game(&window, 1, playerMediator));
+			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
 		/*case 3:
 			player.setPos(0, 0);

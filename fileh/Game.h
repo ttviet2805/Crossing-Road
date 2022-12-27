@@ -23,6 +23,7 @@ int Rand(int l, int r) {
 
 class Game : public State {
 private:
+	int* level;
 	float deltaTime;
 	//RenderWindow* window;
 	Texture roadTexture[10];
@@ -31,15 +32,17 @@ private:
 	PlayerMediator *mediator;
 	Texture flagTexture;
 	Flag flag;
+	int leftLimRoad, rightLimRoad, numPavement;
 	
 public:
-	Game() : deltaTime(10) {}
+	Game() : deltaTime(10), level(nullptr) {}
 
-	Game(RenderWindow* window, int difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
-		int leftLimRoad, rightLimRoad, numPavement;
-		if (difficulty == 1) leftLimRoad = 1, rightLimRoad = 3, numPavement = 10;
-		if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
-		if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
+	Game(RenderWindow* window, int* difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
+		this->level = difficulty;
+		cout << "Level: " << (*this->level) << '\n';
+		leftLimRoad = 1, rightLimRoad = 3, numPavement = 10;
+		//if (difficulty == 2) leftLimRoad = 2, rightLimRoad = 4, numPavement = 15;
+		//if (difficulty == 3) leftLimRoad = 3, rightLimRoad = 5, numPavement = 20;
 
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -90,6 +93,10 @@ public:
 		//cout << "Here\n";
 	}
 
+	void setDifficulty() {
+		
+	}
+
 	int run(Player* player) {
 		player->addMediator(this->mediator);
 		sf::Event event;
@@ -107,8 +114,10 @@ public:
 			lstRoad[i]->draw(*window);
 		}	
 		this->window->draw(this->flag.getRect());
-			
-		player->updatePos(0.4, lstRoad.size() * (ROADSIZE + DISTANCE));
+		
+		player->changeSpeed(-(*level) * 0.015f);
+		player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
+		player->changeSpeed((*level) * 0.015f);
 		player->updateSprite(0.5);
 
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
@@ -119,6 +128,7 @@ public:
 		if (this->flag.collision(player->getSprite())) {
 			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
 			window->setView(view);
+			(*this->level)++;
 			return 5;
 		}
 
