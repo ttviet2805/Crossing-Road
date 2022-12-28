@@ -123,7 +123,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Menu.h(65,52): warning C
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(86,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(129,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

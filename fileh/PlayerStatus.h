@@ -17,6 +17,14 @@ private:
 
 	Text groupText;
 
+	// Item
+	Texture heartTexture;
+	Rectangle heartRect;
+	Text heartText;
+
+	Texture speedTexture;
+	Rectangle speedRect;
+
 public:
 	Status() {
 		const string PATH = "assets/Image/PlayerStatus/Status.jpg";
@@ -62,12 +70,35 @@ public:
 		characterSkin.setPosition(Vector2f(backgroundPos.x + 33, backgroundPos.y + 35));
 		characterSkin.setSize(Vector2f(200, 230));
 		characterSkin.setTexture(characterSkinTexture);
+
+		// Heart
+		const string HEART_PATH = "assets/Image/Item/Heart/Item0.jpg";
+		if (!heartTexture.loadFromFile(HEART_PATH)) {
+			cout << "Loading heart error\n";
+		}
+		heartRect.setPosition(Vector2f(rectPos.x + 50, rectPos.y + 120));
+		heartRect.setSize(Vector2f(40, 40));
+		heartRect.setTexture(heartTexture);
+
+		heartText.setFont(font);
+		heartText.setString(" : 2");
+		heartText.setCharacterSize(40);
+		heartText.setStyle(Text::Bold);
+
+		// Speed
+		const string SPEED_PATH = "assets/Image/Item/Speed/Item0.jpg";
+		if (!speedTexture.loadFromFile(SPEED_PATH)) {
+			cout << "Loading heart error\n";
+		}
+		speedRect.setPosition(Vector2f(rectPos.x + 50, rectPos.y + 180));
+		speedRect.setSize(Vector2f(40, 40));
+		speedRect.setTexture(speedTexture);
 	}
 	void draw(sf::RenderWindow& window) {
 		window.draw(rect.getRect());
 
 		const Vector2f statusPos = rect.getPosition();
-		characterBackgroundRect.setPosition(Vector2f(statusPos.x + 10, statusPos.y + 250));
+		characterBackgroundRect.setPosition(Vector2f(statusPos.x + 10, statusPos.y + 280));
 		window.draw(characterBackgroundRect.getRect());
 		
 		levelText.setPosition(Vector2f(statusPos.x + 65, statusPos.y + 30));
@@ -79,6 +110,18 @@ public:
 		Vector2f backgroundPos = characterBackgroundRect.getPosition();
 		characterSkin.setPosition(Vector2f(backgroundPos.x + 33, backgroundPos.y + 35));
 		window.draw(characterSkin.getRect());
+
+
+		// Heart draw
+		heartRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 120));
+		window.draw(heartRect.getRect());
+		heartText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 110));
+		window.draw(heartText);
+
+		// Speed draw
+		speedRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 180));
+		window.draw(speedRect.getRect());
+
 	}
 
 	void setPosition(int posY) {
