@@ -31,6 +31,7 @@
     <ClInclude Include="fileh\Object_static.h" />
     <ClInclude Include="fileh\Player.h" />
     <ClInclude Include="fileh\PlayerMediator.h" />
+    <ClInclude Include="fileh\PlayerStatus.h" />
     <ClInclude Include="fileh\Point.h" />
     <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Road.h" />

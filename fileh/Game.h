@@ -9,13 +9,14 @@
 #include "State.h"
 #include "flag.h"
 #include "PlayerMediator.h"
+#include "PlayerStatus.h"
 
 using namespace std;
 using namespace sf;
 
 const string ROADPATH = "assets/image/Road/Road";
 
-const int ROADSIZE = 100;
+const int ROADSIZE = 80;
 const int DISTANCE = 1;
 
 class Game : public State {
@@ -34,6 +35,9 @@ private:
 	int* level;
 	int leftLimRoad, rightLimRoad, numPavement;
 	double objectSpeed;
+
+	// Status
+	Status playerStatus;
 	
 public:
 	int randIntegerNumber(int l, int r) {
@@ -63,7 +67,7 @@ public:
 
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
-			Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
+			Rectangle tmpRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
 			Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
 			this->mediator->addRoad(tmpRoad);
 
@@ -80,7 +84,7 @@ public:
 			cnt++;
 
 			for (int j = 0; j < numRoad; j++) {
-				Rectangle otherRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
+				Rectangle otherRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
 				Road* otherRoad = new Road(otherRect, roadState, objectSpeed, this->mediator);
 				this->mediator->addRoad(otherRoad);
 				lstRoad.push_back(otherRoad);
@@ -90,14 +94,14 @@ public:
 			}
 		}
 
-		Rectangle tmpRect(Vector2f(SCREEN_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
+		Rectangle tmpRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
 		Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
 		this->mediator->addRoad(tmpRoad);
 		lstRoad.push_back(tmpRoad);
 
 		auto pos = tmpRoad->getRect().getPosition();
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
-		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + SCREEN_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
+		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
 		//this->mediator->addRoad(&lstRoad);
 			
 		//cout << "Here\n";
@@ -114,6 +118,10 @@ public:
 			if (event.type == Event::Closed) {
 				view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
 				window->setView(view);
+
+				int viewPos = view.getCenter().y - view.getSize().y / 2;
+				//cout << viewPos << endl;
+				playerStatus.setPosition(viewPos);
 				return 0;
 			}
 		}
@@ -155,7 +163,12 @@ public:
 		view.setCenter(characterPos);
 		window->setView(view);
 
+		int viewPos = view.getCenter().y - view.getSize().y / 2;
+		//cout << viewPos << endl;
+		playerStatus.setPosition(viewPos);
+
 		player->draw(*window);
+		playerStatus.draw(*window);
 		window->display();
 
 		player->addMediator(nullptr);

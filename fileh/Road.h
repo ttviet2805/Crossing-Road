@@ -77,7 +77,7 @@ public:
 		Vector2f curPos = roadRect.getPosition();
 
 		if (roadState == 1) {
-			Rectangle tmpRect(Vector2f(30, 90), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
+			Rectangle tmpRect(Vector2f(25, 70), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
 			TrafficLight tmpLight(tmpRect);
 			curLight = tmpLight;
 		}
@@ -101,7 +101,7 @@ public:
 				if (roadDirection) fileName = "assets/Image/Object/Dinosaur/Right-Left/";
 
 				Vector2f roadPos = roadRect.getPosition();
-				if (roadDirection) roadPos.x = SCREEN_WIDTH;
+				if (roadDirection) roadPos.x = GAME_WIDTH;
 
 				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, fileName, 12);
 
@@ -112,7 +112,7 @@ public:
 				if (roadDirection) fileName = "assets/Image/Object/Dog/Right-Left/";
 
 				Vector2f roadPos = roadRect.getPosition();
-				if (roadDirection) roadPos.x = SCREEN_WIDTH;
+				if (roadDirection) roadPos.x = GAME_WIDTH;
 				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, fileName, 12);
 
 				listObject.push_back(curObject);
@@ -122,7 +122,7 @@ public:
 		if (state == 1) {
 			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), carTexture);
 			if (roadDirection) {
-				tmpRect.setPosition(Vector2f(SCREEN_WIDTH - 30, curPos.y));
+				tmpRect.setPosition(Vector2f(GAME_WIDTH - 30, curPos.y));
 			}
 
 			curObject = new Car(tmpRect, objectSpeed);
@@ -177,7 +177,7 @@ public:
 			bool state = true;
 
 			for (int i = 0; i < listObject.size(); i++) {
-				if (listObject[i]->getRect().getPosition().x > SCREEN_WIDTH) {
+				if (listObject[i]->getRect().getPosition().x > GAME_WIDTH) {
 					state = false;
 					listObject.erase(listObject.begin() + i, listObject.begin() + i + 1);
 					break;

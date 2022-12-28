@@ -4,8 +4,10 @@
 using namespace std;
 using namespace sf;
 
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+const int SCREEN_WIDTH = 1366;
+const int SCREEN_HEIGHT = 768;
+const int GAME_WIDTH = 1080;
+const int GAME_HEIGHT = 768;
 
 class Rectangle {
 private:
@@ -75,7 +77,7 @@ public:
 		}
 		else {
 			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-				if (Rect.getPosition().x + dentaTime + Rect.getSize().x < SCREEN_WIDTH)
+				if (Rect.getPosition().x + dentaTime + Rect.getSize().x < GAME_WIDTH)
 					Rect.move(dentaTime, 0);
 			}
 			else {

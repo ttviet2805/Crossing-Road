@@ -12,7 +12,7 @@ using namespace sf;
 
 void gameRun() {
 	RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
-	Player player(Vector2u(10, 2), 0.1, Vector2f(40, 80), Vector2f(0, 0), 64, 120, "assets/image/human_walk_sprite.png");
+	Player player(Vector2u(10, 2), 0.1, Vector2f(30, 65), Vector2f(0, 0), 64, 120, "assets/image/human_walk_sprite.png");
 
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
