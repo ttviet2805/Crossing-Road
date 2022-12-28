@@ -7,6 +7,7 @@
 #include "../fileh/Game.h"
 #include "../fileh/Rectangle.h"
 #include "../fileh/WinMenu.h"
+#include "../fileh/LoseMenu.h"
 
 using namespace sf;
 
@@ -59,6 +60,11 @@ void gameRun() {
 			nxt.push_back(new WinMenu(&window));
 			break;
 		case 6:
+			delete nxt.back();
+			nxt.pop_back();
+			nxt.push_back(new LoseMenu(&window));
+			break;
+		case 7:
 			delete nxt.back();
 			nxt.pop_back();
 			nxt.push_back(new Level(&window));

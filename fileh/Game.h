@@ -141,6 +141,8 @@ public:
 		player->changeSpeed((*level) * 0.015f);
 		player->updateSprite(0.5);
 
+		bool endGame = 0;
+
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
 			int ans = lstRoad[i]->startSearch(player->getSprite());
 			if (ans == 1) {
@@ -148,7 +150,7 @@ public:
 				
 			}
 			else if (ans == 2) {
-				player->updateHeartText(-1);
+				endGame = player->updateHeartText(-1);
 				this->mediator->returnLastPos();
 			}
 		}
@@ -176,6 +178,14 @@ public:
 		window->display();
 
 		player->addMediator(nullptr);
+
+		if (endGame) {
+			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
+			window->setView(view);
+			(*this->level) = 1;
+			return 6;
+		}
+
 		return 10;
 	}
 

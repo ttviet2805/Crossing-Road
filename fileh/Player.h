@@ -141,7 +141,7 @@ public:
 		this->mediator = src;
 	}
 
-	void updateHeartText(int val) {
+	bool updateHeartText(int val) {
 		this->life += val;
 		std::string need = "";
 		int heart = life;
@@ -152,6 +152,8 @@ public:
 		reverse(need.begin(), need.end());
 		if (need.empty()) need = "0";
 		this->mediator->updateHeartText(need);
+
+		return this->life < 0;
 	}
 
 	void changeSpeed(float speed);
