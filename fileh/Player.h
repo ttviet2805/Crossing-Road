@@ -38,7 +38,7 @@ public:
 	Player(sf::Vector2u imageCount, float switchTime, Vector2f _Size, Vector2f _position, float imgLength = 64.0, float imgHeight = 128.0,
 		string imgPath = "") :
 		imageCount(imageCount), switchTime(switchTime), curSpeed(0.7f), face(0), imgLength(imgLength),
-		imgHeight(imgHeight), imgPath(imgPath), life(100), name("")
+		imgHeight(imgHeight), imgPath(imgPath), life(1), name("")
 	{
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;

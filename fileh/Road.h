@@ -17,7 +17,7 @@ class Road {
 private:
 	Rectangle roadRect;
 	vector <Object*> listObject;
-	int roadState  = 0;
+	int roadState = 0;
 	double timeObjectRand;
 	double timeGreenTrafficLight;
 	double timeRedTraficLight = 3;
@@ -27,7 +27,7 @@ private:
 	bool search = 0;
 	bool isStop = 0;
 	bool roadCount = 0;
-	
+
 	Texture carTexture;
 	Texture trafficLightTexture[5];
 
@@ -48,7 +48,7 @@ public:
 		return r3;
 	}
 
-	Road(Rectangle _Rect, int _roadState, double _objectSpeed, Mediator *mediator = nullptr) {
+	Road(Rectangle _Rect, int _roadState, double _objectSpeed, Mediator* mediator = nullptr) {
 		roadRect = _Rect;
 		isStop = 0;
 		roadState = _roadState;
@@ -62,12 +62,12 @@ public:
 		else objectSpeed = -_objectSpeed;
 
 
-		if(roadDirection == 0)
+		if (roadDirection == 0)
 			carTexture.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
 		else {
 			carTexture.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
 		}
-	
+
 		for (int i = 0; i < 3; i++) {
 			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
 				cout << "Loading image error\n";
@@ -141,10 +141,21 @@ public:
 					gameClock.restart();
 				}
 				else {
-					if (listObject.back()->getRect().getPosition().x >= 150) {
-						generateObject(roadState);
-						timeObjectRand = randRealNumber(3.5, 7);
+					if (listObject.size() > 6) {
 						gameClock.restart();
+						timeObjectRand = randRealNumber(3.5, 7);
+					}
+					else {
+						if (roadDirection == 0 && listObject.back()->getRect().getPosition().x >= 150) {
+							generateObject(roadState);
+							timeObjectRand = randRealNumber(3.5, 7);
+							gameClock.restart();
+						}
+						if (roadDirection == 1 && listObject.back()->getRect().getPosition().x <= GAME_WIDTH - 150) {
+							generateObject(roadState);
+							timeObjectRand = randRealNumber(3.5, 7);
+							gameClock.restart();
+						}
 					}
 				}
 			}
@@ -195,9 +206,9 @@ public:
 
 
 		for (int i = 0; i < listObject.size(); i++) {
-			if(curLight.getState() == 0) listObject[i]->move();
+			if (curLight.getState() == 0) listObject[i]->move();
 		}
-			
+
 
 		window.draw(roadRect.getRect());
 
