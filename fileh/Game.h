@@ -102,8 +102,8 @@ public:
 		auto pos = tmpRoad->getRect().getPosition();
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
 		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
-		//this->mediator->addRoad(&lstRoad);
-			
+		this->mediator->addStatus(&this->playerStatus);
+		
 		//cout << "Here\n";
 	}
 
@@ -113,6 +113,9 @@ public:
 
 	int run(Player* player) {
 		player->addMediator(this->mediator);
+		player->updateHeartText(0);
+		this->updateLevelText();
+		//player->addStatusTracker(&this->playerStatus);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
 			if (event.type == Event::Closed) {
@@ -145,6 +148,7 @@ public:
 				
 			}
 			else if (ans == 2) {
+				player->updateHeartText(-1);
 				this->mediator->returnLastPos();
 			}
 		}
@@ -183,6 +187,20 @@ public:
 
 		lstRoad.clear();
 		cout << "Game destructor\n";
+	}
+
+	void updateLevelText() {
+		std::string add = "Level ";
+		int cur = *this->level;
+		std::string need = "";
+		while (cur > 0) {
+			need += ((cur % 10) + '0');
+			cur /= 10;
+		}
+		reverse(need.begin(), need.end());
+		if (need.empty()) need = "...";
+		add += need;
+		this->mediator->updateLevelText(add);
 	}
 
 	friend class PlayerMediator;

@@ -124,6 +124,14 @@ public:
 
 	}
 
+	void setHeartString(std::string str) {
+		this->heartText.setString(str);
+	}
+
+	void setLevelString(std::string str) {
+		this->levelText.setString(str);
+	}
+
 	void setPosition(int posY) {
 		Vector2f curPos = rect.getPosition();
 		rect.setPosition(Vector2f(curPos.x, posY));

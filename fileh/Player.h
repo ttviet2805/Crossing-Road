@@ -21,7 +21,11 @@ private:
 	float totalTime, switchTime;
 
 	float imgLength, imgHeight;
+
+	//character info
 	std::string name;
+	int life;
+
 	Mediator *mediator;
 
 	sf::Clock clock;
@@ -34,7 +38,7 @@ public:
 	Player(sf::Vector2u imageCount, float switchTime, Vector2f _Size, Vector2f _position, float imgLength = 64.0, float imgHeight = 128.0,
 		string imgPath = "") :
 		imageCount(imageCount), switchTime(switchTime), curSpeed(0.7f), face(0), imgLength(imgLength),
-		imgHeight(imgHeight), imgPath(imgPath) 
+		imgHeight(imgHeight), imgPath(imgPath), life(100), name("")
 	{
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
@@ -135,6 +139,19 @@ public:
 
 	void addMediator(Mediator* src) {
 		this->mediator = src;
+	}
+
+	void updateHeartText(int val) {
+		this->life += val;
+		std::string need = "";
+		int heart = life;
+		while (heart > 0) {
+			need += ((heart % 10) + '0'); 
+			heart /= 10;
+		}
+		reverse(need.begin(), need.end());
+		if (need.empty()) need = "0";
+		this->mediator->updateHeartText(need);
 	}
 
 	void changeSpeed(float speed);

@@ -6,12 +6,14 @@
 #include "Point.h"
 #include "Road.h"
 #include "Player.h"
+#include "PlayerStatus.h"
 
 class PlayerMediator: public Mediator {
 private:
     Road* lastPavement;
     std::vector <Road*> road;
     Player* player;
+    Status* status;
 public:
     PlayerMediator(): road({}), player(nullptr), lastPavement(nullptr) {};
     PlayerMediator(const std::vector<Road*> &road): road(road), player(nullptr), lastPavement(nullptr) {};
@@ -29,6 +31,10 @@ public:
 
     void addRoad(Road* src) {
         this->road.push_back(src);
+    }
+
+    void addStatus(Status* src) {
+        this->status = src;
     }
 
     void addRoad(const vector <Road> &lstRoad) {
@@ -50,6 +56,14 @@ public:
     void returnLastPos() {
         auto pos = this->lastPavement->getRect().getPosition();
         player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y / 5);
+    }
+
+    void updateLevelText(std::string src) {
+        status->setLevelString(src);
+    }
+
+    void updateHeartText(std::string src) {
+        status->setHeartString(src);
     }
 
     void clear() {
