@@ -56,9 +56,35 @@ public:
 		window.draw(this->sprite.getRect());
 	}
 
+	void characterMove(float dentaTime, float limDown) {
+		if (Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			if (sprite.getPosition().x - dentaTime > 0)
+				sprite.move(-dentaTime, 0);
+		}
+		else {
+			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				if (sprite.getPosition().x + dentaTime + sprite.getSize().x < GAME_WIDTH)
+					sprite.move(dentaTime, 0);
+			}
+			else {
+				if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+					if (sprite.getPosition().y - dentaTime > 0)
+						sprite.move(0, -dentaTime);
+				}
+				else {
+					if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+						if (sprite.getPosition().y + dentaTime + sprite.getSize().y < limDown)
+							sprite.move(0, dentaTime);
+					}
+				}
+			}
+		}
+	}
+
 	void updatePos(float limDown) {
 		//std::cout << "Key pressed\n";
-		this->sprite.characterMove(this->curSpeed, limDown);
+		this->characterMove(this->curSpeed, limDown);
 		//this->observer->notify(this->getSprite());
 	}
 
