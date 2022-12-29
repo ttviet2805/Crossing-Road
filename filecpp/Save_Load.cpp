@@ -2,7 +2,7 @@
 using namespace std;
 void save_game(int level, int heart) {
 	ofstream fout;
-	fout.open("save_game.txt");
+	fout.open("assets/save_game.txt");
 	fout << level << endl;
 	fout << heart << endl;
 	fout.close();
