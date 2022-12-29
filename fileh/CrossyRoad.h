@@ -8,12 +8,12 @@
 #include "../fileh/Rectangle.h"
 #include "../fileh/WinMenu.h"
 #include "../fileh/LoseMenu.h"
-
+#include "../fileh/Save_Load.h"
 using namespace sf;
 
 void gameRun() {
 	RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
-	Player player(Vector2u(10, 2), 0.1, Vector2f(30, 65), Vector2f(0, 0), 64, 120, "assets/image/human_walk_sprite.png");
+	Player player(Vector2u(10, 2), 0.1, Vector2f(30, 65), Vector2f(0, 0), 3, 64, 120, "assets/image/human_walk_sprite.png");
 
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
@@ -37,10 +37,22 @@ void gameRun() {
 			break;
 		case 2:
 			player.setPos(0, 0);
+			player.setlife(3);
 			delete nxt.back();
 			nxt.pop_back();
 			playerMediator->clear();
 			nxt.push_back(new Game(&window, &difficulty, playerMediator));
+			break;
+		case 3:
+			int level;
+			int heart;
+			load_game(level, heart);
+			player.setlife(heart);
+			player.setPos(0, 0);
+			//delete nxt.back();
+			//nxt.pop_back();
+			playerMediator->clear();
+			nxt.push_back(new Game(&window, &level, playerMediator));
 			break;
 		/*case 3:
 			player.setPos(0, 0);

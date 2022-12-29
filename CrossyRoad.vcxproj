@@ -37,6 +37,7 @@
     <ClInclude Include="fileh\Rectangle.h" />
     <ClInclude Include="fileh\Road.h" />
     <ClInclude Include="fileh\Rock.h" />
+    <ClInclude Include="fileh\Save_Load.h" />
     <ClInclude Include="fileh\State.h" />
     <ClInclude Include="fileh\TrafficLight.h" />
     <ClInclude Include="fileh\WinMenu.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="filecpp\Point.cpp" />
     <ClCompile Include="filecpp\Road.cpp" />
     <ClCompile Include="filecpp\Rock.cpp" />
+    <ClCompile Include="filecpp\Save_Load.cpp" />
     <ClCompile Include="filecpp\Source.cpp" />
     <ClCompile Include="filecpp\State.cpp" />
     <ClCompile Include="filecpp\TrafficLight.cpp" />
