@@ -1,61 +1,4 @@
-﻿  PlayerMediator.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(114,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(124,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(136,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(133,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(134,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(137,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  main.cpp
+﻿  main.cpp
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(114,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(124,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(136,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -107,6 +50,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(134,57): warnin
           [
               T=int
           ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\SelectCharacter.h(21,30): warning C4305: 'initializing': truncation from 'double' to 'const float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Level.h(28,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Level.h(63,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
@@ -308,5 +252,4 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\LoseMenu.h(57,52): warni
               T=float
           ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\CrossyRoad.h(17,24): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
   CrossyRoad.vcxproj -> E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\x64\Debug\CrossyRoad.exe

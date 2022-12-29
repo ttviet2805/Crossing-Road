@@ -13,11 +13,15 @@ private:
 	Rectangle rightButton;
 	Texture rightTexture;
 
-	Rectangle characterSkin;
-	Texture characterSkinTexture;
-
 	int skinID = 1;
-	int maxSkinID = 1;
+	const int maxSkinID = 1;
+
+	Rectangle characterSkinRect;
+	Texture characterSkinTexture[10];
+	const float timeChangeFrame = 0.2;
+	int curTexture = 0;
+	int maxTexture = 5;
+	Clock clock;
 
 public:
 	SelectChacracter() {
@@ -49,10 +53,33 @@ public:
 		rightButton.setTexture(rightTexture);
 		rightButton.setSize(Vector2f(50, 50));
 		rightButton.setPosition(Vector2f(backgroundPos.x + BACKGROUND_WIDTH - 20 - 50, backgroundPos.y + BACKGROUND_HEIGHT / 2 - 20));
+	
+		for (int i = 0; i < 6; i++) {
+			string SKIN_PATH = "assets/Image/Skin/Skin1/Down" + to_string(i) + ".png";
+			if (!characterSkinTexture[i].loadFromFile(SKIN_PATH)) {
+				cout << "Loading skin error\n";
+			}
+		}
+
+		const int WIDTH = 200;
+		const int HEIGHT = 280;
+
+		characterSkinRect.setSize(Vector2f(WIDTH, HEIGHT));
+		characterSkinRect.setTexture(characterSkinTexture[0]);
+		characterSkinRect.setPosition(Vector2f((SCREEN_WIDTH - WIDTH) / 2, backgroundPos.y + 125));
 	}
 	void draw(sf::RenderWindow& window) {
 		window.draw(selectBackgroundRect.getRect());
 		window.draw(leftButton.getRect());
 		window.draw(rightButton.getRect());
+
+		Time elapsed = clock.getElapsedTime();
+		if (elapsed.asSeconds() >= timeChangeFrame) {
+			curTexture = (curTexture + 1) % maxTexture;
+			characterSkinRect.setTexture(characterSkinTexture[curTexture]);
+			clock.restart();
+		}
+
+		window.draw(characterSkinRect.getRect());
 	}
 };
