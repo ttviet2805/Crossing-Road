@@ -58,10 +58,6 @@ public:
         player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y / 5);
     }
 
-    void addPlayer(Player* player) {
-        this->player = player;
-    }
-
     void updateLevelText(std::string src) {
         status->setLevelString(src);
     }
