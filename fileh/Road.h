@@ -22,20 +22,24 @@ private:
 	double timeGreenTrafficLight;
 	double timeRedTraficLight = 3;
 	Mediator* mediator;
-	TrafficLight curLight;
 
 	bool search = 0;
 	bool isStop = 0;
 	bool roadCount = 0;
 
 	Texture carTexture;
-	Texture trafficLightTexture[5];
-
-	Clock trafficLightClock;
+	
 	Clock gameClock;
 
 	double objectSpeed;
 	int roadDirection;
+
+	// Traffic light
+	Clock trafficLightClock;
+	Texture trafficLightTexture[5];
+	Rectangle redLightRect;
+	Rectangle greenLightRect;
+	TrafficLight curLight;
 
 public:
 	int randIntegerNumber(int l, int r) {
@@ -77,9 +81,13 @@ public:
 		Vector2f curPos = roadRect.getPosition();
 
 		if (roadState == 1) {
-			Rectangle tmpRect(Vector2f(25, 70), Vector2f(curPos.x, curPos.y + 10), trafficLightTexture[0]);
-			TrafficLight tmpLight(tmpRect);
-			curLight = tmpLight;
+			greenLightRect.setSize(Vector2f(25, 70));
+			greenLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
+			greenLightRect.setTexture(trafficLightTexture[0]);
+			
+			redLightRect.setSize(Vector2f(25, 70));
+			redLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
+			redLightRect.setTexture(trafficLightTexture[2]);
 		}
 	}
 
@@ -166,7 +174,6 @@ public:
 				Time elapsed = trafficLightClock.getElapsedTime();
 
 				if (elapsed.asSeconds() >= timeGreenTrafficLight) {
-					curLight.setTexture(trafficLightTexture[2]);
 					trafficLightClock.restart();
 					curLight.changeType(2);
 				}
@@ -176,7 +183,6 @@ public:
 					Time elapsed = trafficLightClock.getElapsedTime();
 
 					if (elapsed.asSeconds() >= timeRedTraficLight) {
-						curLight.setTexture(trafficLightTexture[0]);
 						trafficLightClock.restart();
 						curLight.changeType(0);
 					}
@@ -216,7 +222,14 @@ public:
 			window.draw(listObject[i]->getRect());
 		}
 
-		window.draw(curLight.getRect());
+		if (curLight.getState() == 0) {
+			window.draw(greenLightRect.getRect());
+		}
+		else {
+			if (curLight.getState() == 2) {
+				window.draw(redLightRect.getRect());
+			}
+		}
 	}
 
 	int startSearch(Rectangle src) {

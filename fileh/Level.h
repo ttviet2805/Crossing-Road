@@ -5,6 +5,7 @@
 #include "Road.h"
 #include "Player.h"
 #include "State.h"
+#include "SelectCharacter.h"
 
 class Level : public State {
 private:
@@ -14,6 +15,9 @@ private:
 
 	sf::Texture texture[4];
 	Rectangle button[4];
+
+	// Select character
+	SelectChacracter curSelectCharacter;
 public:
 
 	Level() : State(0, 0, nullptr), difficulty(0), deltaSpeed(0) {
@@ -63,22 +67,18 @@ public:
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 2;
 				}
-
-				/*if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 3;
-				}*/
-
-				/*if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 4;
-				}*/
 			}
 		}
 
 		this->window->clear(sf::Color::Black);
 		this->window->draw(this->loadSprite);
+	
 		for (int i = 0; i < 4; i++) {
 			this->window->draw(this->button[i].getRect());
 		}
+
+		curSelectCharacter.draw(*window);
+
 		this->window->display();
 
 		return 10;
