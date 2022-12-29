@@ -103,7 +103,7 @@ public:
 				Vector2f roadPos = roadRect.getPosition();
 				if (roadDirection) roadPos.x = GAME_WIDTH;
 
-				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, fileName, 12);
+				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, fileName, 0, 12);
 
 				listObject.push_back(curObject);
 			}
@@ -113,7 +113,7 @@ public:
 
 				Vector2f roadPos = roadRect.getPosition();
 				if (roadDirection) roadPos.x = GAME_WIDTH;
-				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, fileName, 12);
+				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, fileName, 1, 12);
 
 				listObject.push_back(curObject);
 			}

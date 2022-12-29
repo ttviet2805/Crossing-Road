@@ -3,10 +3,11 @@
 
 using namespace std;
 
-Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, string _fileName, int _numTexture) {
+Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, string _fileName, int _state, int _numTexture) {
     speed = i_speed;
     numTexture = _numTexture;
     curTexture = 0;
+    state = _state;
     
     for (int i = 0; i < numTexture; i++) {
         if (!listTexture[i].loadFromFile(_fileName + "Animal" + to_string(i) + ".jpg")) {
@@ -37,6 +38,18 @@ void Animal::move() {
 }
 void Animal::setSpeed(float i_speed) {
     speed = i_speed;
+}
+void Animal::sound_animal() {
+    string MUSIC_PATH;
+    if(state == 1)
+        MUSIC_PATH = "assets/Sound/dog_bark.ogg";
+    else MUSIC_PATH = "assets/Sound/dinosaur_bark.ogg";
+    Music animal_Music;
+    if (!animal_Music.openFromFile(MUSIC_PATH)) {
+        cout << "Loading music error\n";
+    }
+
+    animal_Music.play();
 }
 Rectangle Animal::getrect() {
     return rec;
