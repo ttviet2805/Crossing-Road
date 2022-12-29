@@ -60,6 +60,7 @@ public:
 			}
 		}
 
+		this->window->clear();
 		this->window->draw(this->loadSprite);
 		for (int i = 0; i < 2; i++) {
 			this->window->draw(this->button[i].getRect());

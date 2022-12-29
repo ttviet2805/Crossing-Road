@@ -2,12 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "PlayerStatus.h"
 #include "State.h"
 
 class WinMenu : public State {
 private:
 	sf::Texture texture[4];
 	Rectangle button[2];
+
+	Status* playerStatus;
 
 public:
 	WinMenu(): State(0, 0, nullptr) {
@@ -59,6 +62,7 @@ public:
 			}
 		}
 
+		this->window->clear();
 		this->window->draw(this->loadSprite);
 		for (int i = 0; i < 2; i++) {
 			this->window->draw(this->button[i].getRect());
