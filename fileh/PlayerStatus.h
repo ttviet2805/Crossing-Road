@@ -61,7 +61,7 @@ public:
 		characterBackgroundRect.setSize(Vector2f(266, 300));
 		characterBackgroundRect.setTexture(characterBackgroundTexture);
 
-		const string CHARACTER_SKIN_PATH = "assets/Image/Player/Songoku/Songoku.png";
+		const string CHARACTER_SKIN_PATH = "assets/Image/Skin/Songoku/Songoku.png";
 		if (!characterSkinTexture.loadFromFile(CHARACTER_SKIN_PATH)) {
 			cout << "Loading skin error\n";
 		}

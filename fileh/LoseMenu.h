@@ -66,7 +66,7 @@ public:
 		}
 		this->window->display();
 
-		return 10;
+		return 8;
 	}
 
 	virtual ~LoseMenu() { std::cout << "LoseGame destructor\n"; }

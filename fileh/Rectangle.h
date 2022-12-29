@@ -16,6 +16,7 @@ private:
 public:
 	// Rectangle has Size, Position and Image
 	// Texture is image
+
 	Rectangle() {}
 
 	Rectangle(Vector2f _size, Vector2f _position, Texture& _texture) {

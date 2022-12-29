@@ -65,7 +65,7 @@ public:
 		}
 		this->window->display();
 
-		return 10;
+		return 8;
 	}
 
 	virtual ~WinMenu() { std::cout << "WinGame destructor\n"; }

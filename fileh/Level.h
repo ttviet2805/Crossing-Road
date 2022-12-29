@@ -65,7 +65,7 @@ public:
 				}
 
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 2;
+					return 10;
 				}
 			}
 		}
@@ -81,7 +81,7 @@ public:
 
 		this->window->display();
 
-		return 10;
+		return 8;
 	}
 
 	void addRoad(float x, float y) {

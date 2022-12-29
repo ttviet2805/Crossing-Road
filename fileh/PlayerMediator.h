@@ -55,7 +55,7 @@ public:
 
     void returnLastPos() {
         auto pos = this->lastPavement->getRect().getPosition();
-        player->setPos(pos.x + SCREEN_WIDTH / 2, pos.y + player->getSprite().getSize().y / 5);
+        player->setPos(pos.x + SCREEN_WIDTH / 2.5, pos.y - player->getSprite().getSize().y / 5);
     }
 
     void updateLevelText(std::string src) {

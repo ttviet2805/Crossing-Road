@@ -47,6 +47,7 @@ public:
 	Game() : deltaTime(10), level(nullptr) {}
 
 	Game(RenderWindow* window, int* difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
+		//cout << *difficulty << '\n';
 		this->level = difficulty;
 		cout << "Level: " << (*this->level) << '\n';
 
@@ -112,6 +113,7 @@ public:
 	}
 
 	int run(Player* player) {
+		//cout << "Here\n";
 		player->addMediator(this->mediator);
 		player->updateHeartText(0);
 		this->updateLevelText();
@@ -186,7 +188,7 @@ public:
 			return 6;
 		}
 
-		return 10;
+		return 8;
 	}
 
 	~Game() {

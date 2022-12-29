@@ -103,7 +103,7 @@ public:
 		}
 		this->window->display();
 
-		return 10;
+		return 8;
 	}
 
 	~Menu() {
