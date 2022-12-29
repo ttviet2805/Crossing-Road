@@ -13,6 +13,6 @@ public:
     virtual void move() = 0;
     virtual void setSpeed(float i_speed) = 0;
     virtual Rectangle getrect() = 0;
-
+    virtual void sound_object() = 0;
     virtual RectangleShape getRect() = 0;
 };

@@ -39,7 +39,7 @@ void Animal::move() {
 void Animal::setSpeed(float i_speed) {
     speed = i_speed;
 }
-void Animal::sound_animal() {
+void Animal::sound_object() {
     string MUSIC_PATH;
     if(state == 1)
         MUSIC_PATH = "assets/Sound/dog_bark.ogg";

@@ -23,7 +23,7 @@ public:
     void move();
     void setSpeed(float i_speed);
     Rectangle getrect();
-    void sound_animal();
+    void sound_object();
     RectangleShape getRect() {
         return rec.getRect();
     }

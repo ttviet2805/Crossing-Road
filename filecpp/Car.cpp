@@ -20,6 +20,9 @@ void Car::move() {
 void Car::setSpeed(float i_speed) {
     speed = i_speed;
 }
+void Car::sound_object() {
+    
+}
 Rectangle Car::getrect() {
     return rec;
 }
