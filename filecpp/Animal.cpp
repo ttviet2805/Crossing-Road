@@ -13,6 +13,10 @@ Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, string _fileName, i
         if (!listTexture[i].loadFromFile(_fileName + "Animal" + to_string(i) + ".jpg")) {
             cout << "Loading Animal error\n";
         }
+
+        listRect[i].setSize(_size);
+        listRect[i].setPosition(_pos);
+        listRect[i].setTexture(listTexture[i]);
     }
 
     rec.setSize(_size);
@@ -33,7 +37,6 @@ void Animal::move() {
     if (elapsed.asSeconds() >= timeChangeFrame) {
         clock.restart();
         curTexture = (curTexture + 1) % numTexture;
-        rec.setTexture(listTexture[curTexture]);
     }
 }
 void Animal::setSpeed(float i_speed) {

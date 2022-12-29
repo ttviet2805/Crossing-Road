@@ -219,7 +219,7 @@ public:
 		window.draw(roadRect.getRect());
 
 		for (int i = 0; i < listObject.size(); i++) {
-			window.draw(listObject[i]->getRect());
+			listObject[i]->draw(window);
 		}
 
 		if (curLight.getState() == 0) {

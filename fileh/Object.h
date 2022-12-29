@@ -15,4 +15,5 @@ public:
     virtual Rectangle getrect() = 0;
     virtual void sound_object() = 0;
     virtual RectangleShape getRect() = 0;
+    virtual void draw(RenderWindow& window) = 0;
 };

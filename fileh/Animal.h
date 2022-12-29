@@ -13,6 +13,7 @@ private:
     int numTexture;
     int curTexture = 0;
     Texture listTexture[20];
+    Rectangle listRect[20];
     
     // = 0 if dinosaur
     // = 1 if dog
@@ -26,5 +27,11 @@ public:
     void sound_object();
     RectangleShape getRect() {
         return rec.getRect();
+    }
+
+    void draw(RenderWindow& window) {
+        listRect[curTexture].setPosition(rec.getPosition());
+
+        window.draw(listRect[curTexture].getRect());
     }
 };

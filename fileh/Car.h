@@ -17,4 +17,8 @@ public:
     RectangleShape getRect() {
         return rec.getRect();
     }
+
+    void draw(RenderWindow& window) {
+        window.draw(rec.getRect());
+    }
 };
