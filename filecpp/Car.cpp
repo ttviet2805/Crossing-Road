@@ -21,7 +21,15 @@ void Car::setSpeed(float i_speed) {
     speed = i_speed;
 }
 void Car::sound_object() {
+    string MUSIC_PATH;
     
+    MUSIC_PATH = "assets/Sound/car.ogg";
+    Music animal_Music;
+    if (!animal_Music.openFromFile(MUSIC_PATH)) {
+        cout << "Loading music error\n";
+    }
+
+    animal_Music.play();
 }
 Rectangle Car::getrect() {
     return rec;

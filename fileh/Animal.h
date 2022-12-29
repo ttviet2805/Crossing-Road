@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Rectangle.h"
-#include <SFML/Audio.hpp>
 #include "Object.h"
 
 class Animal: public Object {

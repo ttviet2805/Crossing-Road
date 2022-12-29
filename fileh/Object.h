@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <math.h>
+#include <SFML/Audio.hpp>
 #include "Rectangle.h"
 
 const float MIN_DISTANCE = 12.5;
