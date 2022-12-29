@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "../fileh/Level.h"
 #include "../fileh/Player.h"
 #include "../fileh/PlayerMediator.h"
@@ -23,9 +24,18 @@ void gameRun() {
 
 	int difficulty = 1;
 
+	const string MUSIC_PATH = "assets/Sound/Your-Smile.ogg";
+	Music backgroundMusic;
+	if (!backgroundMusic.openFromFile(MUSIC_PATH)) {
+		cout << "Loading music error\n";
+	}
+
+	backgroundMusic.play();
+
 	while (window.isOpen() && !nxt.empty()) {
 		//std::cout << "here\n";
 		int type = nxt.back()->run(&player);
+
 
 		switch (type) {
 		case 0:

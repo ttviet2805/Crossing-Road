@@ -146,12 +146,12 @@ public:
 						timeObjectRand = randRealNumber(3.5, 7);
 					}
 					else {
-						if (roadDirection == 0 && listObject.back()->getRect().getPosition().x >= 150) {
+						if (roadDirection == 0 && listObject.back()->getRect().getPosition().x >= 250) {
 							generateObject(roadState);
 							timeObjectRand = randRealNumber(3.5, 7);
 							gameClock.restart();
 						}
-						if (roadDirection == 1 && listObject.back()->getRect().getPosition().x <= GAME_WIDTH - 150) {
+						if (roadDirection == 1 && listObject.back()->getRect().getPosition().x <= GAME_WIDTH - 250) {
 							generateObject(roadState);
 							timeObjectRand = randRealNumber(3.5, 7);
 							gameClock.restart();
