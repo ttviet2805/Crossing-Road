@@ -140,7 +140,7 @@ public:
 					timeObjectRand = randRealNumber(3.5, 7);
 					gameClock.restart();
 				}
-				else {
+				else {	
 					if (listObject.size() > 6) {
 						gameClock.restart();
 						timeObjectRand = randRealNumber(3.5, 7);

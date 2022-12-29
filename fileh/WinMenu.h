@@ -21,17 +21,20 @@ public:
 	}
 
 	void setupButton() {
+		const int BUTTON_WIDTH = 322;
+		const int BUTTON_HEIGHT = 100;
+
 		this->texture[0].loadFromFile("assets/image/Button/NextLv.png");
 		this->button[0] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 + (700 / 2 - 133), 763 / 2 - 100),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(SCREEN_WIDTH / 2 + (700 / 2 - BUTTON_WIDTH / 2), 763 / 2 - 80),
 			this->texture[0]
 		);
 
 		this->texture[1].loadFromFile("assets/image/Button/Quit.png");
 		this->button[1] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 + (700 / 2 - 133), 763 / 2),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(SCREEN_WIDTH / 2 + (700 / 2 - BUTTON_WIDTH / 2), 763 / 2 + 80),
 			this->texture[1]
 		);
 	}

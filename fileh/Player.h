@@ -87,9 +87,7 @@ public:
 	}
 
 	void updatePos(float limDown) {
-		//std::cout << "Key pressed\n";
 		this->characterMove(this->curSpeed, limDown);
-		//this->observer->notify(this->getSprite());
 	}
 
 	void setPos(float x, float y) {

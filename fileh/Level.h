@@ -28,31 +28,20 @@ public:
 	}
 
 	void setupButton() {
-		this->texture[0].loadFromFile("assets/image/Button/Easy.png");
+		const int BUTTON_WIDTH = 322;
+		const int BUTTON_HEIGHT = 100;
+
+		this->texture[0].loadFromFile("assets/image/Button/Start.png");
 		this->button[0] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 100),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(240 + 50, SCREEN_HEIGHT / 2 + 200),
 			this->texture[0]
 		);
 
-		this->texture[1].loadFromFile("assets/image/Button/Medium.png");
-		this->button[1] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2),
-			this->texture[1]
-		);
-
-		this->texture[2].loadFromFile("assets/image/Button/Hard.png");
-		this->button[2] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 100),
-			this->texture[2]
-		);
-
-		this->texture[3].loadFromFile("assets/image/Button/Quit.png");
+		this->texture[3].loadFromFile("assets/image/Button/Cancel.png");
 		this->button[3] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 200),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(480 + BUTTON_WIDTH - 50, SCREEN_HEIGHT / 2 + 200),
 			this->texture[3]
 		);
 	}

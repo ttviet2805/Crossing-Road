@@ -7,8 +7,8 @@
 
 class Menu : public State {
 private:
-	sf::Texture texture[3];
-	Rectangle button[3];
+	sf::Texture texture[6];
+	Rectangle button[6];
 
 public:
 	Menu() {
@@ -26,25 +26,49 @@ public:
 	}
 
 	void setupButton() {
+		const int BUTTON_WIDTH = 322;
+		const int BUTTON_HEIGHT = 100;
+
 		this->texture[0].loadFromFile("assets/image/Button/Start.png");
 		this->button[0] = Rectangle(
-			sf::Vector2f(266, 67), 
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 - 10), 
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(100, SCREEN_HEIGHT / 2 + 110), 
 			this->texture[0]
 		);
 
-		this->texture[1].loadFromFile("assets/image/Button/Stats.png");
+		this->texture[1].loadFromFile("assets/image/Button/Load.png");
 		this->button[1] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 90),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(200 + BUTTON_WIDTH, SCREEN_HEIGHT / 2 + 110),
 			this->texture[1]
 		);
 
-		this->texture[2].loadFromFile("assets/image/Button/Quit.png");
+		this->texture[2].loadFromFile("assets/image/Button/LeaderBoard.png");
 		this->button[2] = Rectangle(
-			sf::Vector2f(266, 67),
-			sf::Vector2f(SCREEN_WIDTH / 2 - 133, SCREEN_HEIGHT / 2 + 190),
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(300 + 2 * BUTTON_WIDTH, SCREEN_HEIGHT / 2 + 110),
 			this->texture[2]
+		);
+
+		this->texture[3].loadFromFile("assets/image/Button/Instruction.png");
+		this->button[3] = Rectangle(
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(100, SCREEN_HEIGHT / 2 + 240),
+			this->texture[3]
+		);
+
+		this->texture[4].loadFromFile("assets/image/Button/Setting.png");
+		this->button[4] = Rectangle(
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(200 + BUTTON_WIDTH, SCREEN_HEIGHT / 2 + 240),
+			this->texture[4]
+		);
+
+		this->texture[5].loadFromFile("assets/image/Button/Quit.png");
+		this->button[5] = Rectangle(
+			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+			sf::Vector2f(300 + 2 * BUTTON_WIDTH, SCREEN_HEIGHT / 2 + 240),
+			this->texture[5]
 		);
 	}
 
@@ -62,7 +86,7 @@ public:
 					return 1;
 				}
 
-				if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				if (this->button[5].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 0;
 				}
 			}
@@ -70,7 +94,7 @@ public:
 
 		this->window->clear(sf::Color::Black);
 		this->window->draw(this->loadSprite);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 6; i++) {
 			this->window->draw(this->button[i].getRect());
 		}
 		this->window->display();
