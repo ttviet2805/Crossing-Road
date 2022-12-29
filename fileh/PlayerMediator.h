@@ -66,6 +66,10 @@ public:
         status->setHeartString(src);
     }
 
+    void addPlayer(Player* player) {
+        this->player = player;
+    }
+
     void clear() {
         this->road.clear();
     }
