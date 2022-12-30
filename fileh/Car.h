@@ -18,6 +18,10 @@ public:
         return rec.getRect();
     }
 
+    void setPosition(Vector2f _pos) {
+        rec.setPosition(_pos);
+    }
+
     void draw(RenderWindow& window) {
         window.draw(rec.getRect());
     }

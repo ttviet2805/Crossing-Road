@@ -28,7 +28,7 @@ private:
 	bool roadCount = 0;
 
 	Texture carTexture;
-	
+
 	Clock gameClock;
 
 	double objectSpeed;
@@ -84,7 +84,7 @@ public:
 			greenLightRect.setSize(Vector2f(25, 70));
 			greenLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
 			greenLightRect.setTexture(trafficLightTexture[0]);
-			
+
 			redLightRect.setSize(Vector2f(25, 70));
 			redLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
 			redLightRect.setTexture(trafficLightTexture[2]);
@@ -148,7 +148,7 @@ public:
 					timeObjectRand = randRealNumber(3.5, 7);
 					gameClock.restart();
 				}
-				else {	
+				else {
 					if (listObject.size() > 6) {
 						gameClock.restart();
 						timeObjectRand = randRealNumber(3.5, 7);

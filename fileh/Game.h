@@ -21,33 +21,34 @@ const int DISTANCE = 1;
 
 class Game : public State {
 private:
-	
-	float deltaTime;
-	//RenderWindow* window;
-	Texture roadTexture[10];
-	vector <Road*> lstRoad;
-	View view;
-	PlayerMediator *mediator;
-	Texture flagTexture;
-	Flag flag;
-
 	// Game level management
 	int* level;
 	int leftLimRoad, rightLimRoad, numPavement;
 	double objectSpeed;
+	float deltaTime;
+
+	// Road
+	Texture roadTexture[10];
+	vector <Road*> lstRoad;
 
 	// Status
 	Status playerStatus;
+
+	// Flag
+	Texture flagTexture;
+	Flag flag;
+
+	// View and Mediator
+	View view;
+	PlayerMediator* mediator;
 	
 public:
 	int randIntegerNumber(int l, int r) {
 		return l + (rand()) % (r - l + 1);
 	}
 
-	Game() : deltaTime(10), level(nullptr) {}
-
 	Game(RenderWindow* window, int* difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
-		//cout << *difficulty << '\n';
+		// Set up level for game
 		this->level = difficulty;
 		cout << "Level: " << (*this->level) << '\n';
 
@@ -58,9 +59,12 @@ public:
 		fin >> numPavement >> leftLimRoad >> rightLimRoad >> objectSpeed;
 		fin.close();
 
+		// Set up View
+		view = View(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
+
+		// Set up Road for game
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
-		view = View(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 		for (int i = 0; i <= 6; i++) {
 			string path = ROADPATH + to_string(i) + ".png";
 			roadTexture[i].loadFromFile(path);
@@ -95,17 +99,17 @@ public:
 			}
 		}
 
-		Rectangle tmpRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-		Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
-		this->mediator->addRoad(tmpRoad);
-		lstRoad.push_back(tmpRoad);
+		Rectangle lastRoadRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
+		Road* lastRoad = new Road(lastRoadRect, 0, objectSpeed, this->mediator);
+		this->mediator->addRoad(lastRoad);
+		lstRoad.push_back(lastRoad);
 
-		auto pos = tmpRoad->getRect().getPosition();
+		// Set Flag
+		const int FLAG_SIZE = 50;
+		auto pos = lastRoad->getRect().getPosition();
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
-		flag = Rectangle(Vector2f(50, 50), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
+		flag = Rectangle(Vector2f(FLAG_SIZE, FLAG_SIZE), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
 		this->mediator->addStatus(&this->playerStatus);
-		
-		//cout << "Here\n";
 	}
 
 	void setDifficulty() {
@@ -113,7 +117,6 @@ public:
 	}
 
 	int run(Player* player) {
-		//cout << "Here\n";
 		player->addMediator(this->mediator);
 		player->updateHeartText(0);
 		this->updateLevelText();
@@ -172,7 +175,6 @@ public:
 		window->setView(view);
 
 		int viewPos = view.getCenter().y - view.getSize().y / 2;
-		//cout << viewPos << endl;
 		playerStatus.setPosition(viewPos);
 
 		player->draw(*window);
