@@ -53,6 +53,11 @@ public:
         //cout << (this->lastPavement == nullptr) << '\n';
     }
 
+    void changeSkin() {
+        //cout << "Change skin\n";
+        status->changeTexture(this->player->getStaticTexturePath());
+    }
+
     void returnLastPos() {
         auto pos = this->lastPavement->getRect().getPosition();
         player->setPos(pos.x + SCREEN_WIDTH / 2.5, pos.y - player->getSprite().getSize().y / 5);

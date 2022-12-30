@@ -117,6 +117,9 @@ public:
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
 		flag = Rectangle(Vector2f(FLAG_SIZE, FLAG_SIZE), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + 7), flagTexture);
 		this->mediator->addStatus(&this->playerStatus);
+		this->playerStatus.addMediator(this->mediator);
+
+		this->mediator->changeSkin();
 	}
 
 	void setDifficulty() {
@@ -159,7 +162,6 @@ public:
 			int ans = lstRoad[i]->startSearch(player->getSprite());
 			if (ans == 1) {
 				this->mediator->updateLastPavement(i);
-				
 			}
 			else if (ans == 2) {
 				endGame = player->updateHeartText(-1);

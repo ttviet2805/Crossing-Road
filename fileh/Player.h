@@ -48,7 +48,7 @@ public:
 
 	Player(sf::Vector2u imageCount, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 64.0, float imgHeight = 128.0,
 		string imgPath = "") :
-		imageCount(imageCount), switchTime(0.1), curSpeed(0.7f), face(0), imgLength(imgLength),
+		imageCount(imageCount), switchTime(0.1), curSpeed(0.6f), face(0), imgLength(imgLength),
 		imgHeight(imgHeight), imgPath(imgPath), life(heart), name("")
 	{
 		this->imgType = 0;
@@ -100,6 +100,10 @@ public:
 		std::cout << "Cai chet" << '\n';
 
 		initStaticCharacter(imagePerDir, _Size, _position);
+	}
+
+	string getStaticTexturePath() {
+		return this->imgPath;
 	}
 
 	RectangleShape getRect() {

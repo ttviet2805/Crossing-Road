@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Mediator.h"
 #include "Rectangle.h"
 
 class Status {
@@ -25,6 +26,7 @@ private:
 	Texture speedTexture;
 	Rectangle speedRect;
 
+	Mediator* mediator;
 public:
 	Status() {
 		const string PATH = "assets/Image/PlayerStatus/Status.jpg";
@@ -61,7 +63,7 @@ public:
 		characterBackgroundRect.setSize(Vector2f(266, 300));
 		characterBackgroundRect.setTexture(characterBackgroundTexture);
 
-		const string CHARACTER_SKIN_PATH = "assets/Image/Skin/Songoku/Songoku.png";
+		const string CHARACTER_SKIN_PATH = "assets/Image/Skin/Skin1/Down0.png";
 		if (!characterSkinTexture.loadFromFile(CHARACTER_SKIN_PATH)) {
 			cout << "Loading skin error\n";
 		}
@@ -94,6 +96,7 @@ public:
 		speedRect.setSize(Vector2f(40, 40));
 		speedRect.setTexture(speedTexture);
 	}
+
 	void draw(sf::RenderWindow& window) {
 		window.draw(rect.getRect());
 
@@ -121,7 +124,6 @@ public:
 		// Speed draw
 		speedRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 180));
 		window.draw(speedRect.getRect());
-
 	}
 
 	void setHeartString(std::string str) {
@@ -135,5 +137,25 @@ public:
 	void setPosition(int posY) {
 		Vector2f curPos = rect.getPosition();
 		rect.setPosition(Vector2f(curPos.x, posY));
+	}
+
+	void addMediator(Mediator* mediator) {
+		this->mediator = mediator;
+	}
+
+	void changeTexture(string path) {
+		//path += "/Down0.png";
+
+		//cout << "Path: " << path << '\n';
+
+		const string CHARACTER_SKIN_PATHS = path + "/Down0.png";
+		if (!characterSkinTexture.loadFromFile(CHARACTER_SKIN_PATHS)) {
+			cout << "Loading skin error\n";
+		}
+
+		Vector2f backgroundPos = characterBackgroundRect.getPosition();
+		characterSkin.setPosition(Vector2f(backgroundPos.x + 33, backgroundPos.y + 35));
+		characterSkin.setSize(Vector2f(200, 230));
+		characterSkin.setTexture(characterSkinTexture);
 	}
 };
