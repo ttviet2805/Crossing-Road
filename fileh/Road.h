@@ -27,7 +27,7 @@ private:
 	// 0 = left to right
 	// 1 = right to left
 	int roadDirection;
-	const int MAX_NUM_OBJECT = 2;
+	const int MAX_NUM_OBJECT = 5;
 
 	// Object Properties
 	vector <Object*> listObject;

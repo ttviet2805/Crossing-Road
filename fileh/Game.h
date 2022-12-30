@@ -112,10 +112,10 @@ public:
 		lstRoad.push_back(lastRoad);
 
 		// Set Flag
-		const int FLAG_SIZE = 50;
+		const int FLAG_SIZE = 65;
 		auto pos = lastRoad->getRect().getPosition();
 		flagTexture.loadFromFile("assets/Image/Object/Flag/Flag.png");
-		flag = Rectangle(Vector2f(FLAG_SIZE, FLAG_SIZE), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + ROADSIZE / 2), flagTexture);
+		flag = Rectangle(Vector2f(FLAG_SIZE, FLAG_SIZE), Vector2f(pos.x + GAME_WIDTH / 2, pos.y + 7), flagTexture);
 		this->mediator->addStatus(&this->playerStatus);
 	}
 
