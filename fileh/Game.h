@@ -148,8 +148,10 @@ public:
 		}	
 		this->window->draw(this->flag.getRect());
 		
+		player->changeSpeed((*this->level - 1) * 0.075);
 		player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
 		player->updateSprite(0.5);
+		player->changeSpeed((*this->level - 1) * -0.075);
 
 		bool endGame = 0;
 

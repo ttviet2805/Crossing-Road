@@ -55,7 +55,7 @@ void gameRun() {
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
-			player->setPos(0, 0);
+			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//player.setlife(3);
 			delete nxt.back();
 			nxt.pop_back();
@@ -67,7 +67,7 @@ void gameRun() {
 			int heart;
 			load_game(level, heart);
 			player->setlife(heart);
-			player->setPos(0, 0);
+			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//delete nxt.back();
 			//nxt.pop_back();
 			playerMediator->clear();
@@ -104,7 +104,7 @@ void gameRun() {
 			//For some reasons this shit just doesn't work
 			player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
 			player->addMediator(playerMediator);
-			player->setPos(0, 0);
+			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			playerMediator->clear();
 			playerMediator->addPlayer(player);
 
