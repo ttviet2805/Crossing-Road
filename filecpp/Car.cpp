@@ -24,12 +24,13 @@ void Car::sound_object() {
     string MUSIC_PATH;
     
     MUSIC_PATH = "assets/Sound/car.ogg";
-    Music animal_Music;
-    if (!animal_Music.openFromFile(MUSIC_PATH)) {
+    Music car_Music;
+    if (!car_Music.openFromFile(MUSIC_PATH)) {
         cout << "Loading music error\n";
     }
 
-    animal_Music.play();
+    car_Music.play();
+    sf::sleep(sf::seconds(2.0f));
 }
 Rectangle Car::getrect() {
     return rec;

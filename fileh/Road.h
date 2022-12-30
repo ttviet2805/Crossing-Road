@@ -139,7 +139,7 @@ public:
 			else {
 				if (roadDirection) roadPos.x = GAME_WIDTH;
 
-				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, 0, 12, animalTexture[1]);
+				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, 1, 12, animalTexture[1]);
 
 				listObject.push_back(curObject);
 			}
@@ -256,6 +256,7 @@ public:
 			for (int i = 0; i < (int)this->listObject.size(); i++) {
 				if (this->listObject[i]->collision(src)) {
 					cout << "Road Collision\n";
+					this->listObject[i]->sound_object();
 					//auto pos = this->getRect().getPosition();
 					//this->mediator->returnLastPos(pos.x, pos.y);
 					return 2;

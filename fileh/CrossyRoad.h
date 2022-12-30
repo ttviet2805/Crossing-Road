@@ -44,6 +44,13 @@ void gameRun() {
 	}
 
 	backgroundMusic.play();
+	backgroundMusic.setLoop(true);
+
+	const string MUSIC_LOSE_PATH = "assets/Sound/lose_game.ogg";
+	Music loseMusic;
+	if (!loseMusic.openFromFile(MUSIC_LOSE_PATH)) {
+		cout << "Loading music error\n";
+	}
 
 	while (window.isOpen() && !nxt.empty()) {
 		//std::cout << "here\n";
@@ -51,13 +58,21 @@ void gameRun() {
 
 		switch (type) {
 		case 0:
+			difficulty = 1;
+			loseMusic.stop();
+			backgroundMusic.play();
+			backgroundMusic.setLoop(true);
 			delete nxt.back();
 			nxt.pop_back();
 			break;
 		case 1:
+			backgroundMusic.play();
+			backgroundMusic.setLoop(true);
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
+			backgroundMusic.play();
+			backgroundMusic.setLoop(true);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//player.setlife(3);
 			delete nxt.back();
@@ -66,15 +81,16 @@ void gameRun() {
 			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
 		case 3:
-			int level;
+			backgroundMusic.play();
+			backgroundMusic.setLoop(true);
 			int heart;
-			load_game(level, heart);
+			load_game(difficulty, heart);
 			player->setlife(heart);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//delete nxt.back();
 			//nxt.pop_back();
 			playerMediator->clear();
-			nxt.push_back(new Game(&window, &level, playerMediator));
+			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
 		/*case 4:
 			player.setPos(0, 0);
@@ -90,9 +106,14 @@ void gameRun() {
 		case 6:
 			delete nxt.back();
 			nxt.pop_back();
+			backgroundMusic.stop();
+			loseMusic.play();
 			nxt.push_back(new LoseMenu(&window));
 			break;
 		case 7:
+			loseMusic.stop();
+			backgroundMusic.play();
+			backgroundMusic.setLoop(true);
 			player->setlife(3);
 			delete nxt.back();
 			nxt.pop_back();
@@ -118,7 +139,7 @@ void gameRun() {
 			break;
 		}
 	}
-
+	backgroundMusic.stop();
 	delete player;
 	delete playerMediator;
 }

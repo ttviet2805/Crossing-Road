@@ -49,6 +49,7 @@ void Animal::sound_object() {
     }
 
     animal_Music.play();
+    sf::sleep(sf::seconds(2.0f));
 }
 Rectangle Animal::getrect() {
     return rec;
