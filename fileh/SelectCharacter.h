@@ -1,10 +1,17 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 #include <iostream>
 #include "Rectangle.h"
 
+const int WIDTH = 200;
+const int HEIGHT = 280;
+
 class SelectChacracter {
 private:
+	sf::RenderWindow* window;
+
 	Rectangle selectBackgroundRect;
 	Texture selectBackgroundTexture;
 
@@ -14,7 +21,7 @@ private:
 	Texture rightTexture;
 
 	int skinID = 1;
-	const int maxSkinID = 1;
+	const int maxSkinID = 2;
 
 	Rectangle characterSkinRect;
 	Texture characterSkinTexture[10];
@@ -53,22 +60,43 @@ public:
 		rightButton.setTexture(rightTexture);
 		rightButton.setSize(Vector2f(50, 50));
 		rightButton.setPosition(Vector2f(backgroundPos.x + BACKGROUND_WIDTH - 20 - 50, backgroundPos.y + BACKGROUND_HEIGHT / 2 - 20));
-	
+
+		setSkinPotrait();
+
+		characterSkinRect.setSize(Vector2f(WIDTH, HEIGHT));
+		characterSkinRect.setPosition(Vector2f((SCREEN_WIDTH - WIDTH) / 2, backgroundPos.y + 125));
+	}
+
+	void setSkinPotrait() {
 		for (int i = 0; i < 6; i++) {
-			string SKIN_PATH = "assets/Image/Skin/Skin1/Down" + to_string(i) + ".png";
+			string SKIN_PATH = "assets/Image/Skin/Skin" + to_string(this->skinID);
+			SKIN_PATH += "/Down" + to_string(i) + ".png";
 			if (!characterSkinTexture[i].loadFromFile(SKIN_PATH)) {
 				cout << "Loading skin error\n";
 			}
+			characterSkinRect.setTexture(characterSkinTexture[0]);
+		}
+	}
+
+	void addWindow(sf::RenderWindow* window) {
+		this->window = window;
+	}
+
+	void draw(sf::RenderWindow& window) {
+		if (Mouse::isButtonPressed(sf::Mouse::Left)) {
+			cout << "Stuff\n";
+			auto pos = sf::Mouse::getPosition(*this->window);
+			if (this->leftButton.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				if (this->skinID > 1) this->skinID--;
+			}
+
+			if (this->rightButton.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				if (this->skinID < this->maxSkinID) this->skinID++;
+			}
+
+			setSkinPotrait();
 		}
 
-		const int WIDTH = 200;
-		const int HEIGHT = 280;
-
-		characterSkinRect.setSize(Vector2f(WIDTH, HEIGHT));
-		characterSkinRect.setTexture(characterSkinTexture[0]);
-		characterSkinRect.setPosition(Vector2f((SCREEN_WIDTH - WIDTH) / 2, backgroundPos.y + 125));
-	}
-	void draw(sf::RenderWindow& window) {
 		window.draw(selectBackgroundRect.getRect());
 		window.draw(leftButton.getRect());
 		window.draw(rightButton.getRect());
@@ -81,5 +109,9 @@ public:
 		}
 
 		window.draw(characterSkinRect.getRect());
+	}
+
+	int getSkinID() {
+		return this->skinID;
 	}
 };

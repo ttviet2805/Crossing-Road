@@ -9,6 +9,8 @@
 
 class Level : public State {
 private:
+	int curSelection = 0;
+
 	int difficulty;
 
 	float deltaSpeed;
@@ -27,6 +29,7 @@ public:
 	Level(sf::RenderWindow* window, float difficulty = 0, float deltaSpeed = 0) : 
 	State(SCREEN_HEIGHT, SCREEN_WIDTH, window), difficulty(difficulty), deltaSpeed(deltaSpeed) 
 	{
+		curSelectCharacter.addWindow(window);
 		this->initBackground(SCREEN_HEIGHT, SCREEN_WIDTH, "assets/image/Background/Menu-Background.jpg");
 		this->setupButton();
 	}
@@ -65,7 +68,7 @@ public:
 				}
 
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 10;
+					return this->curSelectCharacter.getSkinID() + 9;
 				}
 			}
 		}

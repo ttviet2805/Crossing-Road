@@ -15,7 +15,10 @@
 using namespace sf;
 
 const string skinPath = "assets/Image/Skin/";
-const string skinList[] = { "Skin1" };
+const string skinList[] = { "Skin1", "Skin2"};
+const int imgCountp[] = { 6, 6 };
+const pair<int, int> spriteSize[] = { {70, 98}, {64, 70} };
+const pair<int, int> imageSize[] = { {100, 140}, {64, 70 } };
 
 void gameRun() {
 	RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
@@ -102,7 +105,8 @@ void gameRun() {
 			std::cout << path << '\n';
 			
 			//For some reasons this shit just doesn't work
-			player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
+			player = new Player(6, Vector2f(spriteSize[type - 10].first, spriteSize[type - 10].second), 
+					Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path);
 			player->addMediator(playerMediator);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			playerMediator->clear();

@@ -215,7 +215,7 @@ public:
 		else {
 			this->staticCharacterMove(this->curSpeed, limDown);
 		}
-		cout << this->curSpeed << '\n';
+		//cout << this->curSpeed << '\n';
 	}
 
 	void setPos(float x, float y) {
