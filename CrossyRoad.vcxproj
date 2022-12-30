@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fileh\AllTexture.h" />
     <ClInclude Include="fileh\Animal.h" />
     <ClInclude Include="fileh\Car.h" />
     <ClInclude Include="fileh\CrossyRoad.h" />

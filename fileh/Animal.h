@@ -18,7 +18,7 @@ private:
     // = 1 if dog
     int state;
 public:
-    Animal(Vector2f _size, Vector2f _pos, float i_speed, string _fileName, int _state, int _numTexture);
+    Animal(Vector2f _size, Vector2f _pos, float i_speed, int _state, int _numTexture, Texture listTexture[]);
     bool collision(Rectangle src);
     void move();
     void setSpeed(float i_speed);

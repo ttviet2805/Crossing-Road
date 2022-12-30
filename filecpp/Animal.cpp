@@ -3,17 +3,13 @@
 
 using namespace std;
 
-Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, string _fileName, int _state, int _numTexture) {
+Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, int _state, int _numTexture, Texture listTexture[20]) {
     speed = i_speed;
     numTexture = _numTexture;
     curTexture = 0;
     state = _state;
     
     for (int i = 0; i < numTexture; i++) {
-        if (!listTexture[i].loadFromFile(_fileName + "Animal" + to_string(i) + ".jpg")) {
-            cout << "Loading Animal error\n";
-        }
-
         listRect[i].setSize(_size);
         listRect[i].setPosition(_pos);
         listRect[i].setTexture(listTexture[i]);

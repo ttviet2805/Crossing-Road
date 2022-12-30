@@ -10,6 +10,7 @@
 #include "flag.h"
 #include "PlayerMediator.h"
 #include "PlayerStatus.h"
+#include "AllTexture.h"
 
 using namespace std;
 using namespace sf;
@@ -41,6 +42,9 @@ private:
 	// View and Mediator
 	View view;
 	PlayerMediator* mediator;
+
+	// Game texture
+	ListTexture* gameTexture;
 	
 public:
 	int randIntegerNumber(int l, int r) {
@@ -62,6 +66,9 @@ public:
 		// Set up View
 		view = View(Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 
+		// Initialize all texture for game
+		gameTexture = new ListTexture();
+
 		// Set up Road for game
 		srand(time(0));
 		srand(static_cast <unsigned> (time(0)));
@@ -73,7 +80,7 @@ public:
 		int cnt = 0;
 		for (int i = 0; i < numPavement; i++) {
 			Rectangle tmpRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-			Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, this->mediator);
+			Road* tmpRoad = new Road(tmpRect, 0, objectSpeed, gameTexture, this->mediator);
 			this->mediator->addRoad(tmpRoad);
 
 			lstRoad.push_back(tmpRoad);
@@ -90,7 +97,7 @@ public:
 
 			for (int j = 0; j < numRoad; j++) {
 				Rectangle otherRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[state]);
-				Road* otherRoad = new Road(otherRect, roadState, objectSpeed, this->mediator);
+				Road* otherRoad = new Road(otherRect, roadState, objectSpeed, gameTexture, this->mediator);
 				this->mediator->addRoad(otherRoad);
 				lstRoad.push_back(otherRoad);
 
@@ -100,7 +107,7 @@ public:
 		}
 
 		Rectangle lastRoadRect(Vector2f(GAME_WIDTH, ROADSIZE), Vector2f(0, (ROADSIZE + DISTANCE) * cnt), roadTexture[0]);
-		Road* lastRoad = new Road(lastRoadRect, 0, objectSpeed, this->mediator);
+		Road* lastRoad = new Road(lastRoadRect, 0, objectSpeed, gameTexture, this->mediator);
 		this->mediator->addRoad(lastRoad);
 		lstRoad.push_back(lastRoad);
 
@@ -141,9 +148,7 @@ public:
 		}	
 		this->window->draw(this->flag.getRect());
 		
-		player->changeSpeed(-(*level) * 0.015f);
 		player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
-		player->changeSpeed((*level) * 0.015f);
 		player->updateSprite(0.5);
 
 		bool endGame = 0;
@@ -200,6 +205,8 @@ public:
 			}
 
 		lstRoad.clear();
+
+		delete gameTexture;
 		cout << "Game destructor\n";
 	}
 

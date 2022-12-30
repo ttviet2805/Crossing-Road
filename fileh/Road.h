@@ -7,6 +7,7 @@
 #include "Mediator.h"
 #include "Animal.h"
 #include "TrafficLight.h"
+#include "AllTexture.h"
 
 using namespace sf;
 using namespace std;
@@ -15,31 +16,39 @@ const string OBJECT_PATH = "assets/Image/Object/";
 
 class Road {
 private:
+	// Road Properties
 	Rectangle roadRect;
-	vector <Object*> listObject;
+	// 0 = Pavement
+	// 1 = Street
+	// 2 = Sand
 	int roadState = 0;
 	double timeObjectRand;
-	double timeGreenTrafficLight;
-	double timeRedTraficLight = 3;
-	Mediator* mediator;
-
-	bool search = 0;
-	bool isStop = 0;
-	bool roadCount = 0;
-
-	Texture carTexture;
-
 	Clock gameClock;
-
-	double objectSpeed;
+	// 0 = left to right
+	// 1 = right to left
 	int roadDirection;
+	const int MAX_NUM_OBJECT = 2;
+
+	// Object Properties
+	vector <Object*> listObject;
+	Texture carTexture;
+	double objectSpeed;
+	Texture animalTexture[2][20];
+	// = 0 if dinosaur
+	// = 1 if dog
 
 	// Traffic light
+	double timeGreenTrafficLight;
+	double timeRedTraficLight = 3;
 	Clock trafficLightClock;
 	Texture trafficLightTexture[5];
 	Rectangle redLightRect;
 	Rectangle greenLightRect;
 	TrafficLight curLight;
+
+	// Mediator
+	Mediator* mediator;
+	bool search = 0;
 
 public:
 	int randIntegerNumber(int l, int r) {
@@ -52,33 +61,47 @@ public:
 		return r3;
 	}
 
-	Road(Rectangle _Rect, int _roadState, double _objectSpeed, Mediator* mediator = nullptr) {
+	Road(Rectangle _Rect, int _roadState, double _objectSpeed, ListTexture* &gameTexture, Mediator* mediator = nullptr) {
+		// Road Properties
 		roadRect = _Rect;
-		isStop = 0;
 		roadState = _roadState;
-		this->mediator = mediator;
 		timeObjectRand = randRealNumber(3, 7);
-		timeGreenTrafficLight = randRealNumber(4, 10);
-
 		roadDirection = randIntegerNumber(0, 1);
 		if (roadDirection == 0)
 			objectSpeed = _objectSpeed;
 		else objectSpeed = -_objectSpeed;
 
+		// Set up animal
+		if (roadDirection == 0) {
+			for (int i = 0; i < gameTexture->NUM_ANIMAL_TEXTURE; i++) {
+				animalTexture[0][i] = gameTexture->animalTextureLeftRight[0][i];
+				animalTexture[1][i] = gameTexture->animalTextureLeftRight[1][i];
+			}
+		}
+		else {
+			for (int i = 0; i < gameTexture->NUM_ANIMAL_TEXTURE; i++) {
+				animalTexture[0][i] = gameTexture->animalTextureRightLeft[0][i];
+				animalTexture[1][i] = gameTexture->animalTextureRightLeft[1][i];
+			}
+		}
 
+		// Set up Car
 		if (roadDirection == 0)
 			carTexture.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
 		else {
 			carTexture.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
 		}
 
+		Vector2f curPos = roadRect.getPosition();
+
+		// Set up Traffic Light
 		for (int i = 0; i < 3; i++) {
 			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
 				cout << "Loading image error\n";
 			}
 		}
 
-		Vector2f curPos = roadRect.getPosition();
+		timeGreenTrafficLight = randRealNumber(4, 10);
 
 		if (roadState == 1) {
 			greenLightRect.setSize(Vector2f(25, 70));
@@ -89,6 +112,9 @@ public:
 			redLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
 			redLightRect.setTexture(trafficLightTexture[2]);
 		}
+
+		// Set Mediator
+		this->mediator = mediator;
 	}
 
 	RectangleShape getRect() {
@@ -98,39 +124,33 @@ public:
 	void generateObject(int state) {
 		Object* curObject = nullptr;
 
-		//cout << state << endl;
-
-		Vector2f curPos = roadRect.getPosition();
+		Vector2f roadPos = roadRect.getPosition();
 
 		if (state == 2) {
-			int tmpState = randIntegerNumber(1, 2);
-			if (tmpState == 1) {
-				string fileName = "assets/Image/Object/Dinosaur/Left-Right/";
-				if (roadDirection) fileName = "assets/Image/Object/Dinosaur/Right-Left/";
-
-				Vector2f roadPos = roadRect.getPosition();
+			int animalState = randIntegerNumber(0, 1);
+			
+			// Dinosaur
+			if (animalState == 0) {
 				if (roadDirection) roadPos.x = GAME_WIDTH;
 
-				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, fileName, 0, 12);
+				curObject = new Animal(Vector2f(100, 60), roadPos, objectSpeed, 0, 12, animalTexture[0]);
 
 				listObject.push_back(curObject);
 			}
+			// Dog
 			else {
-				string fileName = "assets/Image/Object/Dog/Left-Right/";
-				if (roadDirection) fileName = "assets/Image/Object/Dog/Right-Left/";
-
-				Vector2f roadPos = roadRect.getPosition();
 				if (roadDirection) roadPos.x = GAME_WIDTH;
-				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, fileName, 1, 12);
+
+				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, 0, 12, animalTexture[1]);
 
 				listObject.push_back(curObject);
 			}
 		}
 
 		if (state == 1) {
-			Rectangle tmpRect(Vector2f(100, 60), Vector2f(curPos.x + 30, curPos.y), carTexture);
+			Rectangle tmpRect(Vector2f(100, 60), Vector2f(roadPos.x + 30, roadPos.y), carTexture);
 			if (roadDirection) {
-				tmpRect.setPosition(Vector2f(GAME_WIDTH - 30, curPos.y));
+				tmpRect.setPosition(Vector2f(GAME_WIDTH - 30, roadPos.y));
 			}
 
 			curObject = new Car(tmpRect, objectSpeed);
@@ -149,7 +169,7 @@ public:
 					gameClock.restart();
 				}
 				else {
-					if (listObject.size() > 6) {
+					if (listObject.size() > MAX_NUM_OBJECT) {
 						gameClock.restart();
 						timeObjectRand = randRealNumber(3.5, 7);
 					}
