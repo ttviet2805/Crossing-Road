@@ -8,6 +8,8 @@
 const int WIDTH = 200;
 const int HEIGHT = 280;
 
+const int skinSize[] = { 0, 6, 6, 4 };
+ 
 class SelectChacracter {
 private:
 	sf::RenderWindow* window;
@@ -21,13 +23,13 @@ private:
 	Texture rightTexture;
 
 	int skinID = 1;
-	const int maxSkinID = 2;
+	const int maxSkinID = 3;
 
 	Rectangle characterSkinRect;
 	Texture characterSkinTexture[10];
 	const float timeChangeFrame = 0.2;
 	int curTexture = 0;
-	int maxTexture = 5;
+	//int maxTexture = 5;
 	Clock clock;
 
 public:
@@ -68,7 +70,7 @@ public:
 	}
 
 	void setSkinPotrait() {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < skinSize[this->skinID]; i++) {
 			string SKIN_PATH = "assets/Image/Skin/Skin" + to_string(this->skinID);
 			SKIN_PATH += "/Down" + to_string(i) + ".png";
 			if (!characterSkinTexture[i].loadFromFile(SKIN_PATH)) {
@@ -103,7 +105,7 @@ public:
 
 		Time elapsed = clock.getElapsedTime();
 		if (elapsed.asSeconds() >= timeChangeFrame) {
-			curTexture = (curTexture + 1) % maxTexture;
+			curTexture = (curTexture + 1) % skinSize[this->skinID];
 			characterSkinRect.setTexture(characterSkinTexture[curTexture]);
 			clock.restart();
 		}
