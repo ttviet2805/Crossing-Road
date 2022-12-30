@@ -9,6 +9,13 @@ public:
 	Texture animalTextureLeftRight[5][20];
 	Texture animalTextureRightLeft[5][20];
 
+    Texture carTextureLeftRight;
+    Texture carTextureRightLeft;
+
+    Texture trafficLightTexture[5];
+
+    const string OBJECT_PATH = "assets/Image/Object/";
+
 	ListTexture() {
         // Left to Right Dinosaur Texture
 		string fileName = "assets/Image/Object/Dinosaur/Left-Right/";
@@ -43,6 +50,17 @@ public:
         for (int i = 0; i < NUM_ANIMAL_TEXTURE; i++) {
             if (!animalTextureRightLeft[1][i].loadFromFile(fileName + "Animal" + to_string(i) + ".jpg")) {
                 cout << "Loading Animal error\n";
+            }
+        }
+
+        // Car
+        carTextureLeftRight.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
+        carTextureRightLeft.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
+
+        // Traffic Light
+        for (int i = 0; i < 3; i++) {
+            if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
+                cout << "Loading image error\n";
             }
         }
 	}

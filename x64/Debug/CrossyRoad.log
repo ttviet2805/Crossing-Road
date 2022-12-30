@@ -1,7 +1,7 @@
 ﻿  Level.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(136,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(144,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(156,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(134,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(142,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(154,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -134,9 +134,9 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(29,45): warning 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(136,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(144,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(156,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(134,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(142,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(154,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(53,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(94,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(163,22): warning C4018: '<': signed/unsigned mismatch
@@ -161,9 +161,9 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(137,39): 
           ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerMediator.h(58,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(136,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(144,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(156,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(134,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(142,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(154,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [

@@ -87,18 +87,16 @@ public:
 
 		// Set up Car
 		if (roadDirection == 0)
-			carTexture.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
+			carTexture = gameTexture->carTextureLeftRight;
 		else {
-			carTexture.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
+			carTexture = gameTexture->carTextureRightLeft;
 		}
 
 		Vector2f curPos = roadRect.getPosition();
 
 		// Set up Traffic Light
 		for (int i = 0; i < 3; i++) {
-			if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
-				cout << "Loading image error\n";
-			}
+			trafficLightTexture[i] = gameTexture->trafficLightTexture[i];
 		}
 
 		timeGreenTrafficLight = randRealNumber(4, 10);
