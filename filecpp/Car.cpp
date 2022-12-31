@@ -28,7 +28,7 @@ void Car::sound_object() {
     if (!car_Music.openFromFile(MUSIC_PATH)) {
         cout << "Loading music error\n";
     }
-
+    car_Music.setVolume(100.f);
     car_Music.play();
     sf::sleep(sf::seconds(2.0f));
 }

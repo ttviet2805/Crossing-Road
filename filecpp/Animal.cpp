@@ -47,7 +47,7 @@ void Animal::sound_object() {
     if (!animal_Music.openFromFile(MUSIC_PATH)) {
         cout << "Loading music error\n";
     }
-
+    animal_Music.setVolume(100.f);
     animal_Music.play();
     sf::sleep(sf::seconds(2.0f));
 }

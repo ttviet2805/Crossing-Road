@@ -107,6 +107,7 @@ void gameRun() {
 			delete nxt.back();
 			nxt.pop_back();
 			backgroundMusic.stop();
+			loseMusic.setVolume(100.f);
 			loseMusic.play();
 			nxt.push_back(new LoseMenu(&window));
 			break;
