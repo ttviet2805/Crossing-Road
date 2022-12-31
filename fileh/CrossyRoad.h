@@ -60,17 +60,20 @@ void gameRun() {
 		case 0:
 			difficulty = 1;
 			loseMusic.stop();
+			backgroundMusic.stop();
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			delete nxt.back();
 			nxt.pop_back();
 			break;
 		case 1:
+			backgroundMusic.stop();
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
+			backgroundMusic.stop();
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
@@ -81,6 +84,7 @@ void gameRun() {
 			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
 		case 3:
+			backgroundMusic.stop();
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			int heart;
@@ -113,6 +117,7 @@ void gameRun() {
 			break;
 		case 7:
 			loseMusic.stop();
+			backgroundMusic.stop();
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			player->setlife(3);
