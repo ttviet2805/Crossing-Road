@@ -9,8 +9,8 @@ public:
 	Texture animalTextureLeftRight[5][20];
 	Texture animalTextureRightLeft[5][20];
 
-    Texture carTextureLeftRight[5];
-    Texture carTextureRightLeft[5];
+    Texture carTextureLeftRight[8];
+    Texture carTextureRightLeft[8];
 
     Texture trafficLightTexture[5];
 
@@ -58,6 +58,10 @@ public:
         carTextureRightLeft[0].loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
         carTextureLeftRight[1].loadFromFile(OBJECT_PATH + "Truck/Left-Right/Truck.png");
         carTextureRightLeft[1].loadFromFile(OBJECT_PATH + "Truck/Right-Left/Truck.png");
+        for (int i = 2; i <= 4; i++) {
+            carTextureLeftRight[i].loadFromFile(OBJECT_PATH + "Bus/Bus" + to_string(i - 1) + "/Left-Right/Bus.png");
+            carTextureRightLeft[i].loadFromFile(OBJECT_PATH + "Bus/Bus" + to_string(i - 1) + "/Right-Left/Bus.png");
+        }
 
         // Traffic Light
         for (int i = 0; i < 3; i++) {

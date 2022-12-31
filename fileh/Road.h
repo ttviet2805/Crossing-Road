@@ -31,7 +31,7 @@ private:
 
 	// Object Properties
 	vector <Object*> listObject;
-	Texture carTexture[5];
+	Texture carTexture[8];
 	double objectSpeed;
 	Texture animalTexture[2][20];
 	// = 0 if dinosaur
@@ -39,7 +39,7 @@ private:
 
 	// Traffic light
 	double timeGreenTrafficLight;
-	double timeRedTraficLight = 3;
+	double timeRedTraficLight = 2.5;
 	Clock trafficLightClock;
 	Texture trafficLightTexture[5];
 	Rectangle redLightRect;
@@ -87,12 +87,12 @@ public:
 
 		// Set up Car
 		if (roadDirection == 0) {
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < 5; i++) {
 				carTexture[i] = gameTexture->carTextureLeftRight[i];
 			}
 		}
 		else {
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < 5; i++) {
 				carTexture[i] = gameTexture->carTextureRightLeft[i];
 			}
 		}
@@ -151,15 +151,21 @@ public:
 		}
 
 		if (state == 1) {
-			int randCar = randIntegerNumber(0, 1);
+			int randCar = randIntegerNumber(0, 4);
 			Rectangle tmpRect(Vector2f(80, 44), Vector2f(roadPos.x + 30, roadPos.y + 17), carTexture[randCar]);
 			
 			if (randCar == 1) {
 				tmpRect.setSize(Vector2f(90, 70));
 				tmpRect.setPosition(Vector2f(roadPos.x + 30, roadPos.y + 5));
 			}
+
+			if (randCar > 1) {
+				tmpRect.setSize(Vector2f(100, 75));
+				tmpRect.setPosition(Vector2f(roadPos.x + 30, roadPos.y + 2.5));
+			}
+
 			if (roadDirection) {
-				tmpRect.setPosition(Vector2f(GAME_WIDTH, roadPos.y + 17));
+				tmpRect.setPosition(Vector2f(GAME_WIDTH, tmpRect.getPosition().y));
 			}
 
 			curObject = new Car(tmpRect, objectSpeed);
@@ -214,6 +220,7 @@ public:
 					if (elapsed.asSeconds() >= timeRedTraficLight) {
 						trafficLightClock.restart();
 						curLight.changeType(0);
+						timeGreenTrafficLight = randRealNumber(4, 10);
 					}
 				}
 			}

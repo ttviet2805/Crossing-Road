@@ -1,7 +1,12 @@
 ﻿  Level.cpp
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(139,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(147,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(165,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(164,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(171,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -172,7 +177,12 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(29,45): warning 
           ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(139,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(147,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(165,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(164,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(171,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(53,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(94,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(167,22): warning C4018: '<': signed/unsigned mismatch
@@ -199,7 +209,12 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerMediator.h(63,30):
   main.cpp
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(139,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(147,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(165,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(164,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(171,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
