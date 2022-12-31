@@ -9,8 +9,8 @@ public:
 	Texture animalTextureLeftRight[5][20];
 	Texture animalTextureRightLeft[5][20];
 
-    Texture carTextureLeftRight;
-    Texture carTextureRightLeft;
+    Texture carTextureLeftRight[5];
+    Texture carTextureRightLeft[5];
 
     Texture trafficLightTexture[5];
 
@@ -30,7 +30,7 @@ public:
         fileName = "assets/Image/Object/Dog/Left-Right/";
 
         for (int i = 0; i < NUM_ANIMAL_TEXTURE; i++) {
-            if (!animalTextureLeftRight[1][i].loadFromFile(fileName + "Animal" + to_string(i) + ".jpg")) {
+            if (!animalTextureLeftRight[1][i].loadFromFile(fileName + "Animal" + to_string(i) + ".png")) {
                 cout << "Loading Animal error\n";
             }
         }
@@ -44,18 +44,20 @@ public:
             }
         }
 
-        // Right to Left Dinosaur Texture
+        // Right to Left Dog Texture
         fileName = "assets/Image/Object/Dog/Right-Left/";
 
         for (int i = 0; i < NUM_ANIMAL_TEXTURE; i++) {
-            if (!animalTextureRightLeft[1][i].loadFromFile(fileName + "Animal" + to_string(i) + ".jpg")) {
+            if (!animalTextureRightLeft[1][i].loadFromFile(fileName + "Animal" + to_string(i) + ".png")) {
                 cout << "Loading Animal error\n";
             }
         }
 
         // Car
-        carTextureLeftRight.loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
-        carTextureRightLeft.loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
+        carTextureLeftRight[0].loadFromFile(OBJECT_PATH + "Car/Left-Right/Car.png");
+        carTextureRightLeft[0].loadFromFile(OBJECT_PATH + "Car/Right-Left/Car.png");
+        carTextureLeftRight[1].loadFromFile(OBJECT_PATH + "Truck/Left-Right/Truck.png");
+        carTextureRightLeft[1].loadFromFile(OBJECT_PATH + "Truck/Right-Left/Truck.png");
 
         // Traffic Light
         for (int i = 0; i < 3; i++) {

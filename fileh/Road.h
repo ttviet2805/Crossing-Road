@@ -31,7 +31,7 @@ private:
 
 	// Object Properties
 	vector <Object*> listObject;
-	Texture carTexture;
+	Texture carTexture[5];
 	double objectSpeed;
 	Texture animalTexture[2][20];
 	// = 0 if dinosaur
@@ -86,10 +86,15 @@ public:
 		}
 
 		// Set up Car
-		if (roadDirection == 0)
-			carTexture = gameTexture->carTextureLeftRight;
+		if (roadDirection == 0) {
+			for (int i = 0; i < 2; i++) {
+				carTexture[i] = gameTexture->carTextureLeftRight[i];
+			}
+		}
 		else {
-			carTexture = gameTexture->carTextureRightLeft;
+			for (int i = 0; i < 2; i++) {
+				carTexture[i] = gameTexture->carTextureRightLeft[i];
+			}
 		}
 
 		Vector2f curPos = roadRect.getPosition();
@@ -139,16 +144,22 @@ public:
 			else {
 				if (roadDirection) roadPos.x = GAME_WIDTH;
 
-				curObject = new Animal(Vector2f(60, 100), roadPos, objectSpeed, 1, 12, animalTexture[1]);
+				curObject = new Animal(Vector2f(60, 60), Vector2f(roadPos.x, roadPos.y + 10), objectSpeed, 1, 12, animalTexture[1]);
 
 				listObject.push_back(curObject);
 			}
 		}
 
 		if (state == 1) {
-			Rectangle tmpRect(Vector2f(100, 60), Vector2f(roadPos.x + 30, roadPos.y), carTexture);
+			int randCar = randIntegerNumber(0, 1);
+			Rectangle tmpRect(Vector2f(80, 44), Vector2f(roadPos.x + 30, roadPos.y + 17), carTexture[randCar]);
+			
+			if (randCar == 1) {
+				tmpRect.setSize(Vector2f(90, 70));
+				tmpRect.setPosition(Vector2f(roadPos.x + 30, roadPos.y + 5));
+			}
 			if (roadDirection) {
-				tmpRect.setPosition(Vector2f(GAME_WIDTH - 30, roadPos.y));
+				tmpRect.setPosition(Vector2f(GAME_WIDTH, roadPos.y + 17));
 			}
 
 			curObject = new Car(tmpRect, objectSpeed);
@@ -172,12 +183,12 @@ public:
 						timeObjectRand = randRealNumber(3.5, 7);
 					}
 					else {
-						if (roadDirection == 0 && listObject.back()->getRect().getPosition().x >= 250) {
+						if (roadDirection == 0 && listObject.back()->getRect().getPosition().x >= 180) {
 							generateObject(roadState);
 							timeObjectRand = randRealNumber(3.5, 7);
 							gameClock.restart();
 						}
-						if (roadDirection == 1 && listObject.back()->getRect().getPosition().x <= GAME_WIDTH - 250) {
+						if (roadDirection == 1 && listObject.back()->getRect().getPosition().x <= GAME_WIDTH - 180) {
 							generateObject(roadState);
 							timeObjectRand = randRealNumber(3.5, 7);
 							gameClock.restart();
