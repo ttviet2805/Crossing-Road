@@ -151,10 +151,18 @@ public:
 		}	
 		this->window->draw(this->flag.getRect());
 		
-		player->changeSpeed((*this->level - 1) * 0.075);
-		player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
+		//player->changeSpeed((*this->level - 1) * 0.075);
+		
+		bool checkNotBlock = true;
+		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
+			bool ans = lstRoad[i]->searchRock(player->getNextSprite(lstRoad.size() * (ROADSIZE + DISTANCE)));
+			if (ans) {checkNotBlock = false; break;}
+		}
+		if (checkNotBlock) {
+			player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
+		}
 		player->updateSprite(0.5);
-		player->changeSpeed((*this->level - 1) * -0.075);
+		//player->changeSpeed((*this->level - 1) * -0.075);
 
 		bool endGame = 0;
 

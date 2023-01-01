@@ -372,6 +372,18 @@ public:
 		}
 	}
 
+	bool searchRock(Rectangle src) {
+		this->search = this->roadRect.isCollision(src);
+		if (this->search) {
+			for (int i = 0; i < (int)this->listRock.size(); i++) {
+				if (this->listRock[i]->collision(src)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	int startSearch(Rectangle src) {
 		this->search = this->roadRect.isCollision(src);
 		if (this->search) {
@@ -388,7 +400,7 @@ public:
 		}
 		return false;
 	}
-
+		
 	~Road() {
 		for (int i = 0; i < listObject.size(); i++)
 			if (listObject[i]) {

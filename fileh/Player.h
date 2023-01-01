@@ -124,6 +124,34 @@ public:
 		}
 	}
 
+	Rectangle getNextSprite(float limDown) {
+		Rectangle cur = this->getSprite();
+		if (Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			if (cur.getPosition().x - this->curSpeed > 0)
+				cur.move(-this->curSpeed, 0);
+		}
+		else {
+			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				if (cur.getPosition().x + this->curSpeed + cur.getSize().x < GAME_WIDTH)
+					cur.move(this->curSpeed, 0);
+			}
+			else {
+				if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+					if (cur.getPosition().y - this->curSpeed > 0)
+						cur.move(0, -this->curSpeed);
+				}
+				else {
+					if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+						if (cur.getPosition().y + this->curSpeed + cur.getSize().y < limDown)
+							cur.move(0, this->curSpeed);
+					}
+				}
+			}
+		}
+		return cur;
+	}
+
 	void draw(sf::RenderWindow& window) {
 		this->curPos.checkRange(window);
 		//this->sprite.setPosition(this->curPos.pos);
