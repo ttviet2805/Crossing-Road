@@ -9,6 +9,7 @@
 #include "TrafficLight.h"
 #include "AllTexture.h"
 #include "Rock.h"
+#include "Item.h"
 
 using namespace sf;
 using namespace std;
@@ -51,6 +52,18 @@ private:
 	const int ROAD_SIZE = 80;
 	Texture rockTexture[5];
 	vector <Rock*> listRock;
+
+	// Item
+	Texture spawnTexture[15];
+	Rectangle spawnRectangle[15];
+	Texture itemTexture[5];
+	Rectangle itemRect;
+	Item* curItem = nullptr;
+	Clock itemClock;
+	Clock spawnClock;
+	double TIME_RAND_OBJECT;
+	const int TIME_ITEM = 6;
+	const double TIME_SPAWN = 0.5;
 
 	// Mediator
 	Mediator* mediator;
@@ -153,6 +166,21 @@ public:
 			}
 		}
 
+		// Item
+		for (int i = 0; i < 10; i++) {
+			spawnTexture[i] = gameTexture->spawnEffect[i];
+			spawnRectangle[i].setSize(Vector2f(ROAD_SIZE, ROAD_SIZE));
+			spawnRectangle[i].setPosition(Vector2f(10, 10));
+			spawnRectangle[i].setTexture(spawnTexture[i]);
+		}
+
+		for (int i = 0; i < 2; i++) {
+			itemTexture[i] = gameTexture->itemTexture[i];
+		}
+		itemRect.setSize(Vector2f(ROAD_SIZE - 20, ROAD_SIZE - 20));
+
+		TIME_RAND_OBJECT = randIntegerNumber(7, 12);
+
 		// Set Mediator
 		this->mediator = mediator;
 	}
@@ -212,6 +240,38 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window) {
+		if (roadState) {
+			Time itemElapsed = itemClock.getElapsedTime();
+			if (itemElapsed.asSeconds() >= TIME_RAND_OBJECT) {
+				int state = randIntegerNumber(0, 100);
+				if (state < 20) {
+					int itemState;
+					if (state < 3) itemState = 0;
+					else itemState = 1;
+
+					Vector2f roadPos = roadRect.getPosition();
+					int itemPos = randIntegerNumber(0, 16);
+					itemRect.setPosition(Vector2f(ROAD_SIZE * itemPos, roadPos.y + 10));
+					itemRect.setTexture(itemTexture[itemState]);
+					delete curItem;
+					curItem = new Item(itemRect, itemState);
+					
+					spawnClock.restart();
+					cout << "New Item Spawn\n";
+				}
+
+				itemClock.restart();
+			}
+		}
+
+		if (curItem) {
+			if (spawnClock.getElapsedTime().asSeconds() >= TIME_ITEM) {
+				cout << "Item disapear\n";
+				delete curItem;
+				curItem = nullptr;
+			}
+		}
+
 		if (roadState) {
 			Time elapsed = gameClock.getElapsedTime();
 			if (elapsed.asSeconds() >= timeObjectRand && curLight.getState() == 0) {
@@ -305,6 +365,10 @@ public:
 			if (curLight.getState() == 2) {
 				window.draw(redLightRect.getRect());
 			}
+		}
+
+		if (curItem) {
+			curItem->draw(window);
 		}
 	}
 

@@ -1,27 +1,52 @@
 ﻿  Level.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(176,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(184,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(201,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,50): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(208,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,39): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(204,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(212,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(229,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(236,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(254,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
@@ -190,29 +215,54 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(29,45): warning 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(176,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(184,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(201,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,50): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(208,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,39): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(204,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(212,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(229,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(236,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(254,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(53,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(94,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(167,22): warning C4018: '<': signed/unsigned mismatch
@@ -237,29 +287,54 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(139,39): 
           ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerMediator.h(63,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,47): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,36): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(150,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(163,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(176,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(184,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(201,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,50): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(208,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(172,39): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(180,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(204,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(212,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(229,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(236,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Road.h(254,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [

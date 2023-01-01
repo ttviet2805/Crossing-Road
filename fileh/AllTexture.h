@@ -16,6 +16,9 @@ public:
 
     Texture rockTexture[5];
 
+    Texture spawnEffect[15];
+    Texture itemTexture[5];
+
     const string OBJECT_PATH = "assets/Image/Object/";
 
 	ListTexture() {
@@ -77,6 +80,24 @@ public:
             if (!rockTexture[i].loadFromFile(OBJECT_PATH + "Rock/Rock" + to_string(i) + ".png")) {
                 cout << "Loading rock error\n";
             }
+        }
+
+        // Spawn
+        const string ITEM_PATH = "assets/Image/Item/";
+        for (int i = 0; i < 10; i++) {
+            if (!spawnEffect[i].loadFromFile("assets/Image/Item/Spawn/Spawn" + to_string(i) + ".png")) {
+                cout << "Loading spawn error\n";
+            }
+        }
+
+        // Heart
+        if (!itemTexture[0].loadFromFile(ITEM_PATH + "Heart/Item0.jpg")) {
+            cout << "Loading heart error\n";
+        }
+
+        // Speed
+        if (!itemTexture[1].loadFromFile(ITEM_PATH + "Speed/Item0.jpg")) {
+            cout << "Loading wing error\n";
         }
 	}
 };

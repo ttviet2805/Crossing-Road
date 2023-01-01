@@ -25,6 +25,7 @@
     <ClInclude Include="fileh\CrossyRoad.h" />
     <ClInclude Include="fileh\flag.h" />
     <ClInclude Include="fileh\Game.h" />
+    <ClInclude Include="fileh\Item.h" />
     <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\LoseMenu.h" />
     <ClInclude Include="fileh\Mediator.h" />

@@ -89,7 +89,7 @@ public:
 
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
 		string imgPath = ""):
-		switchTime(0.1), curSpeed(0.6f), face(0), imgLength(imgLength), 
+		switchTime(0.1), curSpeed(0.3f), face(0), imgLength(imgLength), 
 		imgHeight(imgHeight), imgPath(imgPath), life(heart), name("")
 	{
 		this->imageCount.x = imagePerDir;
