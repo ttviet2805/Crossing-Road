@@ -167,6 +167,14 @@ public:
 		bool endGame = 0;
 
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
+			int itemType = lstRoad[i]->checkGetItem(player->getSprite());
+			if (itemType == 1) {
+				player->updateHeartText(1);
+			}
+			else if (itemType == 2) {
+				player->changeSpeed(0.075);
+			}
+
 			int ans = lstRoad[i]->startSearch(player->getSprite());
 			if (ans == 1) {
 				this->mediator->updateLastPavement(i);

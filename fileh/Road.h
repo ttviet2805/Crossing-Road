@@ -54,6 +54,7 @@ private:
 	vector <Rock*> listRock;
 
 	// Item
+	int itemState;
 	Texture spawnTexture[15];
 	Rectangle spawnRectangle[15];
 	Texture itemTexture[5];
@@ -240,12 +241,13 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window) {
+
 		if (roadState) {
 			Time itemElapsed = itemClock.getElapsedTime();
 			if (itemElapsed.asSeconds() >= TIME_RAND_OBJECT) {
 				int state = randIntegerNumber(0, 100);
 				if (state < 20) {
-					int itemState;
+					
 					if (state < 3) itemState = 0;
 					else itemState = 1;
 
@@ -370,6 +372,19 @@ public:
 		if (curItem) {
 			curItem->draw(window);
 		}
+	}
+
+	bool checkGetItem(Rectangle src) {
+		this->search = this->roadRect.isCollision(src);
+		if (this->search && this->curItem) {
+			if (this->curItem->collision(src)) {
+				cout << "Item type: " << this->itemState + 1 << '\n';
+				delete curItem;
+				this->curItem = nullptr;
+				return this->itemState + 1;
+			}
+		}
+		return false;
 	}
 
 	bool searchRock(Rectangle src) {
