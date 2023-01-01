@@ -14,6 +14,8 @@ public:
 
     Texture trafficLightTexture[5];
 
+    Texture rockTexture[5];
+
     const string OBJECT_PATH = "assets/Image/Object/";
 
 	ListTexture() {
@@ -67,6 +69,13 @@ public:
         for (int i = 0; i < 3; i++) {
             if (!trafficLightTexture[i].loadFromFile(OBJECT_PATH + "Traffic-Light/Light" + to_string(i) + ".png")) {
                 cout << "Loading image error\n";
+            }
+        }
+
+        // Rock
+        for (int i = 0; i < 3; i++) {
+            if (!rockTexture[i].loadFromFile(OBJECT_PATH + "Rock/Rock" + to_string(i) + ".png")) {
+                cout << "Loading rock error\n";
             }
         }
 	}

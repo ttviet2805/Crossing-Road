@@ -8,6 +8,7 @@
 #include "Animal.h"
 #include "TrafficLight.h"
 #include "AllTexture.h"
+#include "Rock.h"
 
 using namespace sf;
 using namespace std;
@@ -45,6 +46,11 @@ private:
 	Rectangle redLightRect;
 	Rectangle greenLightRect;
 	TrafficLight curLight;
+
+	// Rock
+	const int ROAD_SIZE = 80;
+	Texture rockTexture[5];
+	vector <Rock*> listRock;
 
 	// Mediator
 	Mediator* mediator;
@@ -114,6 +120,37 @@ public:
 			redLightRect.setSize(Vector2f(25, 70));
 			redLightRect.setPosition(Vector2f(curPos.x, curPos.y + 10));
 			redLightRect.setTexture(trafficLightTexture[2]);
+		}
+
+		// Generate Rock
+		if (roadState == 0) {
+			const int NUM_ROCK = randIntegerNumber(0, 10);
+			const int MAX_ROCK = 17;
+
+			for (int i = 0; i < 3; i++)
+				rockTexture[i] = gameTexture->rockTexture[i];
+
+			bool vs[MAX_ROCK + 5];
+			memset(vs, false, sizeof(vs));
+
+			Vector2f roadPos = roadRect.getPosition();
+
+			for (int i = 0; i < NUM_ROCK; i++) {
+				int t = -1;
+				while (1) {
+					t = randIntegerNumber(0, MAX_ROCK);
+					if (!vs[t] && t != 6 && t != 7 && t != 8) {
+						vs[t] = true;
+						break;
+					}
+				}
+
+				int rockState = randIntegerNumber(0, 2);
+
+				Rectangle curRockRect(Vector2f(ROAD_SIZE, ROAD_SIZE), Vector2f(ROAD_SIZE * t, roadPos.y), rockTexture[rockState]);
+				Rock* curRock = new Rock(curRockRect);
+				listRock.push_back(curRock);
+			}
 		}
 
 		// Set Mediator
@@ -246,16 +283,19 @@ public:
 			if (state) break;
 		}
 
-
+		// Object move
 		for (int i = 0; i < listObject.size(); i++) {
 			if (curLight.getState() == 0) listObject[i]->move();
 		}
-
 
 		window.draw(roadRect.getRect());
 
 		for (int i = 0; i < listObject.size(); i++) {
 			listObject[i]->draw(window);
+		}
+
+		for (int i = 0; i < listRock.size(); i++) {
+			listRock[i]->draw(window);
 		}
 
 		if (curLight.getState() == 0) {
@@ -290,6 +330,12 @@ public:
 			if (listObject[i]) {
 				delete listObject[i];
 			}
+
+		for (int i = 0; i < listRock.size(); i++) {
+			if (listRock[i]) {
+				delete listRock[i];
+			}
+		}
 		//delete mediator;
 	}
 };

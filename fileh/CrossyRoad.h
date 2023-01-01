@@ -67,15 +67,15 @@ void gameRun() {
 			nxt.pop_back();
 			break;
 		case 1:
-			backgroundMusic.stop();
+			/*backgroundMusic.stop();
 			backgroundMusic.play();
-			backgroundMusic.setLoop(true);
+			backgroundMusic.setLoop(true);*/
 			nxt.push_back(new Level(&window));
 			break;
 		case 2:
-			backgroundMusic.stop();
+			/*backgroundMusic.stop();
 			backgroundMusic.play();
-			backgroundMusic.setLoop(true);
+			backgroundMusic.setLoop(true);*/
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//player.setlife(3);
 			delete nxt.back();
