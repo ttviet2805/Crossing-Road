@@ -28,7 +28,7 @@ public:
 		float dis = ((srcPoint.x - thisPoint.x) * (srcPoint.x - thisPoint.x) + (srcPoint.y - thisPoint.y) * (srcPoint.y - thisPoint.y));
 		dis = sqrt(dis);
 		if ((this->rect).isCollision(src) && srcPoint.y <= thisPoint.y) { 
-			if (dis <= MIN_DISTANCE) {
+			if (dis <= 65.5) {
 				return true;
 			}
 		}

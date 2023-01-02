@@ -159,9 +159,7 @@ public:
 			bool ans = lstRoad[i]->searchRock(player->getNextSprite(lstRoad.size() * (ROADSIZE + DISTANCE)));
 			if (ans) {checkNotBlock = false; break;}
 		}
-		if (checkNotBlock) {
-			player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
-		}
+		
 		player->updateSprite(0.5);
 		//player->changeSpeed((*this->level - 1) * -0.075);
 
@@ -184,12 +182,19 @@ public:
 				endGame = player->updateHeartText(-1);
 				this->mediator->returnLastPos();
 			}
+			else if (ans == 3) {
+				checkNotBlock = false;
+			}
 		}
 		if (this->flag.collision(player->getSprite())) {
 			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
 			window->setView(view);
 			(*this->level)++;
 			return 5;
+		}
+
+		if (checkNotBlock) {
+			player->updatePos(lstRoad.size() * (ROADSIZE + DISTANCE));
 		}
 
 		Vector2f characterPos = player->getRect().getPosition();

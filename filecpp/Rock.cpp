@@ -14,7 +14,7 @@ bool Rock::collision(Rectangle src) {
     dis = sqrt(dis);
     if ((this->rec).isCollision(src) && srcPoint.y <= thisPoint.y) {
         //cout << dis << '\n';
-        if (dis <= MIN_DIS) {
+        if (dis <= 55.5) {
             return true;
         }
     }

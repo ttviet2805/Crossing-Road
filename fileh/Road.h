@@ -397,11 +397,15 @@ public:
 		return false;
 	}
 
-	int startSearch(Rectangle src) {
+	int startSearch(Rectangle src, int face = 0) {
 		this->search = this->roadRect.isCollision(src);
 		if (this->search) {
 			for (int i = 0; i < (int)this->listObject.size(); i++) {
 				if (this->listObject[i]->collision(src)) {
+					if (this->curLight.getState()) {
+						//cout << "Red light\n";
+						return 3;
+					}
 					cout << "Road Collision\n";
 					this->listObject[i]->sound_object();
 					//auto pos = this->getRect().getPosition();
