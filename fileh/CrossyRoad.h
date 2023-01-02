@@ -35,7 +35,7 @@ void gameRun() {
 	PlayerMediator *playerMediator = new PlayerMediator(player);
 	//player->addMediator(playerMediator);
 
-	int difficulty = 1;
+	int difficulty = 4;
 
 	const string MUSIC_PATH = "assets/Sound/Your-Smile.ogg";
 	Music backgroundMusic;
