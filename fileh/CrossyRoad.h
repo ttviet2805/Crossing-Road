@@ -32,10 +32,10 @@ void gameRun() {
 	vector<State*> nxt;
 	nxt.push_back(new Menu(&window));
 
-	PlayerMediator *playerMediator = new PlayerMediator(player);
+	PlayerMediator* playerMediator = new PlayerMediator(player);
 	//player->addMediator(playerMediator);
 
-	int difficulty = 4;
+	int difficulty = 1;
 
 	const string MUSIC_PATH = "assets/Sound/Your-Smile.ogg";
 	Music backgroundMusic;
@@ -81,7 +81,12 @@ void gameRun() {
 			delete nxt.back();
 			nxt.pop_back();
 			playerMediator->clear();
-			nxt.push_back(new Game(&window, &difficulty, playerMediator));
+			if (difficulty <= 7) {
+				nxt.push_back(new Game(&window, &difficulty, playerMediator));
+			}
+			else {
+				nxt.push_back(new WinMenu(&window, difficulty));
+			}
 			break;
 		case 3:
 			backgroundMusic.stop();
@@ -96,12 +101,12 @@ void gameRun() {
 			playerMediator->clear();
 			nxt.push_back(new Game(&window, &difficulty, playerMediator));
 			break;
-		/*case 4:
-			player.setPos(0, 0);
-			delete nxt.back();
-			nxt.pop_back();
-			nxt.push_back(new Game(&window, 3, playerMediator));
-			break;*/
+			/*case 4:
+				player.setPos(0, 0);
+				delete nxt.back();
+				nxt.pop_back();
+				nxt.push_back(new Game(&window, 3, playerMediator));
+				break;*/
 		case 5:
 			delete nxt.back();
 			nxt.pop_back();
@@ -125,15 +130,15 @@ void gameRun() {
 			nxt.pop_back();
 			nxt.push_back(new Level(&window));
 			break;
-		case 8: 
+		case 8:
 			break;
 		default:
 			std::string path = skinPath + skinList[type - 10];
 			std::cout << path << '\n';
-			
+
 			//For some reasons this shit just doesn't work
 			player = new Player(imgCount[type - 10], Vector2f(spriteSize[type - 10].first, spriteSize[type - 10].second),
-					Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path);
+				Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path);
 			player->addMediator(playerMediator);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			playerMediator->clear();

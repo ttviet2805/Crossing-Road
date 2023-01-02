@@ -17,7 +17,7 @@ private:
 	float curSpeed;
 	string imgPath;
 	int face;
-	
+
 	sf::Vector2u currentImage;
 	sf::Vector2u imageCount;
 	float totalTime, switchTime;
@@ -36,12 +36,12 @@ private:
 	std::string name;
 	int life;
 
-	Mediator *mediator;
+	Mediator* mediator;
 
 	sf::Clock clock;
 public:
-	
-	
+
+
 	/*Player() : curPos(Point()), curSpeed(10), totalTime(0), switchTime(0), face(0) { initCharacter(); }
 	Player(double x, double y, double speed) : curPos(Point(x, y)), curSpeed(speed), face(0) { initCharacter(); }
 	Player(const Player& src) : curPos(src.curPos), curSpeed(src.curSpeed), face(src.face) { initCharacter(); }*/
@@ -88,8 +88,8 @@ public:
 	}*/
 
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
-		string imgPath = ""):
-		switchTime(0.1), curSpeed(0.7f), face(0), imgLength(imgLength), 
+		string imgPath = "") :
+		switchTime(0.1), curSpeed(0.4f), face(0), imgLength(imgLength),
 		imgHeight(imgHeight), imgPath(imgPath), life(heart), name("")
 	{
 		this->imageCount.x = imagePerDir;
@@ -202,7 +202,7 @@ public:
 			this->face = 0;
 		}
 		else {
-			
+
 			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 				for (int i = 0; i < this->imageCount.x; i++) {
 					this->staticSprite[1][i].setPosition(
@@ -251,8 +251,8 @@ public:
 	}
 
 	void setPos(float x, float y) {
-		curPos.pos.x=x;
-		curPos.pos.y=y;
+		curPos.pos.x = x;
+		curPos.pos.y = y;
 		if (!this->imgType) {
 			this->sprite.setPosition(curPos.pos);
 		}
@@ -269,18 +269,18 @@ public:
 			subDeltaTime = 1.0f / 60.0f;
 		}
 
-	/*	if (Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-			this->face = 0;
-		}
-		if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-			this->face = 1;
-		}
-		if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-			this->face = 2;
-		}
-		if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-			this->face = 3;
-		}*/
+		/*	if (Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				this->face = 0;
+			}
+			if (Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				this->face = 1;
+			}
+			if (Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+				this->face = 2;
+			}
+			if (Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+				this->face = 3;
+			}*/
 		this->totalTime += subDeltaTime;
 
 		if (this->totalTime >= switchTime) {
@@ -356,7 +356,7 @@ public:
 				this->staticCharacter[i][j].loadFromFile(path);
 				this->staticSprite[i][j] = Rectangle(_Size, _position, this->staticCharacter[i][j]);
 			}
-		}	
+		}
 	}
 
 	void addMediator(Mediator* src) {
@@ -365,7 +365,7 @@ public:
 
 	bool updateHeartText(int val) {
 		this->life += val;
-	
+
 		this->mediator->updateHeartText(to_string(this->life));
 
 		return this->life <= 0;

@@ -45,20 +45,20 @@ private:
 
 	// Game texture
 	ListTexture* gameTexture;
-	
+
 public:
 	int randIntegerNumber(int l, int r) {
 		return l + (rand()) % (r - l + 1);
 	}
 
-	Game(RenderWindow* window, int* difficulty, PlayerMediator *mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
+	Game(RenderWindow* window, int* difficulty, PlayerMediator* mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
 		// Set up level for game
 		this->level = difficulty;
 		cout << "Level: " << (*this->level) << '\n';
 
 		const string LEVEL_PATH = "assets/Level/Level";
 		string curPath = LEVEL_PATH + to_string(*level) + ".txt";
-		
+
 		ifstream fin(curPath);
 		fin >> numPavement >> leftLimRoad >> rightLimRoad >> objectSpeed;
 		fin.close();
@@ -123,10 +123,11 @@ public:
 	}
 
 	void setDifficulty() {
-		
+
 	}
 
 	int run(Player* player) {
+
 		player->addMediator(this->mediator);
 		player->updateHeartText(0);
 		player->updateSpeedText(0);
@@ -149,17 +150,17 @@ public:
 
 		for (int i = 0; i < lstRoad.size(); i++) {
 			lstRoad[i]->draw(*window);
-		}	
+		}
 		this->window->draw(this->flag.getRect());
-		
+
 		//player->changeSpeed((*this->level - 1) * 0.075);
-		
+
 		bool checkNotBlock = true;
 		for (int i = 0; i < (int)this->lstRoad.size(); i++) {
 			bool ans = lstRoad[i]->searchRock(player->getNextSprite(lstRoad.size() * (ROADSIZE + DISTANCE)));
-			if (ans) {checkNotBlock = false; break;}
+			if (ans) { checkNotBlock = false; break; }
 		}
-		
+
 		player->updateSprite(0.5);
 		//player->changeSpeed((*this->level - 1) * -0.075);
 
