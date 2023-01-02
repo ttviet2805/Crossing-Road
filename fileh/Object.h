@@ -6,7 +6,7 @@
 #include <SFML/Audio.hpp>
 #include "Rectangle.h"
 
-const float MIN_DISTANCE = 12.5;
+const float MIN_DISTANCE = 60.5;
 
 class Object {
 public:

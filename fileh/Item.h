@@ -25,8 +25,14 @@ public:
 	bool collision(Rectangle src) {
 		Vector2f srcPoint = src.getPosition();
 		Vector2f thisPoint = (this->rect).getPosition();
-		if ((this->rect).isCollision(src) && srcPoint.y <= thisPoint.y) return true;
-		else return false;
+		float dis = ((srcPoint.x - thisPoint.x) * (srcPoint.x - thisPoint.x) + (srcPoint.y - thisPoint.y) * (srcPoint.y - thisPoint.y));
+		dis = sqrt(dis);
+		if ((this->rect).isCollision(src) && srcPoint.y <= thisPoint.y) { 
+			if (dis <= MIN_DISTANCE) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	Rectangle getrect() {

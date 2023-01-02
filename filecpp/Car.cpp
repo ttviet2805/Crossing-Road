@@ -10,8 +10,22 @@ Car::Car(Rectangle i_rec, float i_speed) {
 bool Car::collision(Rectangle src) {
     Vector2f srcPoint = src.getPosition();
     Vector2f thisPoint = (this->rec).getPosition();
-    if ((this->rec).isCollision(src) && srcPoint.y <= thisPoint.y) return true;
-    else return false;
+
+   // thisPoint.x += this->rec.getPosition().x / 2;
+   // thisPoint.y += this->rec.getPosition().y / 2;
+
+   // srcPoint.x += src.getSize().x / 2;
+   // srcPoint.y += src.getSize().y / 2;
+
+    float dis = ((srcPoint.x - thisPoint.x) * (srcPoint.x - thisPoint.x) + (srcPoint.y - thisPoint.y) * (srcPoint.y - thisPoint.y));
+    dis = sqrt(dis);
+    if ((this->rec).isCollision(src) && srcPoint.y <= thisPoint.y) {
+        //cout << dis << '\n';
+        if (dis <= MIN_DISTANCE) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void Car::move() {

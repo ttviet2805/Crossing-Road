@@ -17,8 +17,11 @@ public:
 
 	}
 
-	WinMenu(sf::RenderWindow* window) : State(700, 763, window) {
-		this->initBackground(700, 763, "assets/image/Background/Kimochi.png");
+	WinMenu(sf::RenderWindow* window, int level = 0) : State(700, 763, window) {
+		string path = "assets/image/Background/SuperSaiyan";
+		path += to_string(level);
+		path += ".png";
+		this->initBackground(700, 763, path);
 		this->setPos(Vector2f(SCREEN_WIDTH / 2 - 700, 0));
 		this->setupButton();
 	}
