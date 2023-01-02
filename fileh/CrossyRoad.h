@@ -26,7 +26,7 @@ void gameRun() {
 
 	std::string path = skinPath + skinList[0];
 
-	Player* player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
+	Player* player = new Player(6, Vector2f(50, 70), Vector2f(0, 0), 3, 100, 140, path);
 	//player = Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
 
 	vector<State*> nxt;

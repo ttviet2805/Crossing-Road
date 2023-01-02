@@ -161,7 +161,7 @@ public:
 
 				int rockState = randIntegerNumber(0, 2);
 
-				Rectangle curRockRect(Vector2f(ROAD_SIZE, ROAD_SIZE), Vector2f(ROAD_SIZE * t, roadPos.y), rockTexture[rockState]);
+				Rectangle curRockRect(Vector2f(ROAD_SIZE - 20, ROAD_SIZE - 20), Vector2f(ROAD_SIZE * t, roadPos.y + 10), rockTexture[rockState]);
 				Rock* curRock = new Rock(curRockRect);
 				listRock.push_back(curRock);
 			}
@@ -241,14 +241,12 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window) {
-
 		if (roadState) {
 			Time itemElapsed = itemClock.getElapsedTime();
 			if (itemElapsed.asSeconds() >= TIME_RAND_OBJECT) {
 				int state = randIntegerNumber(0, 100);
-				if (state < 20) {
-					
-					if (state < 3) itemState = 0;
+				if (state < 40) {
+					if (state < 5) itemState = 0;
 					else itemState = 1;
 
 					Vector2f roadPos = roadRect.getPosition();
@@ -374,7 +372,7 @@ public:
 		}
 	}
 
-	bool checkGetItem(Rectangle src) {
+	int checkGetItem(Rectangle src) {
 		this->search = this->roadRect.isCollision(src);
 		if (this->search && this->curItem) {
 			if (this->curItem->collision(src)) {

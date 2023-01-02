@@ -25,6 +25,7 @@ private:
 
 	Texture speedTexture;
 	Rectangle speedRect;
+	Text speedText;
 
 	Mediator* mediator;
 public:
@@ -95,6 +96,11 @@ public:
 		speedRect.setPosition(Vector2f(rectPos.x + 50, rectPos.y + 180));
 		speedRect.setSize(Vector2f(40, 40));
 		speedRect.setTexture(speedTexture);
+
+		speedText.setFont(font);
+		speedText.setString(" : 2");
+		speedText.setCharacterSize(40);
+		speedText.setStyle(Text::Bold);
 	}
 
 	void draw(sf::RenderWindow& window) {
@@ -124,6 +130,8 @@ public:
 		// Speed draw
 		speedRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 180));
 		window.draw(speedRect.getRect());
+		speedText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 170));
+		window.draw(speedText);
 	}
 
 	void setHeartString(std::string str) {
