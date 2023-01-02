@@ -129,6 +129,7 @@ public:
 	int run(Player* player) {
 		player->addMediator(this->mediator);
 		player->updateHeartText(0);
+		player->updateSpeedText(0);
 		this->updateLevelText();
 		//player->addStatusTracker(&this->playerStatus);
 		sf::Event event;
@@ -172,7 +173,7 @@ public:
 				player->updateHeartText(1);
 			}
 			else if (itemType == 2) {
-				player->changeSpeed(0.075);
+				player->updateSpeedText(1);
 			}
 
 			int ans = lstRoad[i]->startSearch(player->getSprite());

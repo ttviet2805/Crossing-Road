@@ -365,17 +365,18 @@ public:
 
 	bool updateHeartText(int val) {
 		this->life += val;
-		std::string need = "";
-		int heart = life;
-		while (heart > 0) {
-			need += ((heart % 10) + '0'); 
-			heart /= 10;
-		}
-		reverse(need.begin(), need.end());
-		if (need.empty()) need = "0";
-		this->mediator->updateHeartText(need);
+	
+		this->mediator->updateHeartText(to_string(this->life));
 
-		return this->life < 0;
+		return this->life <= 0;
+	}
+
+	void updateSpeedText(int val) {
+		const float ADD_SPEED = 0.05;
+		this->curSpeed += ADD_SPEED * val;
+		int addSpeed = this->curSpeed / ADD_SPEED;
+
+		this->mediator->updateSpeedText(to_string(addSpeed));
 	}
 	void setlife(int heart) {
 		life = heart;

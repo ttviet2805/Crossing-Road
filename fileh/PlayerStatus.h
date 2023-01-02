@@ -124,18 +124,22 @@ public:
 		// Heart draw
 		heartRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 120));
 		window.draw(heartRect.getRect());
-		heartText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 110));
+		heartText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 112));
 		window.draw(heartText);
 
 		// Speed draw
 		speedRect.setPosition(Vector2f(statusPos.x + 50, statusPos.y + 180));
 		window.draw(speedRect.getRect());
-		speedText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 170));
+		speedText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 172));
 		window.draw(speedText);
 	}
 
 	void setHeartString(std::string str) {
-		this->heartText.setString(str);
+		this->heartText.setString(": " + str);
+	}
+
+	void setSpeedString(std::string str) {
+		this->speedText.setString(": " + str);
 	}
 
 	void setLevelString(std::string str) {

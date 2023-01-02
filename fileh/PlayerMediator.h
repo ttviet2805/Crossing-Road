@@ -71,6 +71,10 @@ public:
         status->setHeartString(src);
     }
 
+    void updateSpeedText(std::string src) {
+        status->setSpeedString(src);
+    }
+
     void addPlayer(Player* player) {
         this->player = player;
     }
