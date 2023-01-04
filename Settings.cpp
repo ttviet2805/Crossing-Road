@@ -18,7 +18,18 @@ int main() {
     Rectangle button[2];
     soundButton[0].loadFromFile("assets/Image/Button/soundOn.png");
     soundButton[1].loadFromFile("assets/Image/Button/soundOff.png");
-    
+
+    button[0]=Rectangle(
+        sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+        sf::Vector2f(SCREEN_WIDTH/2-50-BUTTON_WIDTH, SCREEN_HEIGHT/2-100),
+        soundButton[0]
+    );
+    button[1]=Rectangle(
+        sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
+        sf::Vector2f(SCREEN_WIDTH/2+50, SCREEN_HEIGHT/2-100),
+        soundButton[1]
+    );
+
     // music for testing
     sf::Music backgroundMusic;
     if(!backgroundMusic.openFromFile("assets/Sound/Your-Smile.ogg")) {
@@ -28,22 +39,13 @@ int main() {
     backgroundMusic.play();
     backgroundMusic.setLoop(true);
 
-    button[0]=Rectangle(
-        sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
-        sf::Vector2f(200, 200),
-        soundButton[0]
-    );
-    button[1]=Rectangle(
-        sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
-        sf::Vector2f(300+BUTTON_WIDTH, 200),
-        soundButton[1]
-    );
-
     while(window.isOpen()) {
         sf::Event event;
         while(window.pollEvent(event)) {
-            if(event.type == sf::Event::Closed)
+            if(event.type == sf::Event::Closed) {
+                backgroundMusic.stop();
                 window.close();
+            }
             if(event.type == sf::Event::MouseButtonPressed) {
                 auto pos=sf::Mouse::getPosition(window);
                 if(button[0].is_Clicked(sf::Vector2f(pos.x, pos.y))==1) {
@@ -63,7 +65,7 @@ int main() {
             window.draw(button[i].getRect());
         window.display();
     }
-    backgroundMusic.stop();
+    // backgroundMusic.stop();
 
     return 0;
 }
