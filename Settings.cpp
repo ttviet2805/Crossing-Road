@@ -1,8 +1,9 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <iostream>
 #include "fileh/Rectangle.h"
 
-int main()
-{
+int main() {
     const int BUTTON_WIDTH=256;
     const int BUTTON_HEIGHT=256;
     const int SCREEN_WIDTH=1080;
@@ -18,6 +19,15 @@ int main()
     soundButton[0].loadFromFile("assets/Image/Button/soundOn.png");
     soundButton[1].loadFromFile("assets/Image/Button/soundOff.png");
     
+    // music for testing
+    sf::Music backgroundMusic;
+    if(!backgroundMusic.openFromFile("assets/Sound/Your-Smile.ogg")) {
+        std::cerr << "Error: can't open music!" << std::endl;
+        exit(2);
+    }
+    backgroundMusic.play();
+    backgroundMusic.setLoop(true);
+
     button[0]=Rectangle(
         sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
         sf::Vector2f(200, 200),
@@ -29,12 +39,22 @@ int main()
         soundButton[1]
     );
 
-    while (window.isOpen()) {
+    while(window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+        while(window.pollEvent(event)) {
+            if(event.type == sf::Event::Closed)
                 window.close();
+            if(event.type == sf::Event::MouseButtonPressed) {
+                auto pos=sf::Mouse::getPosition(window);
+                if(button[0].is_Clicked(sf::Vector2f(pos.x, pos.y))==1) {
+                    // turn on the sound
+                    backgroundMusic.setVolume(80);
+                }
+                if(button[1].is_Clicked(sf::Vector2f(pos.x, pos.y))==1) {
+                    // turn off the sound
+                    backgroundMusic.setVolume(0);
+                }
+            }
         }
 
         window.clear(sf::Color::Black);
@@ -43,6 +63,7 @@ int main()
             window.draw(button[i].getRect());
         window.display();
     }
+    backgroundMusic.stop();
 
     return 0;
 }
