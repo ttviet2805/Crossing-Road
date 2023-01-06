@@ -14,6 +14,7 @@
 #include "../fileh/Save_Load.h"
 #include "../fileh/Settings.h"
 #include "../fileh/Instruction.h"
+#include "../fileh/ScoreBoard.h"
 using namespace sf;
 
 const string skinPath = "assets/Image/Skin/";
@@ -59,6 +60,9 @@ void gameRun() {
 		int type = nxt.back()->run(player);
 
 		switch (type) {
+		case -3:
+			nxt.push_back(new ScoreBoardMenu(&window));
+			break;
 		case -2:
 			nxt.push_back(new InstructionMenu(&window));
 			break;

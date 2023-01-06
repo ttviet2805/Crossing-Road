@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <cstring>
 #include <SFML/Graphics.hpp>
 #include "Car.h"
 #include "Rectangle.h"
