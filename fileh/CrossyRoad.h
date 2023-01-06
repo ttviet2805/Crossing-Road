@@ -13,6 +13,7 @@
 #include "../fileh/LoseMenu.h"
 #include "../fileh/Save_Load.h"
 #include "../fileh/Settings.h"
+#include "../fileh/Instruction.h"
 using namespace sf;
 
 const string skinPath = "assets/Image/Skin/";
@@ -58,6 +59,9 @@ void gameRun() {
 		int type = nxt.back()->run(player);
 
 		switch (type) {
+		case -2:
+			nxt.push_back(new InstructionMenu(&window));
+			break;
 		case -1:
 			nxt.push_back(new SettingsMenu(&window, &backgroundMusic));
 			break;

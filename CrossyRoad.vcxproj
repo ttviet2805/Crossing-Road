@@ -25,6 +25,7 @@
     <ClInclude Include="fileh\CrossyRoad.h" />
     <ClInclude Include="fileh\flag.h" />
     <ClInclude Include="fileh\Game.h" />
+    <ClInclude Include="fileh\Instruction.h" />
     <ClInclude Include="fileh\Item.h" />
     <ClInclude Include="fileh\Level.h" />
     <ClInclude Include="fileh\LoseMenu.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="filecpp\Animal.cpp" />
     <ClCompile Include="filecpp\Car.cpp" />
     <ClCompile Include="filecpp\flag.cpp" />
+    <ClCompile Include="filecpp\Instruction.cpp" />
     <ClCompile Include="filecpp\Level.cpp" />
     <ClCompile Include="filecpp\Menu.cpp" />
     <ClCompile Include="filecpp\Object.cpp" />

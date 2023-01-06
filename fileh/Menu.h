@@ -98,6 +98,11 @@ public:
 					cout << "Here\n";
 					return -1;
 				}
+
+				if (this->button[3].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					cout << "Here\n";
+					return -2;
+				}
 			}
 		}
 
