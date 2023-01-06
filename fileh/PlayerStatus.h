@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Mediator.h"
 #include "Rectangle.h"
+#include "Save_Load.h"
 
 class Status {
 private:
@@ -27,13 +28,17 @@ private:
 	Rectangle speedRect;
 	Text speedText;
 
+	// Save
+	Texture saveTexture;
+	Rectangle saveRect;
+
 	Mediator* mediator;
 public:
 	Status() {
 		const string PATH = "assets/Image/PlayerStatus/Status.jpg";
 		rect.setSize(Vector2f(SCREEN_WIDTH - GAME_WIDTH, SCREEN_HEIGHT + 5));
 		rect.setPosition(Vector2f(GAME_WIDTH, 0));
-		
+
 		if (!statusTexture.loadFromFile(PATH)) {
 			cout << "Loading status error\n";
 		}
@@ -101,15 +106,37 @@ public:
 		speedText.setString(" : 2");
 		speedText.setCharacterSize(40);
 		speedText.setStyle(Text::Bold);
+
+		// Save
+		if (!saveTexture.loadFromFile("assets/Image/Button/Save.png")) {
+			cout << "Loading save error\n";
+		}
+
+		Vector2f curPos = rect.getPosition();
+
+		saveRect.setSize(Vector2f(180, 60));
+		saveRect.setPosition(Vector2f(curPos.x + 55, curPos.y + 595));
+		saveRect.setTexture(saveTexture);
 	}
 
 	void draw(sf::RenderWindow& window) {
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::MouseButtonPressed) {
+				auto pos = sf::Mouse::getPosition(window);
+				if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					save_game(1, 1);
+				}
+			}
+		}
+
 		window.draw(rect.getRect());
 
 		const Vector2f statusPos = rect.getPosition();
 		characterBackgroundRect.setPosition(Vector2f(statusPos.x + 10, statusPos.y + 280));
 		window.draw(characterBackgroundRect.getRect());
-		
+
 		levelText.setPosition(Vector2f(statusPos.x + 65, statusPos.y + 30));
 		window.draw(levelText);
 
@@ -132,6 +159,10 @@ public:
 		window.draw(speedRect.getRect());
 		speedText.setPosition(Vector2f(statusPos.x + 100, statusPos.y + 172));
 		window.draw(speedText);
+
+		// Save draw
+		saveRect.setPosition(Vector2f(statusPos.x + 55, statusPos.y + 595));
+		window.draw(saveRect.getRect());
 	}
 
 	void setHeartString(std::string str) {
