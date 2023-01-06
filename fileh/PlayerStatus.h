@@ -32,6 +32,9 @@ private:
 	Texture saveTexture;
 	Rectangle saveRect;
 
+	// Level and Heart
+	int level, heart;
+
 	Mediator* mediator;
 public:
 	Status() {
@@ -126,7 +129,8 @@ public:
 			if (event.type == sf::Event::MouseButtonPressed) {
 				auto pos = sf::Mouse::getPosition(window);
 				if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					save_game(1, 1);
+					save_game(level, heart);
+					cout << "Save file successful\n";
 				}
 			}
 		}
@@ -166,6 +170,7 @@ public:
 	}
 
 	void setHeartString(std::string str) {
+		heart = atoi(str.c_str());
 		this->heartText.setString(": " + str);
 	}
 
@@ -174,7 +179,8 @@ public:
 	}
 
 	void setLevelString(std::string str) {
-		this->levelText.setString(str);
+		level = atoi(str.c_str());
+		this->levelText.setString("Level " + str);
 	}
 
 	void setPosition(int posY) {

@@ -104,7 +104,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(341,57): warnin
           ]
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(375,1): warning C4305: 'initializing': truncation from 'double' to 'float'
 E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Player.h(377,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(131,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -113,7 +113,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,52): 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,45): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(131,45): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -122,7 +122,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,45): 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(182,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(188,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
@@ -416,7 +416,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\Menu.h(107,52): warning 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(131,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -425,7 +425,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,52): 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,45): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(131,45): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -434,7 +434,7 @@ E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(128,45): 
           [
               T=float
           ]
-E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(182,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\HCMUS\Year-2\Programming-Systems\Crossing-Road\fileh\PlayerStatus.h(188,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

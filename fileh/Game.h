@@ -238,17 +238,9 @@ public:
 	}
 
 	void updateLevelText() {
-		std::string add = "Level ";
 		int cur = *this->level;
-		std::string need = "";
-		while (cur > 0) {
-			need += ((cur % 10) + '0');
-			cur /= 10;
-		}
-		reverse(need.begin(), need.end());
-		if (need.empty()) need = "...";
-		add += need;
-		this->mediator->updateLevelText(add);
+		string need = to_string(cur);
+		this->mediator->updateLevelText(need);
 	}
 
 	friend class PlayerMediator;
