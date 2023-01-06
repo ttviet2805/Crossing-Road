@@ -89,6 +89,7 @@ void gameRun() {
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);*/
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
+			player->setDefaultSpeed();
 			//player.setlife(3);
 			delete nxt.back();
 			nxt.pop_back();

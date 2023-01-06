@@ -122,18 +122,15 @@ public:
 		saveRect.setTexture(saveTexture);
 	}
 
-	void draw(sf::RenderWindow& window) {
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::MouseButtonPressed) {
-				auto pos = sf::Mouse::getPosition(window);
-				if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					save_game(level, heart);
-					cout << "Save file successful\n";
-				}
+	void draw(sf::RenderWindow& window, Event& event) {
+		if (event.type == sf::Event::MouseButtonPressed) {
+			auto pos = sf::Mouse::getPosition(window);
+			if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				save_game(level, heart);
+				cout << "Save file successful\n";
 			}
 		}
+		
 
 		window.draw(rect.getRect());
 

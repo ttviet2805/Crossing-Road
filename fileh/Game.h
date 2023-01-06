@@ -210,7 +210,7 @@ public:
 		playerStatus.setPosition(viewPos);
 
 		player->draw(*window);
-		playerStatus.draw(*window);
+		playerStatus.draw(*window, event);
 		window->display();
 
 		player->addMediator(nullptr);

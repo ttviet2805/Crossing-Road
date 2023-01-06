@@ -89,7 +89,7 @@ public:
 
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
 		string imgPath = "") :
-		switchTime(0.1), curSpeed(0.4f), face(0), imgLength(imgLength),
+		switchTime(0.1), curSpeed(0.5f), face(0), imgLength(imgLength),
 		imgHeight(imgHeight), imgPath(imgPath), life(heart), name("")
 	{
 		this->imageCount.x = imagePerDir;
@@ -369,6 +369,10 @@ public:
 		this->mediator->updateHeartText(to_string(this->life));
 
 		return this->life <= 0;
+	}
+
+	void setDefaultSpeed() {
+		curSpeed = 0.5;
 	}
 
 	void updateSpeedText(int val) {

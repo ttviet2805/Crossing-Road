@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include "Road.h"
 #include "Player.h"
@@ -53,6 +54,11 @@ public:
 		);
 	}
 
+	void clearFile() {
+		ofstream fout("assets/save_game.txt");
+		fout.close();
+	}
+
 	int run(Player* player) {
 
 		sf::Event event;
@@ -68,6 +74,7 @@ public:
 				}
 
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					clearFile();
 					return this->curSelectCharacter.getSkinID() + 9;
 				}
 			}

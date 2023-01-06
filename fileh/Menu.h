@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <fstream>
 
 #include "State.h"
 #include "Rectangle.h"
@@ -23,6 +24,17 @@ public:
 			SCREEN_WIDTH, SCREEN_HEIGHT,
 			"assets/image/Background/Game-Background.jpg"
 		);
+	}
+
+	bool isLoadFile() {
+		int state = -1;
+		ifstream fin("assets/save_game.txt");
+		if (fin.eof()) return false;
+		fin >> state;
+		fin.close();
+		
+		if (state == -1) return false;
+		return true;
 	}
 
 	void setupButton() {
@@ -87,7 +99,7 @@ public:
 				}
 
 				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					return 3;
+					if(isLoadFile()) return 3;
 				}
 
 				if (this->button[5].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
