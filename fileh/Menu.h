@@ -32,7 +32,7 @@ public:
 		this->texture[0].loadFromFile("assets/image/Button/Start.png");
 		this->button[0] = Rectangle(
 			sf::Vector2f(BUTTON_WIDTH, BUTTON_HEIGHT),
-			sf::Vector2f(100, SCREEN_HEIGHT / 2 + 110), 
+			sf::Vector2f(100, SCREEN_HEIGHT / 2 + 110),
 			this->texture[0]
 		);
 
@@ -92,6 +92,11 @@ public:
 
 				if (this->button[5].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return 0;
+				}
+
+				if (this->button[4].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					cout << "Here\n";
+					return -1;
 				}
 			}
 		}

@@ -12,6 +12,7 @@
 #include "../fileh/WinMenu.h"
 #include "../fileh/LoseMenu.h"
 #include "../fileh/Save_Load.h"
+#include "../fileh/Settings.h"
 using namespace sf;
 
 const string skinPath = "assets/Image/Skin/";
@@ -57,6 +58,9 @@ void gameRun() {
 		int type = nxt.back()->run(player);
 
 		switch (type) {
+		case -1:
+			nxt.push_back(new SettingsMenu(&window, &backgroundMusic));
+			break;
 		case 0:
 			difficulty = 1;
 			loseMusic.stop();
