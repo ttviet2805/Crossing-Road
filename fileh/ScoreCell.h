@@ -9,27 +9,26 @@
 class ScoreCell {
 private:
     int score;
-    int level;
     Rectangle cell;
     sf::Text content;
     sf::Font font;
 public:
     ScoreCell() {}
-    ScoreCell(int score, int level, Rectangle background): score(score), level(level), cell(background) {
+    ScoreCell(int score, Rectangle background): score(score), cell(background) {
         assert(font.loadFromFile("assets/Font/EvilEmpire-4BBVK.ttf"));
     }
-    void draw(sf::RenderWindow *window) {
+    void draw(sf::RenderWindow *window, std::string level) {
         window->draw(cell.getRect());
 
-        content.setString("Level: " + to_string(level) + " - " + "Score: " + to_string(score));
-        content.setCharacterSize(30);   
-        content.setFillColor(sf::Color::White);
+        content.setString(level + "\nScore: " + to_string(score));
+        content.setCharacterSize(25);   
+        content.setFillColor(sf::Color::Black);
         content.setFont(font);
         content.setStyle(sf::Text::Bold);
 
         sf::Vector2f pos=cell.getPosition();
-        pos.x += 50;
-        pos.y += 50;
+        pos.x += 120;
+        pos.y += 30;
         content.setPosition(pos);
         window->draw(content);
     }

@@ -7,16 +7,16 @@
 
 class ScoreBoardMenu: public State {
 private:
-    ScoreCell cell[6];
+    ScoreCell cell[7];
     Texture textureCell;
     Rectangle quitRect;
     Texture quitTexture;
 public:
     ScoreBoardMenu() {}
     ScoreBoardMenu(sf::RenderWindow *window): State(SCREEN_WIDTH, SCREEN_HEIGHT, window) {
-        this->initBackground(SCREEN_WIDTH, SCREEN_HEIGHT, "assets/image/Background/ScoreBoardBackground.jpeg");
-        const int START=150, VERTICAL_DIST=60;
-        sf::Vector2f POS[6];
+        this->initBackground(SCREEN_WIDTH, SCREEN_HEIGHT, "assets/Image/Background/ScoreBoardBackground.jpg");
+        const int START=100, VERTICAL_DIST=20;
+        sf::Vector2f POS[7];
         for(int i=0; i<3; ++i) {
             POS[i].x=0.5*(SCREEN_WIDTH/2-SCORE_CELL_WIDTH);
             POS[i].y=START+i*(VERTICAL_DIST+SCORE_CELL_HEIGHT);
@@ -27,17 +27,20 @@ public:
             POS[i].y=POS[i-3].y;
         }
 
+        POS[6].x = 0.5 * (SCREEN_WIDTH - SCORE_CELL_WIDTH);
+        POS[6].y = POS[5].y + SCORE_CELL_HEIGHT - 10;
+
         ifstream fin("assets/scoreboard.txt");
         assert(fin);
 
-        textureCell.loadFromFile("assets/image/road/Road6.png");
+        textureCell.loadFromFile("assets/Image/Background/ScoreCell.png");
 
-        int level, score, cnt=0;
-        while(fin >> level >> score) {
+        int score, cnt=0;
+        while(fin >> score) {
             Rectangle background(sf::Vector2f(SCORE_CELL_WIDTH, SCORE_CELL_HEIGHT),
                                 POS[cnt],
                                 textureCell);
-            cell[cnt]=ScoreCell(score, level, background);
+            cell[cnt]=ScoreCell(score, background);
             ++cnt;
         }
 
@@ -70,8 +73,8 @@ public:
 
 		this->window->clear(sf::Color::Black);
         this->window->draw(this->loadSprite);
-        for(int i=0; i<6; ++i)
-            cell[i].draw(window);
+        for(int i=0; i<7; ++i)
+            cell[i].draw(window, "Level " + to_string(i+1));
         this->window->draw(this->quitRect.getRect());
 		this->window->display();
 
