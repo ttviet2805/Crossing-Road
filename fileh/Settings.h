@@ -13,7 +13,8 @@ class SettingsMenu: public State {
 private:
 	Texture soundButton[2];
 	Rectangle button[2];
-
+	Rectangle quitRect;
+	Texture quitTexture;
 	sf::Music* backgroundMusic;
 
 	int run(Player* player = nullptr);

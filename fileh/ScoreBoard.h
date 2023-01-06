@@ -9,6 +9,8 @@ class ScoreBoardMenu: public State {
 private:
     ScoreCell cell[6];
     Texture textureCell;
+    Rectangle quitRect;
+    Texture quitTexture;
 public:
     ScoreBoardMenu() {}
     ScoreBoardMenu(sf::RenderWindow *window): State(SCREEN_WIDTH, SCREEN_HEIGHT, window) {
@@ -40,6 +42,15 @@ public:
         }
 
         fin.close();
+        if (!quitTexture.loadFromFile("assets/Image/Button/Quit.png")) {
+            cout << "Loading quit error\n";
+        }
+
+        const Vector2f quitSize = Vector2f(240, 80);
+
+        quitRect.setSize(quitSize);
+        quitRect.setPosition(Vector2f((SCREEN_WIDTH - 240) / 2, SCREEN_HEIGHT - 125));
+        quitRect.setTexture(quitTexture);
     }
 
     int run(Player *player) {
@@ -49,12 +60,19 @@ public:
 			if (event.type == sf::Event::Closed) {
 				return false;
 			}
+            if (event.type == sf::Event::MouseButtonPressed) {
+                auto pos = sf::Mouse::getPosition(*this->window);
+                if (quitRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+                    return 0;
+                }
+            }
 		}
 
 		this->window->clear(sf::Color::Black);
         this->window->draw(this->loadSprite);
         for(int i=0; i<6; ++i)
             cell[i].draw(window);
+        this->window->draw(this->quitRect.getRect());
 		this->window->display();
 
 		return 8;

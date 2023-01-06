@@ -30,6 +30,15 @@ SettingsMenu::SettingsMenu(sf::RenderWindow* window, sf::Music* backgroundMusic)
 		std::cerr << "Error: can't open music!" << std::endl;
 		exit(2);
 	}
+	if (!quitTexture.loadFromFile("assets/Image/Button/Quit.png")) {
+		cout << "Loading quit error\n";
+	}
+
+	const Vector2f quitSize = Vector2f(240, 80);
+
+	quitRect.setSize(quitSize);
+	quitRect.setPosition(Vector2f((SCREEN_WIDTH - 240) / 2, SCREEN_HEIGHT - 125));
+	quitRect.setTexture(quitTexture);
 	this->backgroundMusic->play();
 	this->backgroundMusic->setLoop(true);
 }
@@ -53,6 +62,9 @@ int SettingsMenu::run(Player* player) {
 				// turn off the sound
 				this->backgroundMusic->setVolume(0);
 			}
+			if (quitRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				return 0;
+			}
 		}
 	}
 
@@ -60,6 +72,7 @@ int SettingsMenu::run(Player* player) {
 	this->window->draw(this->loadSprite);
 	for (int i = 0; i < 2; ++i)
 		window->draw(button[i].getRect());
+	this->window->draw(this->quitRect.getRect());
 	window->display();
 	return 8;
 }

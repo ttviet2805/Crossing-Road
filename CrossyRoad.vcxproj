@@ -41,6 +41,8 @@
     <ClInclude Include="fileh\Road.h" />
     <ClInclude Include="fileh\Rock.h" />
     <ClInclude Include="fileh\Save_Load.h" />
+    <ClInclude Include="fileh\ScoreBoard.h" />
+    <ClInclude Include="fileh\ScoreCell.h" />
     <ClInclude Include="fileh\SelectCharacter.h" />
     <ClInclude Include="fileh\Settings.h" />
     <ClInclude Include="fileh\State.h" />
