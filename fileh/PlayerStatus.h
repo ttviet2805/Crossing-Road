@@ -35,6 +35,10 @@ private:
 	// Level and Heart
 	int level, heart;
 
+	// Score
+	int score = 10;
+	Text scoreText;
+
 	Mediator* mediator;
 public:
 	Status() {
@@ -120,6 +124,14 @@ public:
 		saveRect.setSize(Vector2f(180, 60));
 		saveRect.setPosition(Vector2f(curPos.x + 55, curPos.y + 595));
 		saveRect.setTexture(saveTexture);
+
+		// Score
+		scoreText.setFont(font);
+		scoreText.setFillColor(Color::Green);
+		scoreText.setString("Score: " + to_string(score));
+		scoreText.setCharacterSize(35);
+		scoreText.setStyle(Text::Bold);
+		scoreText.setPosition(Vector2f(curPos.x + 60, curPos.y + 225));
 	}
 
 	void draw(sf::RenderWindow& window, Event& event) {
@@ -164,6 +176,10 @@ public:
 		// Save draw
 		saveRect.setPosition(Vector2f(statusPos.x + 55, statusPos.y + 595));
 		window.draw(saveRect.getRect());
+
+		// Score draw
+		scoreText.setPosition(Vector2f(statusPos.x + 60, statusPos.y + 225));
+		window.draw(scoreText);
 	}
 
 	void setHeartString(std::string str) {
