@@ -36,7 +36,7 @@ private:
 	int level, heart;
 
 	// Score
-	int score = 10;
+	int score = 0;
 	Text scoreText;
 
 	Mediator* mediator;
@@ -189,6 +189,11 @@ public:
 
 	void setSpeedString(std::string str) {
 		this->speedText.setString(": " + str);
+	}
+
+	void setScoreString(std::string str) {
+		score = atoi(str.c_str());
+		this->scoreText.setString("Score: " + str);
 	}
 
 	void setLevelString(std::string str) {

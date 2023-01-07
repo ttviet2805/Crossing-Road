@@ -162,6 +162,7 @@ public:
 		player->updateHeartText(0);
 		player->updateSpeedText(0);
 		this->updateLevelText();
+		this->updateScoreText();
 		//player->addStatusTracker(&this->playerStatus);
 		sf::Event event;
 		while (this->window->pollEvent(event)) {
@@ -272,6 +273,11 @@ public:
 		int cur = *this->level;
 		string need = to_string(cur);
 		this->mediator->updateLevelText(need);
+	}
+
+	void updateScoreText() {
+		int cur = gameClock.getElapsedTime().asSeconds();
+		this->mediator->updateScoreText(to_string(cur));
 	}
 
 	friend class PlayerMediator;

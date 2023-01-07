@@ -14,4 +14,5 @@ public:
 	virtual void updateLevelText(std::string src) = 0;
 	virtual void updateHeartText(std::string src) = 0;
 	virtual void updateSpeedText(std::string src) = 0;
+	virtual void updateScoreText(std::string src) = 0;
 };

@@ -75,6 +75,10 @@ public:
         status->setSpeedString(src);
     }
 
+    void updateScoreText(std::string src) {
+        status->setScoreString(src);
+    }
+
     void addPlayer(Player* player) {
         this->player = player;
     }
