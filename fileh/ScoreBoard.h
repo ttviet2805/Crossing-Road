@@ -35,7 +35,7 @@ public:
 
         textureCell.loadFromFile("assets/Image/Background/ScoreCell.png");
 
-        int score, cnt=0;
+        int score, cnt = 0;
         while(fin >> score) {
             Rectangle background(sf::Vector2f(SCORE_CELL_WIDTH, SCORE_CELL_HEIGHT),
                                 POS[cnt],

@@ -20,7 +20,13 @@ public:
     void draw(sf::RenderWindow *window, std::string level) {
         window->draw(cell.getRect());
 
-        content.setString(level + "\nScore: " + to_string(score));
+        if (score == 0) {
+            content.setString(level + "\nScore: " + "-----");
+        }
+        else {
+            content.setString(level + "\nScore: " + to_string(score));
+        }
+        
         content.setCharacterSize(25);   
         content.setFillColor(sf::Color::Black);
         content.setFont(font);

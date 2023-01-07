@@ -27,6 +27,7 @@ private:
 	int leftLimRoad, rightLimRoad, numPavement;
 	double objectSpeed;
 	float deltaTime;
+	Clock gameClock;
 
 	// Road
 	Texture roadTexture[10];
@@ -49,6 +50,33 @@ private:
 public:
 	int randIntegerNumber(int l, int r) {
 		return l + (rand()) % (r - l + 1);
+	}
+
+	void saveScore() {
+		vector <int> v;
+
+		ifstream fin("assets/scoreboard.txt");
+
+		int score;
+		while (fin >> score) {
+			v.push_back(score);
+		}
+		
+		int curScore = int(gameClock.getElapsedTime().asSeconds());
+		if (v[*level - 1] == 0) v[*level - 1] = curScore;
+		v[*level - 1] = min(v[*level - 1], curScore);
+	
+		fin.close();
+
+		while (v.size() < 7) v.push_back(0);
+
+		ofstream fout("assets/scoreboard.txt");
+
+		for (int i = 0; i < v.size(); i++) {
+			fout << v[i] << '\n';
+		}
+
+		fout.close();
 	}
 
 	Game(RenderWindow* window, int* difficulty, PlayerMediator* mediator) : State(SCREEN_WIDTH, SCREEN_HEIGHT, window), deltaTime(10), mediator(mediator) {
@@ -120,6 +148,8 @@ public:
 		this->playerStatus.addMediator(this->mediator);
 
 		this->mediator->changeSkin();
+
+		gameClock.restart();
 	}
 
 	void setDifficulty() {
@@ -188,6 +218,7 @@ public:
 			}
 		}
 		if (this->flag.collision(player->getSprite())) {
+			saveScore();
 			view.setCenter(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
 			window->setView(view);
 			(*this->level)++;
