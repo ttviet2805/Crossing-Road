@@ -57,7 +57,7 @@ public:
         quitRect.setPosition(Vector2f(240 + 50 + 70, SCREEN_HEIGHT - 125));
         quitRect.setTexture(quitTexture);
 
-        if (!resetTexture.loadFromFile("assets/Image/Button/Quit.png")) {
+        if (!resetTexture.loadFromFile("assets/Image/Button/Reset.png")) {
             cout << "Loading quit error\n";
         }
 

@@ -1,1 +1,514 @@
-﻿  CrossyRoad.vcxproj -> C:\Users\ADMIN\Crossing-Road\x64\Debug\CrossyRoad.exe
+﻿  main.cpp
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(165,62): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(165,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(165,88): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(174,50): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(174,39): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(182,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(182,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(206,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(214,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(231,60): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(238,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Road.h(255,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(10,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(10,49): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(19,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(20,18): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(27,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Point.h(29,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(53,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(94,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(195,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(207,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(218,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(229,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(260,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(340,56): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(341,57): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(379,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\ADMIN\Crossing-Road\fileh\Player.h(381,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\SelectCharacter.h(30,14): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\ADMIN\Crossing-Road\fileh\SelectCharacter.h(91,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\SelectCharacter.h(91,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\SelectCharacter.h(95,60): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\SelectCharacter.h(95,53): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Level.h(31,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Level.h(72,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Level.h(72,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Level.h(76,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Level.h(76,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(97,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(97,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(101,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(101,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(105,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(105,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(109,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(109,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(114,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(114,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(119,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Menu.h(119,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\PlayerStatus.h(140,51): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\PlayerStatus.h(140,44): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\PlayerStatus.h(206,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\PlayerMediator.h(63,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(101,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(110,88): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(127,91): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(137,92): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(173,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(191,75): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(230,37): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(237,60): warning C4244: '=': conversion from 'unsigned __int64' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(241,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Game.h(279,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ADMIN\Crossing-Road\fileh\WinMenu.h(90,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\WinMenu.h(90,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\WinMenu.h(94,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\WinMenu.h(94,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\LoseMenu.h(53,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\LoseMenu.h(53,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\LoseMenu.h(57,59): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\LoseMenu.h(57,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Instruction.h(45,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\Instruction.h(45,45): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(24,27): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(80,64): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(80,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(83,65): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(83,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\ScoreBoard.h(87,40): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(91,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(111,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(153,104): warning C4244: 'argument': conversion from 'const _Ty2' to 'T', possible loss of data
+          with
+          [
+              _Ty2=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(153,75): warning C4244: 'argument': conversion from 'const _Ty1' to 'T', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(154,72): warning C4244: 'argument': conversion from 'const _Ty2' to 'float', possible loss of data
+          with
+          [
+              _Ty2=int
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(154,44): warning C4244: 'argument': conversion from 'const _Ty1' to 'float', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+C:\Users\ADMIN\Crossing-Road\fileh\CrossyRoad.h(156,42): warning C4305: 'argument': truncation from 'double' to 'float'
+  CrossyRoad.vcxproj -> C:\Users\ADMIN\Crossing-Road\x64\Debug\CrossyRoad.exe
