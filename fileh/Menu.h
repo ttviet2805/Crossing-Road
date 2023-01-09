@@ -95,17 +95,20 @@ public:
 				return false;
 			}
 
-			if (event.type == sf::Event::TextEntered)
+			if (event.type == sf::Event::TextEntered) {
 				curTextbox.setName(event);
-
-			if (event.type == sf::Event::MouseButtonPressed) {
-				auto pos = sf::Mouse::getPosition(*this->window);
-				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+				if(event.text.unicode==CARRIAGE_RETURN) {
 					std::string playerName=curTextbox.getName();
 					if(playerName.empty()) {
 						playerName="Player0";
 					}
 					player->updateInfo(playerName);
+				}
+			}
+
+			if (event.type == sf::Event::MouseButtonPressed) {
+				auto pos = sf::Mouse::getPosition(*this->window);
+				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {	
 					std::cout << "Update name " << player->getName() << endl;
 					return 1;
 				}
@@ -119,12 +122,10 @@ public:
 				}
 
 				if (this->button[4].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					cout << "Here\n";
 					return -1;
 				}
 
-				if (this->button[3].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					cout << "Here\n";
+				if (this->button[3].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {;
 					return -2;
 				}
 

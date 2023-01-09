@@ -21,16 +21,11 @@ Animal::Animal(Vector2f _size, Vector2f _pos, float i_speed, int _state, int _nu
 }
 bool Animal::collision(Rectangle src) {
     Vector2f srcPoint = src.getPosition();
-    //srcPoint.x += src.getSize().x / 2;
-    //srcPoint.y += src.getSize().y / 2;
     Vector2f thisPoint = (this->rec).getPosition();
-    //thisPoint.x += this->rec.getPosition().x / 2;
-    //thisPoint.y += this->rec.getPosition().y / 2;
 
     float dis = ((srcPoint.x - thisPoint.x) * (srcPoint.x - thisPoint.x) + (srcPoint.y - thisPoint.y) * (srcPoint.y - thisPoint.y));
     dis = sqrt(dis);
     if ((this->rec).isCollision(src) && srcPoint.y <= thisPoint.y) {
-        cout << dis << '\n';
         if (dis <= MIN_DISTANCE) {
             return true;
         }

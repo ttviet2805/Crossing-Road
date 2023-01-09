@@ -11,7 +11,6 @@ Flag::Flag(Rectangle i_rec) {
 }
 
 bool Flag::collision(Rectangle src) {
-    //cout << "Flag collision\n";
     Vector2f srcPoint = src.getPosition();
     Vector2f thisPoint = (this->rec).getPosition();
     if ((this->rec).isCollision(src) && srcPoint.y <= thisPoint.y) return true;
