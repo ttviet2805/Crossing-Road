@@ -29,7 +29,7 @@ void gameRun() {
 
 	std::string path = skinPath + skinList[0];
 
-	Player* player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
+	Player* player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path, "");
 	//player = Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
 
 	vector<State*> nxt;
@@ -106,7 +106,7 @@ void gameRun() {
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			int heart;
-			load_game(difficulty, heart);
+			load_game(player->getName(), difficulty, heart);
 			player->setlife(heart);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//delete nxt.back();
@@ -149,9 +149,10 @@ void gameRun() {
 			std::string path = skinPath + skinList[type - 10];
 			std::cout << path << '\n';
 
+			string oldName = player->getName();
 			//For some reasons this shit just doesn't work
 			player = new Player(imgCount[type - 10], Vector2f(spriteSize[type - 10].first, spriteSize[type - 10].second),
-				Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path);
+				Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path, oldName);
 			player->addMediator(playerMediator);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			playerMediator->clear();

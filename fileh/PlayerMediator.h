@@ -79,6 +79,10 @@ public:
         status->setScoreString(src);
     }
 
+    string getName() {
+        return player->getName();
+    }
+
     void addPlayer(Player* player) {
         this->player = player;
     }

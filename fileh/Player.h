@@ -33,7 +33,7 @@ private:
 	vector<Rectangle> staticSprite[4];
 
 	//character info
-	std::string name;
+	std::string name = "Player0";
 	int life;
 
 	Mediator* mediator;
@@ -88,10 +88,12 @@ public:
 	}*/
 
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
-		string imgPath = "") :
+		string imgPath = "", string _name="") :
 		switchTime(0.1), curSpeed(0.5f), face(0), imgLength(imgLength),
-		imgHeight(imgHeight), imgPath(imgPath), life(heart), name("")
+		imgHeight(imgHeight), imgPath(imgPath), life(heart)
 	{
+		name = _name;
+		if (name.empty()) name = "Player0";
 		this->imageCount.x = imagePerDir;
 		this->imgType = 1;
 		this->totalTime = 0.f;
@@ -387,6 +389,10 @@ public:
 	}
 	void changeSpeed(float speed);
 	void updateInfo(std::string newName);
+
+	string getName() {
+		return name;
+	}
 
 	virtual ~Player() {}
 };

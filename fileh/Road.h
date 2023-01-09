@@ -258,7 +258,6 @@ public:
 					curItem = new Item(itemRect, itemState);
 					
 					spawnClock.restart();
-					cout << "New Item Spawn\n";
 				}
 
 				itemClock.restart();
@@ -267,7 +266,6 @@ public:
 
 		if (curItem) {
 			if (spawnClock.getElapsedTime().asSeconds() >= TIME_ITEM) {
-				cout << "Item disapear\n";
 				delete curItem;
 				curItem = nullptr;
 			}

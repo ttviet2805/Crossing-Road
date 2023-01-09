@@ -138,7 +138,7 @@ public:
 		if (event.type == sf::Event::MouseButtonPressed) {
 			auto pos = sf::Mouse::getPosition(window);
 			if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-				save_game(level, heart);
+				save_game(mediator->getName(), level, heart);
 				cout << "Save file successful\n";
 			}
 		}
@@ -224,5 +224,9 @@ public:
 		characterSkin.setPosition(Vector2f(backgroundPos.x + 33, backgroundPos.y + 35));
 		characterSkin.setSize(Vector2f(200, 230));
 		characterSkin.setTexture(characterSkinTexture);
+	}
+
+	string getName() {
+		return mediator->getName();
 	}
 };

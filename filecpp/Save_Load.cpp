@@ -1,16 +1,18 @@
 #include "../fileh/Save_Load.h"
 using namespace std;
-void save_game(int level, int heart) {
+void save_game(string playerName, int level, int heart) {
 	ofstream fout;
-	fout.open("assets/save_game.txt");
+	string path = "assets/PlayerInfo/" + playerName + ".txt";
+	fout.open(path);
 	fout << level << endl;
 	fout << heart << endl;
 	fout.close();
 }
 
-void load_game(int& level, int& heart) {
+void load_game(string playerName, int& level, int& heart) {
 	ifstream fin;
-	fin.open("assets/save_game.txt");
+	string path = "assets/PlayerInfo/" + playerName + ".txt";
+	fin.open(path);
 	fin >> level;
 	fin >> heart;
 	fin.close();

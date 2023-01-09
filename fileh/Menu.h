@@ -105,7 +105,7 @@ public:
 						playerName="Player0";
 					}
 					player->updateInfo(playerName);
-					std::cout << "Update name " << playerName << endl;
+					std::cout << "Update name " << player->getName() << endl;
 					return 1;
 				}
 
