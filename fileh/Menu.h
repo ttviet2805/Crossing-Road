@@ -125,7 +125,7 @@ public:
 					return -3;
 				}
 
-				if (this->curTextbox.is_Clicked(pos)==1)
+				if (this->curTextbox.is_Clicked(sf::Vector2f(pos.x, pos.y))==1)
 					curTextbox.setTexture();
 			}
 		}

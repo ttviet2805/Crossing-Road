@@ -6,10 +6,10 @@
 // Position for display
 #define POS_TEXT_X 90
 #define POS_TEXT_Y 23
-#define POS_RECT_X 350
-#define POS_RECT_Y 70
-#define RECT_WIDTH (SCREEN_WIDTH - RECT_WIDTH - 50)
-#define RECT_HEIGHT 50
+#define RECT_WIDTH 350
+#define RECT_HEIGHT 70
+#define POS_RECT_X (SCREEN_WIDTH - RECT_WIDTH - 50)
+#define POS_RECT_Y 50
 // ASCII + string stuff
 #define DELETE_KEY 127
 #define MAX_LEN 20
@@ -49,7 +49,7 @@ public:
         playerText.setFont(font);
         playerText.setCharacterSize(20);
         playerText.setStyle(sf::Text::Bold);
-        playerText.setPosition(background.getPosition());
+        playerText.setPosition(Vector2f(POS_TEXT_X+POS_RECT_X, POS_TEXT_Y+POS_RECT_Y));
     }
 
     void setName(sf::Event &event) {
