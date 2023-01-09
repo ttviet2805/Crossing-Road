@@ -28,9 +28,10 @@ public:
 		);
 	}
 
-	bool isLoadFile() {
+	bool isLoadFile(string playerName) {
 		int state = -1;
-		ifstream fin("assets/save_game.txt");
+		string path = "assets/PlayerInfo/" + playerName + ".txt";
+		ifstream fin(path);
 		if (fin.eof()) return false;
 		fin >> state;
 		fin.close();
@@ -110,7 +111,7 @@ public:
 				}
 
 				if (this->button[1].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					if(isLoadFile()) return 3;
+					if(isLoadFile(player->getName())) return 3;
 				}
 
 				if (this->button[5].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {

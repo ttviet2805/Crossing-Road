@@ -106,6 +106,7 @@ void gameRun() {
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			int heart;
+			cout << player->getName() << endl;
 			load_game(player->getName(), difficulty, heart);
 			player->setlife(heart);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
