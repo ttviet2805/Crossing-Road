@@ -1,11 +1,14 @@
 #ifndef TEXT_BOX_H
 #define TEXT_BOX_H
+#include <iostream>
+#include "Rectangle.h"
+
 // Position for display
-#define POS_TEXT_X 100
-#define POS_TEXT_Y 100
-#define POS_RECT_X 100
-#define POS_RECT_Y 100
-#define RECT_WIDTH 300
+#define POS_TEXT_X 90
+#define POS_TEXT_Y 23
+#define POS_RECT_X 350
+#define POS_RECT_Y 70
+#define RECT_WIDTH (SCREEN_WIDTH - RECT_WIDTH - 50)
 #define RECT_HEIGHT 50
 // ASCII + string stuff
 #define DELETE_KEY 127
@@ -13,8 +16,6 @@
 #define NEW_LINE_KEY 10
 #define CARRIAGE_RETURN 13
 #define BACKSPACE_KEY 8
-#include <iostream>
-#include "fileh/Rectangle.h"
 
 class TextBox {
 private:
@@ -46,7 +47,7 @@ public:
 
         playerText.setFillColor(sf::Color::White);
         playerText.setFont(font);
-        playerText.setCharacterSize(25);
+        playerText.setCharacterSize(20);
         playerText.setStyle(sf::Text::Bold);
         playerText.setPosition(background.getPosition());
     }

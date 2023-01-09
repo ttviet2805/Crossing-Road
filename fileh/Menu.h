@@ -5,11 +5,13 @@
 
 #include "State.h"
 #include "Rectangle.h"
+#include "TextBox.h"
 
 class Menu : public State {
 private:
 	sf::Texture texture[6];
 	Rectangle button[6];
+	TextBox curTextbox;
 
 public:
 	Menu() {
@@ -92,6 +94,9 @@ public:
 				return false;
 			}
 
+			if (event.type == sf::Event::TextEntered)
+				curTextbox.setName(event);
+
 			if (event.type == sf::Event::MouseButtonPressed) {
 				auto pos = sf::Mouse::getPosition(*this->window);
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
@@ -118,7 +123,10 @@ public:
 
 				if (this->button[2].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 					return -3;
-				} 
+				}
+
+				if (this->curTextbox.is_Clicked(pos)==1)
+					curTextbox.setTexture();
 			}
 		}
 
@@ -127,6 +135,7 @@ public:
 		for (int i = 0; i < 6; i++) {
 			this->window->draw(this->button[i].getRect());
 		}
+		curTextbox.draw(window);
 		this->window->display();
 
 		return 8;
