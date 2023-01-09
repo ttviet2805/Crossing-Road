@@ -16,4 +16,5 @@ public:
 	virtual void updateSpeedText(std::string src) = 0;
 	virtual void updateScoreText(std::string src) = 0;
 	virtual std::string getName() = 0;
+	virtual int getID() = 0;
 };

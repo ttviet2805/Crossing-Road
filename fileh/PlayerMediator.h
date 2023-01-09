@@ -83,6 +83,10 @@ public:
         return player->getName();
     }
 
+    int getID() {
+        return player->getID();
+    }
+
     void addPlayer(Player* player) {
         this->player = player;
     }

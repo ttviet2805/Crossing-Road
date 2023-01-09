@@ -138,7 +138,7 @@ public:
 		if (event.type == sf::Event::MouseButtonPressed) {
 			auto pos = sf::Mouse::getPosition(window);
 			if (saveRect.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-				save_game(mediator->getName(), level, heart);
+				save_game(mediator->getName(), mediator->getID(), level, heart);
 				cout << "Save file successful\n";
 			}
 		}
@@ -228,5 +228,9 @@ public:
 
 	string getName() {
 		return mediator->getName();
+	}
+
+	int getID() {
+		return mediator->getID();
 	}
 };

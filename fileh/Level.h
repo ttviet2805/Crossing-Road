@@ -54,8 +54,9 @@ public:
 		);
 	}
 
-	void clearFile() {
-		ofstream fout("assets/save_game.txt");
+	void clearFile(string playerName) {
+		string path = "assets/PlayerInfo/" + playerName + ".txt";
+		ofstream fout(path);
 		fout.close();
 	}
 
@@ -74,7 +75,7 @@ public:
 				}
 
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
-					clearFile();
+					clearFile(player->getName());
 					return this->curSelectCharacter.getSkinID() + 9;
 				}
 			}

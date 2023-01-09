@@ -35,6 +35,7 @@ private:
 	//character info
 	std::string name = "Player0";
 	int life;
+	int skinID = 10;
 
 	Mediator* mediator;
 
@@ -54,6 +55,7 @@ public:
 		this->imgType = 0;
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
+
 
 		initCharacter(_Size, _position);
 	}
@@ -88,7 +90,7 @@ public:
 	}*/
 
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
-		string imgPath = "", string _name="") :
+		string imgPath = "", string _name="", int _type = 10) :
 		switchTime(0.1), curSpeed(0.5f), face(0), imgLength(imgLength),
 		imgHeight(imgHeight), imgPath(imgPath), life(heart)
 	{
@@ -98,6 +100,7 @@ public:
 		this->imgType = 1;
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
+		this->skinID = _type;
 
 		std::cout << "Cai chet" << '\n';
 
@@ -392,6 +395,14 @@ public:
 
 	string getName() {
 		return name;
+	}
+
+	int getID() {
+		return skinID;
+	}
+
+	void setID(int ID) {
+		skinID = ID;
 	}
 
 	virtual ~Player() {}

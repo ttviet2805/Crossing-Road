@@ -106,8 +106,10 @@ void gameRun() {
 			backgroundMusic.play();
 			backgroundMusic.setLoop(true);
 			int heart;
+			int tmpID;
 			cout << player->getName() << endl;
-			load_game(player->getName(), difficulty, heart);
+			load_game(player->getName(), tmpID, difficulty, heart);
+			player->setID(tmpID);
 			player->setlife(heart);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//delete nxt.back();
@@ -147,13 +149,14 @@ void gameRun() {
 		case 8:
 			break;
 		default:
+			int skinID = type;
 			std::string path = skinPath + skinList[type - 10];
 			std::cout << path << '\n';
 
 			string oldName = player->getName();
 			//For some reasons this shit just doesn't work
 			player = new Player(imgCount[type - 10], Vector2f(spriteSize[type - 10].first, spriteSize[type - 10].second),
-				Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path, oldName);
+				Vector2f(0, 0), 3, imageSize[type - 10].first, imageSize[type - 10].second, path, oldName, type);
 			player->addMediator(playerMediator);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			playerMediator->clear();
