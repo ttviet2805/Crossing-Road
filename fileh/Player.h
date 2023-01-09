@@ -41,12 +41,6 @@ private:
 
 	sf::Clock clock;
 public:
-
-
-	/*Player() : curPos(Point()), curSpeed(10), totalTime(0), switchTime(0), face(0) { initCharacter(); }
-	Player(double x, double y, double speed) : curPos(Point(x, y)), curSpeed(speed), face(0) { initCharacter(); }
-	Player(const Player& src) : curPos(src.curPos), curSpeed(src.curSpeed), face(src.face) { initCharacter(); }*/
-
 	Player(sf::Vector2u imageCount, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 64.0, float imgHeight = 128.0,
 		string imgPath = "") :
 		imageCount(imageCount), switchTime(0.1), curSpeed(0.6f), face(0), imgLength(imgLength),
@@ -60,35 +54,6 @@ public:
 		initCharacter(_Size, _position);
 	}
 
-	/*Player& operator=(const Player& src) {
-		cout << "Cai chet cua cai chet\n";
-		imgType = src.imgType; face = src.face;
-
-		curPos = src.curPos; curSpeed = src.curSpeed;
-
-		switchTime = src.switchTime; totalTime = src.totalTime;
-		imgLength = src.imgLength; imgHeight = src.imgHeight;
-		currentImage = src.currentImage; imageCount = src.imageCount;
-		imgPath = src.imgPath;
-		mediator = src.mediator;
-		life = src.life; name = src.name;
-		if (!this->imgType) {
-			character = src.character;
-			sourceRect = src.sourceRect;
-			sprite = src.sprite;
-		}
-		else {
-			for (int i = 0; i < 4; i++) {
-				for (int j = 0; j < src.imageCount.x; j++) {
-					this->staticCharacter[i].push_back(src.staticCharacter[i][j]);
-					this->staticSprite[i].push_back(src.staticSprite[i][j]);
-				}
-			}
-		}
-
-		return *this;
-	}*/
-
 	Player(int imagePerDir, Vector2f _Size, Vector2f _position, int heart = 3, float imgLength = 100.0, float imgHeight = 140.0,
 		string imgPath = "", string _name="", int _type = 10) :
 		switchTime(0.1), curSpeed(0.5f), face(0), imgLength(imgLength),
@@ -101,8 +66,6 @@ public:
 		this->totalTime = 0.f;
 		this->currentImage.x = 0;
 		this->skinID = _type;
-
-		std::cout << "Cai chet" << '\n';
 
 		initStaticCharacter(imagePerDir, _Size, _position);
 	}
@@ -159,7 +122,6 @@ public:
 
 	void draw(sf::RenderWindow& window) {
 		this->curPos.checkRange(window);
-		//this->sprite.setPosition(this->curPos.pos);
 		if (!this->imgType) {
 			window.draw(this->sprite.getRect());
 		}

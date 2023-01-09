@@ -86,7 +86,6 @@ public:
 
 	void draw(sf::RenderWindow& window) {
 		if (Mouse::isButtonPressed(sf::Mouse::Left)) {
-			cout << "Stuff\n";
 			auto pos = sf::Mouse::getPosition(*this->window);
 			if (this->leftButton.is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
 				if (this->skinID > 1) this->skinID--;
