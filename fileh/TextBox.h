@@ -16,6 +16,7 @@
 #define NEW_LINE_KEY 10
 #define CARRIAGE_RETURN 13
 #define BACKSPACE_KEY 8
+#define SPACE_KEY 32
 
 class TextBox {
 private:
@@ -70,7 +71,8 @@ public:
             isClick=false;
             setTexture();
         }
-        else if(event.text.unicode<DELETE_KEY) {
+        else if(event.text.unicode>SPACE_KEY && 
+                event.text.unicode<DELETE_KEY) {
             if(playerInput.size()<MAX_LEN)
                 playerInput+=static_cast<char>(event.text.unicode);
         }
@@ -94,6 +96,10 @@ public:
             setTexture();
         }
         return ret;
+    }
+
+    std::string getName() {
+        return playerInput;
     }
 };
 

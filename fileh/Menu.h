@@ -100,6 +100,12 @@ public:
 			if (event.type == sf::Event::MouseButtonPressed) {
 				auto pos = sf::Mouse::getPosition(*this->window);
 				if (this->button[0].is_Clicked(sf::Vector2f(pos.x, pos.y)) == 1) {
+					std::string playerName=curTextbox.getName();
+					if(playerName.empty()) {
+						playerName="Player0";
+					}
+					player->updateInfo(playerName);
+					std::cout << "Update name " << playerName << endl;
 					return 1;
 				}
 
