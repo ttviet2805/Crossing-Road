@@ -27,9 +27,9 @@ void gameRun() {
 	RenderWindow window(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Crossing Road");
 	//Player player(Vector2u(10, 2), Vector2f(30, 65), Vector2f(0, 0), 3, 64, 120, "assets/image/human_walk_sprite.png");
 
-	std::string path = skinPath + skinList[0];
+	std::string initPath = skinPath + skinList[0];
 
-	Player* player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path, "");
+	Player* player = new Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, initPath, "");
 	//player = Player(6, Vector2f(70, 98), Vector2f(0, 0), 3, 100, 140, path);
 
 	vector<State*> nxt;
@@ -54,6 +54,8 @@ void gameRun() {
 	if (!loseMusic.openFromFile(MUSIC_LOSE_PATH)) {
 		cout << "Loading music error\n";
 	}
+
+	string newPath = "";
 
 	while (window.isOpen() && !nxt.empty()) {
 		//std::cout << "here\n";
@@ -103,6 +105,11 @@ void gameRun() {
 			cout << player->getName() << endl;
 			load_game(player->getName(), tmpID, difficulty, heart);
 			player->setID(tmpID);
+			cout << tmpID << endl;
+			newPath = skinPath + skinList[tmpID - 10];
+			player->setPath(newPath, imgCount[tmpID - 10]);
+			player->initStaticCharacter(imgCount[tmpID - 10], Vector2f(spriteSize[tmpID - 10].first, spriteSize[tmpID - 10].second),
+				Vector2f(0, 0));
 			player->setlife(heart);
 			player->setPos(SCREEN_WIDTH / 2.5, -30);
 			//delete nxt.back();

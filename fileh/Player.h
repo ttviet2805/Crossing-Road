@@ -367,5 +367,10 @@ public:
 		skinID = ID;
 	}
 
+	void setPath(string path, int x) {
+		imgPath = path;
+		this->imageCount.x = x;
+	}
+
 	virtual ~Player() {}
 };
