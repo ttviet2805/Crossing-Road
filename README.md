@@ -32,5 +32,26 @@ Character needs user's helps to safety cross the roads of each level to collect 
 * Using an IDE to compile this game (Codeblocks, Visual Studio, ...)
 * Remember to add all source codes to project before building and running
 
+## Usage
+* Game Menu Screen
+<div align = "center">
+  <img src = "Game-Demo/Menu.PNG" style = "width: 50%;">
+</div>
+
+* Select Character Screen
+<div align = "center">
+  <img src = "Game-Demo/SelectCharacter.PNG" style = "width: 50%;">
+</div>
+
+* Crossy Road Screen
+<div align = "center">
+  <img src = "Game-Demo/Game.PNG" style = "width: 50%;">
+</div>
+
+* Leaderboard Screen
+<div align = "center">
+  <img src = "Game-Demo/LeaderBoard.PNG" style = "width: 50%;">
+</div>
+
 ## Contact
 Tran Tuan Viet - ttviet2805@gmail.com
