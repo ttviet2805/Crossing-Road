@@ -8,17 +8,21 @@ This is the Crossing Road game created by group 8 - CS202 - 21APCS1
 - Nghiem Diep Tuong (21125155)
 
 ## Project Description
-The game is coded in C++17 using the multimedia library [SFML 2.5.1](https://www.sfml-dev.org/index.php).
+The game was developed in **C++17** using the multimedia library [**SFML 2.5.1**](https://www.sfml-dev.org/index.php).
 
-In this game, our character loves his crush. However, she does not like him, so he would like to collect 7 dragon balls to have a wish that his crush will love him. This is extremely challenging to him because he needs to overcome 7 levels to collect enough dragon balls (each level has 1 dragon ball)
+In this game, the **protagonist** embarks on a heartfelt quest to collect **seven Dragon Balls** in order to fulfill a wish that his crush will return his love. This journey is divided into **seven progressively challenging levels**, each containing one Dragon Ball that must be obtained to complete the quest.
 
-He cannot fly, so he need to walk to cross the road in each level to collect dragon ball. In each level, there are some obstacles which can kill him or hinder him from coming to the goal such as vehicles, rocks or animals.
+Since the protagonist cannot fly, he must **cross multiple roads on foot** in each level to reach the goal. Along the way, he encounters various **obstacles**—such as vehicles, rocks, and animals—that may hinder his progress or cause him to lose a life.
 
-Fortunately, in the process of crossing roads, he can get some items which can increase his life or his speed
-* Heart: to increase character's life
-* Wing: to increase character's speed
+To assist him, the game introduces collectible **power-up items** that temporarily enhance his abilities:
 
-Character needs user's helps to safety cross the roads of each level to collect enough dragon balls to let his crush love him.
+* **Heart** — Increases the character’s life.  
+* **Wing** — Increases the character’s movement speed.  
+
+The **player’s objective** is to guide the character safely across all levels, overcoming obstacles and collecting all seven Dragon Balls to help him fulfill his ultimate wish for love.
+
+
+
 
 ## Getting Started
 ### Installing
